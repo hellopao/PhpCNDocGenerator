@@ -1,0 +1,26 @@
+语法:
+   array array_diff_key    ( array $array1   , array $array2   [, array $...  ] )
+说明:
+根据array1中的键名和array2进行比较，返回不同键名的项。本函数和array_diff()相同只除了比较是根据键名而不是值来进行的。
+参数:
+  参数              array1                  从这个数组进行比较                        array2                  针对此数组进行比较                        ...                  更多比较数组                     
+返回值:
+  返回值     array_diff_key() 返回一个数组，该数组包括了所有出现在     array1     中但是未出现在任何其它参数数组中的键名的值。   
+示例:
+
+      在 key => value 对中的两个键名仅在
+     (string) $key1 === (string) $key2 
+     时被认为相等。换句话说，执行的是严格类型检查，因此字符串的表达必须完全一样。
+    
+<?php
+$array1 = array('blue'  => 1, 'red'  => 2, 'green'  => 3, 'purple' => 4);
+$array2 = array('green' => 5, 'blue' => 6, 'yellow' => 7, 'cyan'   => 8);
+var_dump(array_diff_key($array1, $array2));
+?>
+以上例程会输出：
+array(2) {
+  ["red"]=>
+  int(2)
+  ["purple"]=>
+  int(4)
+}

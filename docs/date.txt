@@ -1,0 +1,91 @@
+语法:
+    string date     ( string $format    [, int $timestamp   ] )
+说明:
+返回将整数timestamp按照给定的格式字串而产生的字符串。如果没有给出时间戳则使用本地当前时间。换句话说，timestamp是可选的，默认值为time()。
+参数:
+  参数              format                  输出的日期 string 格式。 参见下文中的       格式化选项。 同时，还可以使用       预定义日期常量       ，例如：常量 DATE_RSS       表示格式化字符串 &#039;D, d M Y H:i:s&#039;。                                   format 参数字符串中可识别下列字符                                      format 字符           描述           返回值示例                                                 天           ---           ---                               d           一个月中的第几天，有前导 0 的 2 位数字           从 01 到 31                               D           3 个字符表示的星期几           从 Mon 到 Sun                               j           一个月中的第几天，无前导 0           从 1 到 31                               l (lowercase &#039;L&#039;)           星期几，英文全称           从 Sunday 到 Saturday                               N           ISO-8601 规定的数字表示的星期几（PHP 5.1.0             新加            ）           从 1 （表示星期一）到 7 （表示星期日）                               S           一个月中的第几天，带有 2 个字符表示的英语序数词。                       st， nd， rd 或者            th。  可以和 j 联合使用。                                          w           数字表示的星期几           从 0 （星期日） 到 6 （星期六）                               z           一年中的第几天，从 0 开始计数           从 0 到 365                               周           ---           ---                               W           ISO-8601 规范的一年中的第几周，周一视为一周开始。（PHP 4.1.0 新加）           示例： 42 （本年第42周）                               月           ---           ---                               F           月份英文全拼，例如：January 或 March           从 January 到 December                               m           带有 0 前导的数字表示的月份           从 01 到 12                               M           3 个字符表示的月份的英文简拼           从 Jan 到 Dec                               n           月份的数字表示，无前导 0            1 through 12                               t           给定月份中包含多少天           从 28 到 31                               年           ---           ---                               L           是否为闰年           如果是闰年，则返回 1，反之返回 0。                               o           ISO-8601 规范的年份，同            Y 格式。有一种情况除外：当 ISO 的周数（W）属于前一年或者后一年时，会返回前一年或者后一年的年份数字表达。            属于前一年或者后一年时，会返回前一年或者后一年的年份数字表达。            （PHP 5.1.0 新加）           示例：1999 或 2003                               Y           4 位数字的年份           示例：1999 或 2003                               y           2 位数字的年份           示例： 99 或 03                               时间           ---           ---                               a           上午还是下午，2 位小写字符           am 或 pm                               A           上午还是下午，2 位大写字符           AM 或 PM                               B           斯沃琪因特网时间           从 000 到 999                               g           小时，12时制，无前导 0            从 1 到 12                               G           小时，24时制，无前导 0            从 0 到 23                               h           小时，12时制，有前导 0 的 2 位数字           从 01 到 12                               H           小时，24时制，有前导 0 的 2 位数字           00 through 23                               i           分钟，有前导 0 的 2 位数字           从 00 到 59                               s           秒，有前导 0 的 2 位数字           从 00 到 59                               u           毫秒 （PHP 5.2.2 新加）           示例： 654321                               时区           ---           ---                               e           时区标识（PHP 5.1.0 新加）           示例: UTC, GMT, Atlantic/Azores                               I （大写字母 i）           是否夏令时           如果是夏令时则返回 1，反之返回 0。                               O           和格林威治时间（GMT）的时差，以小时为单位           示例： +0200                               P           和格林威治时间（GMT）的时差，包括小时和分钟，小时和分钟之间使用冒号（:）分隔（PHP 5.1.3 新加）           示例： +02:00                               T           时区缩写           示例：EST, MDT ...                               Z           以秒为单位的时区偏移量。UTC 以西的时区返回负数，UTC 以东的时区返回正数。           从 -43200 到 50400                               完整的日期/时间           ---           ---                               c           ISO 8601 日期及时间（PHP 5 新加）           2004-02-12T15:19:21+00:00                               r           &raquo;&nbsp;RFC 2822 格式的日期和时间           示例：Thu, 21 Dec 2000 16:01:07 +0200                               U           自 1970 年 1 月 1 日 0 时 0 分 0 秒（GMT 时间）以来的时间，以秒为单位           参见time()                                                     格式化字符串中的不可识别字符将原样输出。       当使用 gmdate() 函数时， Z 格式永远返回 0。                   Note:                由于本函数仅接受 integer 类型的时间戳参数，所以        u 格式仅在使用 date_format() 函数并且使用        date_create() 函数创建时间戳时才是有用的。                              timestamp可选的 timestamp 参数是一个 integer 的 Unix时间戳，如未指定，参数值默认为当前本地时间。也就是说，其值默认为time() 的返回值。         
+返回值:
+  返回值     返回格式化后的日期时间的字符串表达。   如果 timestamp 参数不是一个有效数值，则返回 FALSE    并引发 E_WARNING 级别的错误。   
+示例:
+
+<?php
+// 设定要用的默认时区。自 PHP 5.1 可用
+date_default_timezone_set('UTC');
+// 输出类似：Monday
+echo date("l");
+// 输出类似：Monday 15th of August 2005 03:12:46 PM
+echo date('l dS \of F Y h:i:s A');
+// 输出：July 1, 2000 is on a Saturday
+echo "July 1, 2000 is on a " . date("l", mktime(0, 0, 0, 7, 1, 2000));
+/* 在格式参数中使用常量 */
+// 输出类似：Wed, 25 Sep 2013 15:28:57 -0700
+echo date(DATE_RFC2822);
+// 输出类似：2000-07-01T00:00:00+00:00
+echo date(DATE_ATOM, mktime(0, 0, 0, 7, 1, 2000));
+?>
+
+<?php
+// prints something like: Wednesday the 15th
+echo date("l \\t\h\e jS");
+?>
+
+<?php
+$tomorrow  = mktime(0, 0, 0, date("m")  , date("d")+1, date("Y"));
+$lastmonth = mktime(0, 0, 0, date("m")-1, date("d"),   date("Y"));
+$nextyear  = mktime(0, 0, 0, date("m"),   date("d"),   date("Y")+1);
+?>
+
+<?php
+// 假定今天是：March 10th, 2001, 5:16:18 pm
+$today = date("F j, Y, g:i a");                 // March 10, 2001, 5:16 pm
+$today = date("m.d.y");                         // 03.10.01
+$today = date("j, n, Y");                       // 10, 3, 2001
+$today = date("Ymd");                           // 20010310
+$today = date('h-i-s, j-m-y, it is w Day z ');  // 05-16-17, 10-03-01, 1631 1618 6 Fripm01
+$today = date('\i\t \i\s \t\h\e jS \d\a\y.');   // It is the 10th day.
+$today = date("D M j G:i:s T Y");               // Sat Mar 10 15:16:08 MST 2001
+$today = date('H:m:s \m \i\s\ \m\o\n\t\h');     // 17:03:17 m is month
+$today = date("H:i:s");                         // 17:16:17
+$today = date("Y-m-d H:i:s");                   // 2001-03-10 17:16:18 （MySQL DATETIME 格式）
+?>
+
+<?php
+// 设置默认时区。PHP 5.1 之后版本可用
+date_default_timezone_set('UTC');
+// 输出类似： Monday
+echo date("l");
+// 输出类似：Monday 8th of August 2005 03:12:46 PM
+echo date('l jS \of F Y h:i:s A');
+// 输出：July 1, 2000 is on a Saturday
+echo "July 1, 2000 is on a " . date("l", mktime(0, 0, 0, 7, 1, 2000));
+/* 使用格式常量 */
+// 输出类似： Mon, 15 Aug 2005 15:12:46 UTC
+echo date(DATE_RFC822);
+// 输出类似：2000-07-01T00:00:00+00:00
+echo date(DATE_ATOM, mktime(0, 0, 0, 7, 1, 2000));
+?>
+
+<?php
+// 输出类似： Wednesday the 15th
+echo date('l \t\h\e jS');
+?>
+
+<?php
+$tomorrow  = mktime(0, 0, 0, date("m")  , date("d")+1, date("Y"));
+$lastmonth = mktime(0, 0, 0, date("m")-1, date("d"),   date("Y"));
+$nextyear  = mktime(0, 0, 0, date("m"),   date("d"),   date("Y")+1);
+?>
+
+<?php
+// 假设今天是 2001 年 3 月 10 日下午 5 点 16 分 18 秒，
+// 并且位于山区标准时间（MST）时区
+$today = date("F j, Y, g:i a");                 // March 10, 2001, 5:16 pm
+$today = date("m.d.y");                         // 03.10.01
+$today = date("j, n, Y");                       // 10, 3, 2001
+$today = date("Ymd");                           // 20010310
+$today = date('h-i-s, j-m-y, it is w Day');     // 05-16-18, 10-03-01, 1631 1618 6 Satpm01
+$today = date('\i\t \i\s \t\h\e jS \d\a\y.');   // it is the 10th day.
+$today = date("D M j G:i:s T Y");               // Sat Mar 10 17:16:18 MST 2001
+$today = date('H:m:s \m \i\s\ \m\o\n\t\h');     // 17:03:18 m is month
+$today = date("H:i:s");                         // 17:16:18
+?>

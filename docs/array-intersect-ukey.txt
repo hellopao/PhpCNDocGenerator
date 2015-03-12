@@ -1,0 +1,31 @@
+语法:
+   array array_intersect_ukey    ( array $array1   , array $array2   [, array $...   ], callable $key_compare_func   )
+说明:
+array_intersect_ukey()返回一个数组，该数组包含了所有出现在array1中并同时出现在所有其它参数数组中的键名的值。
+参数:
+  参数              array1                  Initial array for comparison of the arrays.                        array2                  First array to compare keys against.                        array                  Variable list of array arguments to compare keys against.                        key_compare_func                  在第一个参数小于，等于或大于第二个参数时，该比较函数必须相应地返回一个小于，等于或大于 0 的整数。            int callback ( mixed $a, mixed $b )
+返回值:
+  返回值     Returns the values of array1 whose keys exist   in all the arguments.   
+示例:
+
+<?php
+function key_compare_func($key1, $key2)
+{
+    if ($key1 == $key2)
+        return 0;
+    else if ($key1 > $key2)
+        return 1;
+    else
+        return -1;
+}
+$array1 = array('blue'  => 1, 'red'  => 2, 'green'  => 3, 'purple' => 4);
+$array2 = array('green' => 5, 'blue' => 6, 'yellow' => 7, 'cyan'   => 8);
+var_dump(array_intersect_ukey($array1, $array2, 'key_compare_func'));
+?>
+以上例程会输出：
+array(2) {
+  ["blue"]=>
+  int(1)
+  ["green"]=>
+  int(3)
+}

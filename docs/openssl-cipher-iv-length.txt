@@ -1,0 +1,17 @@
+语法:
+   int openssl_cipher_iv_length    ( string $method   )
+说明:
+Getsthecipherinitializationvector(iv)length.
+参数:
+  参数         method               The cipher method, see openssl_get_cipher_methods() for a list of potential values.               
+返回值:
+  返回值     Returns the cipher length on success, or FALSE on failure.    
+示例:
+
+<?php
+$method = 'AES-128-CBC';
+$ivlen = openssl_cipher_iv_length($method);
+echo $ivlen;
+?>
+以上例程的输出类似于：
+16

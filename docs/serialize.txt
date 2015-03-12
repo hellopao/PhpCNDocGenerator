@@ -1,0 +1,19 @@
+语法:
+      string serialize       ( mixed $value      )
+示例:
+
+<?php
+// $session_data 是包含了当前用户 session 信息的多维数组。
+// 我们使用 serialize() 在请求结束之前将其存储到数据库中。
+$conn = odbc_connect ("webdb", "php", "chicken");
+$stmt = odbc_prepare ($conn,
+      "UPDATE sessions SET data = ? WHERE id = ?");
+$sqldata = array (serialize($session_data), $PHP_AUTH_USER);
+if (!odbc_execute ($stmt, &$sqldata)) {
+    $stmt = odbc_prepare($conn,
+     "INSERT INTO sessions (id, data) VALUES(?, ?)");
+    if (!odbc_execute($stmt, &$sqldata)) {
+    /* 出错 */
+    }
+}
+?>

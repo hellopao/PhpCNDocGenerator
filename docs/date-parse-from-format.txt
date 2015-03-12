@@ -1,0 +1,37 @@
+语法:
+   array date_parse_from_format    ( string $format   , string $date   )
+说明:
+Returnsassociativearraywithdetailedinfoaboutgivendate.
+参数:
+  参数              format                  Format accepted by DateTime::createFromFormat().                        date                  String representing the date.                     
+返回值:
+  返回值       Returns associative array with detailed info about given date.   
+示例:
+
+<?php
+$date = "6.1.2009 13:00+01:00";
+print_r(date_parse_from_format("j.n.Y H:iP", $date));
+?>
+以上例程会输出：
+Array
+(
+    [year] => 2009
+    [month] => 1
+    [day] => 6
+    [hour] => 13
+    [minute] => 0
+    [second] => 0
+    [fraction] => 
+    [warning_count] => 0
+    [warnings] => Array
+        (
+        )
+    [error_count] => 0
+    [errors] => Array
+        (
+        )
+    [is_localtime] => 1
+    [zone_type] => 1
+    [zone] => -60
+    [is_dst] => 
+)

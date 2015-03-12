@@ -1,0 +1,15 @@
+语法:
+   string strtoupper    ( string $string   )
+说明:
+将string中所有的字母字符转换为大写并返回。
+参数:
+  参数              string                 输入字符串。                     
+返回值:
+  返回值     返回转换后的大写字符串。   
+示例:
+
+<?php
+$str = "Mary Had A Little Lamb and She LOVED It So";
+$str = strtoupper($str);
+echo $str; // 打印 MARY HAD A LITTLE LAMB AND SHE LOVED IT SO
+?>

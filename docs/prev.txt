@@ -1,0 +1,18 @@
+语法:
+   mixed prev    ( array &$array   )
+说明:
+将数组的内部指针倒回一位。
+参数:
+  参数              array                  The input array.                     
+返回值:
+  返回值     返回数组内部指针指向的前一个单元的值，或当没有更多单元时返回 FALSE。   
+示例:
+
+<?php
+$transport = array('foot', 'bike', 'car', 'plane');
+$mode = current($transport); // $mode = 'foot';
+$mode = next($transport);    // $mode = 'bike';
+$mode = next($transport);    // $mode = 'car';
+$mode = prev($transport);    // $mode = 'bike';
+$mode = end($transport);     // $mode = 'plane';
+?>

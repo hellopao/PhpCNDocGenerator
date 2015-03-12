@@ -1,0 +1,25 @@
+语法:
+   mixed highlight_string    ( string $str   [, bool $return = false  ] )
+参数:
+  参数              str                  需要高亮的PHP代码，应当包含开始标签。                        return                  设置该参数为 TRUE 使函数返回高亮后的代码。                     
+返回值:
+  返回值       如果 return 设置为 TRUE，高亮后的代码不会被打印输出，而是以字符串的形式返回。     高亮成功返回 TRUE，否则返回 FALSE。   
+示例:
+
+<?php
+highlight_string('<?php phpinfo(); ?>');
+?>
+
+     PHP4中，上例会输出:
+    
+<code><font color="#000000">
+<font color="#0000BB">&lt;?php phpinfo</font><font color="#007700">(); </font><font color="#0000BB">?&gt;</font>
+</font>
+</code>
+
+     PHP5中，上例会输出:
+    
+<code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php phpinfo</span><span style="color: #007700">(); </span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code>

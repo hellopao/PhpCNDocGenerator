@@ -1,0 +1,9 @@
+语法:
+   resource openssl_pkey_get_private    ( mixed $key   [, string $passphrase = &quot;&quot;  ] )
+说明:
+openssl_get_privatekey()parseskeyandpreparesitforusebyotherfunctions.
+参数:
+  参数              key                  key can be one of the following:               a string having the format          file://path/to/file.pem. The named file must          contain a PEM encoded certificate/private key (it may contain both).                         A PEM formatted private key.                               passphrase                  The optional parameter passphrase must be used       if the specified key is encrypted (protected by a passphrase).                     
+返回值:
+  返回值     Returns a positive key resource identifier on success, or FALSE on error.   
+示例:

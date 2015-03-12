@@ -1,0 +1,13 @@
+语法:
+   string timezone_version_get    ( void   )
+说明:
+Returnsthecurrentversionofthetimezonedb.
+返回值:
+  返回值     Returns a string.   
+示例:
+
+<?php
+echo timezone_version_get();
+?>
+以上例程的输出类似于：
+2009.7

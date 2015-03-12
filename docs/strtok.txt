@@ -1,0 +1,37 @@
+语法:
+   string strtok    ( string $str   , string $token   )
+说明:
+strtok()将字符串str分割为若干子字符串，每个子字符串以token中的字符分割。这也就意味着，如果有个字符串是&quot;Thisisanexamplestring&quot;，你可以使用空格字符将这句话分割成独立的单词。
+参数:
+  参数              str                  被分成若干子字符串的原始字符串。                        token                  分割 str 时使用的分界字符。                     
+返回值:
+  返回值     标记后的字符串。   
+示例:
+
+<?php
+$string = "This is\tan example\nstring";
+/* 使用制表符和换行符作为分界符 */
+$tok = strtok($string, " \n\t");
+while ($tok !== false) {
+    echo "Word=$tok<br />";
+    $tok = strtok(" \n\t");
+}
+?>
+
+<?php
+$first_token  = strtok('/something', '/');
+$second_token = strtok('/');
+var_dump($first_token, $second_token);
+?>
+以上例程会输出：
+    string(0) ""
+    string(9) "something"
+
+<?php
+$first_token  = strtok('/something', '/');
+$second_token = strtok('/');
+var_dump($first_token, $second_token);
+?>
+以上例程会输出：
+    string(9) "something"
+    bool(false)

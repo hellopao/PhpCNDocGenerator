@@ -1,0 +1,16 @@
+语法:
+      mixed array_rand       ( array $input   [, int $num_req = 1     ] )
+说明:
+从数组中取出一个或多个随机的单元，并返回随机条目的一个或多个键。
+参数:
+  参数              input                  输入的数组。                        num_req                  指明了你想取出多少个单元。如果指定的数目超过了数组里的数量将会产生一个  E_WARNING 级别的错误。                     
+返回值:
+  返回值     如果你只取出一个，array_rand()     返回一个随机单元的键名，否则就返回一个包含随机键名的数组。这样你就可以随机从数组中取出键名和值。   
+示例:
+
+<?php
+$input = array("Neo", "Morpheus", "Trinity", "Cypher", "Tank");
+$rand_keys = array_rand($input, 2);
+echo $input[$rand_keys[0]] . "\n";
+echo $input[$rand_keys[1]] . "\n";
+?>

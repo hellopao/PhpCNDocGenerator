@@ -1,0 +1,9 @@
+语法:
+   string openssl_digest    ( string $data   , string $method   [, bool $raw_output = false  ] )
+说明:
+Computesadigesthashvalueforthegivendatausingagivenmethod,andreturnsaraworbinhexencodedstring.
+参数:
+  参数              data                  The data.                        method                  The digest method.                        raw_output                  Setting to TRUE will return as raw output data, otherwise the return       value is binhex encoded.                     
+返回值:
+  返回值     Returns the digested hash value on success 或者在失败时返回 FALSE.   
+示例:

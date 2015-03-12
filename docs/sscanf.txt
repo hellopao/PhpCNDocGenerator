@@ -1,0 +1,28 @@
+语法:
+   mixed sscanf    ( string $str   , string $format   [, mixed &$...  ] )
+说明:
+这个函数sscanf()输入类似printf()。sscanf()读取字符串str然后根据指定格式format解析,格式的描述文档见sprintf()。
+参数:
+  参数              str                  将要被解析的 字符串.                        format                  The interpreted format for 解析str的格式, 除了以下不同外，其余的见       sprintf()的描述文档:                        函数不区分语言地区                         F, g, G 和         b 不被支持.                         D 表示十进制数字.                         i stands for integer with base detection.                         n stands for number of characters processed so far.                                       ...                  可以选参数将以引用方式传入，它们的值将被设置为解析匹配的值                     
+返回值:
+  返回值     如果仅传入了两个参数给这个函数，解析后将返回一个数组，否则，如果可选参数被传入，这个函数将返回被设置了值的个数       如果format存在的子字符串比   str内可用的多,   -1 将被返回.   
+示例:
+
+<?php
+// getting the serial number
+list($serial) = sscanf("SN/2350001", "SN/%d");
+// and the date of manufacturing
+$mandate = "January 01 2000";
+list($month, $day, $year) = sscanf($mandate, "%s %d %d");
+echo "Item $serial was manufactured on: $year-" . substr($month, 0, 3) . "-$day\n";
+?>
+
+<?php
+// get author info and generate DocBook entry
+$auth = "24\tLewis Carroll";
+$n = sscanf($auth, "%d\t%s %s", $id, $first, $last);
+echo "<author id='$id'>
+    <firstname>$first</firstname>
+    <surname>$last</surname>
+</author>\n";
+?>

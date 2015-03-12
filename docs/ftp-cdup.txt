@@ -1,0 +1,27 @@
+语法:
+   bool ftp_cdup    ( resource $ftp_stream   )
+说明:
+切换目录至当前目录的父目录(上级目录)。
+参数:
+  参数              ftp_stream                  FTP 连接的标识符。                     
+返回值:
+  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。   
+示例:
+ 
+<?php 
+// set up basic connection 
+$conn_id = ftp_connect($ftp_server); 
+// login with username and password 
+$login_result = ftp_login($conn_id, $ftp_user_name, $ftp_user_pass); 
+// change the current directory to html 
+ftp_chdir($conn_id, 'html'); 
+echo ftp_pwd($conn_id); // /html 
+// return to the parent directory 
+if (ftp_cdup($conn_id)) { 
+  echo "cdup successful\n"; 
+} else { 
+  echo "cdup not successful\n"; 
+} 
+echo ftp_pwd($conn_id); // / 
+ftp_close($conn_id); 
+?>

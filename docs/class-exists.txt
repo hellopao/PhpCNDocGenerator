@@ -1,0 +1,30 @@
+语法:
+   bool class_exists    ( string $class_name   [, bool $autoload = true  ] )
+说明:
+检查指定的类是否已定义。
+参数:
+  参数              class_name                  类名。名字的匹配是大小写不敏感的。                        autoload                  是否默认调用 __autoload。                     
+返回值:
+  返回值     如果由 class_name   所指的类已经定义，此函数返回    TRUE，否则返回 FALSE。   
+示例:
+
+<?php
+// 使用前检查类是否存在
+if (class_exists('MyClass')) {
+    $myclass = new MyClass();
+}
+?>
+
+<?php
+function __autoload($class)
+{
+    include($class . '.php');
+    // Check to see whether the include declared the class
+    if (!class_exists($class, false)) {
+        trigger_error("Unable to load class: $class", E_USER_WARNING);
+    }
+}
+if (class_exists('MyClass')) {
+    $myclass = new MyClass();
+}
+?>

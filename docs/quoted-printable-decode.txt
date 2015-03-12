@@ -1,0 +1,9 @@
+语法:
+   string quoted_printable_decode    ( string $str   )
+说明:
+该函数返回quoted-printable解码之后的8-bit字符串(参考&raquo;&nbsp;RFC2045的6.7章节，而不是&raquo;&nbsp;RFC2821的4.5.2章节，soadditionalperiodsarenotstrippedfromthebeginningofline)
+参数:
+  参数              str                  输入的字符串。                     
+返回值:
+  返回值     返回的 8-bit 二进制字符串。   
+示例:

@@ -1,0 +1,13 @@
+语法:
+   int mhash_get_block_size    ( int $hash   )
+说明:
+Getsthesizeofablockofthespecifiedhash.
+参数:
+  参数              hash                  The hash ID. One of the MHASH_hashname constants.                     
+返回值:
+  返回值     Returns the size in bytes or FALSE, if the hash   does not exist.   
+示例:
+
+<?php
+echo mhash_get_block_size(MHASH_MD5); // 16
+?>

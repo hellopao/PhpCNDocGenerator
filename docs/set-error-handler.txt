@@ -1,0 +1,115 @@
+语法:
+   mixed set_error_handler    ( callable $error_handler   [, int $error_types = E_ALL | E_STRICT  ] )
+说明:
+设置一个用户的函数(error_handler)来处理脚本中出现的错误。
+参数:
+  参数              error_handler                  用户的函数需要接受两个参数：错误码和描述错误的 string。       另外有可能提供三个可选参数：发生错误的文件名、发生错误的行号       以及发生错误的上下文(一个指向错误发生时活动符号表的 array)。       该函数可以表示为：                           handler         ( int $errno        , string $errstr        [, string $errfile        [, int $errline        [, array $errcontext       ]]] )
+返回值:
+  返回值     如果之前有定义过错误处理程序，则返回该程序名称的 string；如果是内置的错误处理程序，则返回 NULL。   如果你指定了一个无效的回调函数，同样会返回 NULL。   如果之前的错误处理程序是一个类的方法，此函数会返回一个带类和方法名的索引数组(indexed array)。   
+示例:
+
+     以下示例展示了通过触发错误并以用户自定义的程序来进行内部异常的处理。
+    
+<?php
+// error handler function
+function myErrorHandler($errno, $errstr, $errfile, $errline)
+{
+    if (!(error_reporting() & $errno)) {
+        // This error code is not included in error_reporting
+        return;
+    }
+    switch ($errno) {
+    case E_USER_ERROR:
+        echo "<b>My ERROR</b> [$errno] $errstr<br />\n";
+        echo "  Fatal error on line $errline in file $errfile";
+        echo ", PHP " . PHP_VERSION . " (" . PHP_OS . ")<br />\n";
+        echo "Aborting...<br />\n";
+        exit(1);
+        break;
+    case E_USER_WARNING:
+        echo "<b>My WARNING</b> [$errno] $errstr<br />\n";
+        break;
+    case E_USER_NOTICE:
+        echo "<b>My NOTICE</b> [$errno] $errstr<br />\n";
+        break;
+    default:
+        echo "Unknown error type: [$errno] $errstr<br />\n";
+        break;
+    }
+    /* Don't execute PHP internal error handler */
+    return true;
+}
+// function to test the error handling
+function scale_by_log($vect, $scale)
+{
+    if (!is_numeric($scale) || $scale <= 0) {
+        trigger_error("log(x) for x <= 0 is undefined, you used: scale = $scale", E_USER_ERROR);
+    }
+    if (!is_array($vect)) {
+        trigger_error("Incorrect input vector, array of values expected", E_USER_WARNING);
+        return null;
+    }
+    $temp = array();
+    foreach($vect as $pos => $value) {
+        if (!is_numeric($value)) {
+            trigger_error("Value at position $pos is not a number, using 0 (zero)", E_USER_NOTICE);
+            $value = 0;
+        }
+        $temp[$pos] = log($scale) * $value;
+    }
+    return $temp;
+}
+// set to the user defined error handler
+$old_error_handler = set_error_handler("myErrorHandler");
+// trigger some errors, first define a mixed array with a non-numeric item
+echo "vector a\n";
+$a = array(2, 3, "foo", 5.5, 43.3, 21.11);
+print_r($a);
+// now generate second array
+echo "----\nvector b - a notice (b = log(PI) * a)\n";
+/* Value at position $pos is not a number, using 0 (zero) */
+$b = scale_by_log($a, M_PI);
+print_r($b);
+// this is trouble, we pass a string instead of an array
+echo "----\nvector c - a warning\n";
+/* Incorrect input vector, array of values expected */
+$c = scale_by_log("not array", 2.3);
+var_dump($c); // NULL
+// this is a critical error, log of zero or negative number is undefined
+echo "----\nvector d - fatal error\n";
+/* log(x) for x <= 0 is undefined, you used: scale = $scale" */
+$d = scale_by_log($a, -2.5);
+var_dump($d); // Never reached
+?>
+以上例程的输出类似于：
+vector a
+Array
+(
+    [0] => 2
+    [1] => 3
+    [2] => foo
+    [3] => 5.5
+    [4] => 43.3
+    [5] => 21.11
+)
+----
+vector b - a notice (b = log(PI) * a)
+<b>My NOTICE</b> [1024] Value at position 2 is not a number, using 0 (zero)<br />
+Array
+(
+    [0] => 2.2894597716988
+    [1] => 3.4341896575482
+    [2] => 0
+    [3] => 6.2960143721717
+    [4] => 49.566804057279
+    [5] => 24.165247890281
+)
+----
+vector c - a warning
+<b>My WARNING</b> [512] Incorrect input vector, array of values expected<br />
+NULL
+----
+vector d - fatal error
+<b>My ERROR</b> [256] log(x) for x <= 0 is undefined, you used: scale = -2.5<br />
+  Fatal error on line 35 in file trigger_error.php, PHP 5.2.1 (FreeBSD)<br />
+Aborting...<br />

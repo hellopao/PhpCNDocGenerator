@@ -1,0 +1,20 @@
+语法:
+   bool chdir    ( string $directory   )
+说明:
+将PHP的当前目录改为directory。
+参数:
+  参数              directory                  新的当前目录                     
+返回值:
+  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。   
+示例:
+
+<?php
+// current directory
+echo getcwd() . "\n";
+chdir('public_html');
+// current directory
+echo getcwd() . "\n";
+?>
+以上例程的输出类似于：
+/home/vincent
+/home/vincent/public_html

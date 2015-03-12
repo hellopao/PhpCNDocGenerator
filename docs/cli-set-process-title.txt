@@ -1,0 +1,21 @@
+语法:
+   bool cli_set_process_title    ( string $title   )
+说明:
+Setstheprocesstitlevisibleintoolssuchastopandps.ThisfunctionisavailableonlyinCLImode.
+参数:
+  参数         title               The new title.               
+返回值:
+  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。   
+示例:
+
+<?php
+$title = "My Amazing PHP Script";
+$pid = getmypid(); // you can use this to see your process title in ps
+if (!cli_set_process_title($title)) {
+    echo "Unable to set process title for PID $pid...\n";
+    exit(1);
+} else {
+    echo "The process title '$title' for PID $pid has been set for your process!\n";
+    sleep(5);
+}
+?>

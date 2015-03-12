@@ -1,0 +1,21 @@
+语法:
+   void libxml_set_streams_context    ( resource $streams_context   )
+说明:
+Setsthestreamscontextforthenextlibxmldocumentloadorwrite.
+参数:
+  参数              streams_context                     The stream context resource (created with        stream_context_create())                        
+返回值:
+  返回值     没有返回值。   
+示例:
+
+<?php
+$opts = array(
+    'http' => array(
+        'user_agent' => 'PHP libxml agent',
+    )
+);
+$context = stream_context_create($opts);
+libxml_set_streams_context($context);
+// request a file through HTTP
+$doc = DOMDocument::load('http://www.example.com/file.xml');
+?>

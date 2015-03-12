@@ -1,0 +1,13 @@
+语法:
+      int mysql_num_rows       ( resource $result      )
+说明:
+mysql_num_rows()返回结果集中行的数目。此命令仅对SELECT语句有效。要取得被INSERT，UPDATE或者DELETE查询所影响到的行的数目，用mysql_affected_rows()。Example#1mysql_num_rows()例子
+示例:
+
+<?php
+$link = mysql_connect("localhost", "mysql_user", "mysql_password");
+mysql_select_db("database", $link);
+$result = mysql_query("SELECT * FROM table1", $link);
+$num_rows = mysql_num_rows($result);
+echo "$num_rows Rows\n";
+?>

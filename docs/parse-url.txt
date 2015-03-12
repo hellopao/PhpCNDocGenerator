@@ -1,0 +1,42 @@
+语法:
+   mixed parse_url    ( string $url   [, int $component = -1  ] )
+说明:
+本函数解析一个URL并返回一个关联数组，包含在URL中出现的各种组成部分。
+参数:
+  参数              url                  要解析的 URL。无效字符将使用       _ 来替换。                              component                  指定 PHP_URL_SCHEME、       PHP_URL_HOST、 PHP_URL_PORT、       PHP_URL_USER、 PHP_URL_PASS、       PHP_URL_PATH、 PHP_URL_QUERY       或 PHP_URL_FRAGMENT 的其中一个来获取 URL 中指定的部分的 string。 （除了指定为 PHP_URL_PORT 后，将返回一个 integer 的值）。                     
+返回值:
+  返回值     对严重不合格的 URL，parse_url() 可能会返回   FALSE。            如果省略了 component 参数，将返回一个关联数组 array，在目前至少会有一个元素在该数组中。数组中可能的键有以下几种：                  scheme - 如 http                        host                         port                        user                        pass                        path                        query  - 在问号 ? 之后                        fragment -  在散列符号 # 之后                   如果指定了 component 参数，   parse_url() 返回一个 string （或在指定为 PHP_URL_PORT 时返回一个 integer）而不是 array。如果 URL 中指定的组成部分不存在，将会返回 NULL。   
+示例:
+
+<?php
+$url = 'http://username:password@hostname/path?arg=value#anchor';
+print_r(parse_url($url));
+echo parse_url($url, PHP_URL_PATH);
+?>
+以上例程会输出：
+Array
+(
+    [scheme] => http
+    [host] => hostname
+    [user] => username
+    [pass] => password
+    [path] => /path
+    [query] => arg=value
+    [fragment] => anchor
+)
+/path
+
+<?php
+$url = '//www.example.com/path?googleguy=googley';
+// 在 5.4.7 之前这会输出路径 "//www.example.com/path"
+var_dump(parse_url($url));
+?>
+以上例程会输出：
+array(3) {
+  ["host"]=>
+  string(15) "www.example.com"
+  ["path"]=>
+  string(5) "/path"
+  ["query"]=>
+  string(17) "googleguy=googley"
+}

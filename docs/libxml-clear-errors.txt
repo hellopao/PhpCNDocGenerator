@@ -1,0 +1,7 @@
+语法:
+   void libxml_clear_errors    ( void   )
+说明:
+libxml_clear_errors()clearsthelibxmlerrorbuffer.
+返回值:
+  返回值     没有返回值。   
+示例:

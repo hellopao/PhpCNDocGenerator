@@ -1,0 +1,9 @@
+语法:
+   string jdtojulian    ( int $julianday   )
+说明:
+转变一个JulianDay计数到以“月/日/年”形式显示的Julian历法的日期。
+参数:
+  参数              julianday                  一个julian天数                     
+返回值:
+  返回值     以“月/日/年”形式显示的Julian历法的日期   
+示例:

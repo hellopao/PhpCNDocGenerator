@@ -1,0 +1,21 @@
+语法:
+   bool rewind    ( resource $handle   )
+说明:
+将handle的文件位置指针设为文件流的开头。
+参数:
+  参数              handle                  文件指针必须合法，并且指向由 fopen()   成功打开的文件。                     
+返回值:
+  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。   
+示例:
+
+<?php
+$handle = fopen('output.txt', 'r+');
+fwrite($handle, 'Really long sentence.');
+rewind($handle);
+fwrite($handle, 'Foo');
+rewind($handle);
+echo fread($handle, filesize('output.txt'));
+fclose($handle);
+?>
+以上例程的输出类似于：
+Foolly long sentence.

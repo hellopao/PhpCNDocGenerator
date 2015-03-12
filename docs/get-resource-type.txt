@@ -1,0 +1,17 @@
+语法:
+      string get_resource_type       ( resource $handle      )
+说明:
+此函数返回一个字符串，用于表示传递给它的resource的类型。如果参数不是合法的resource，将产生错误。&lt;?php$c&nbsp;=&nbsp;mysql_connect();echo&nbsp;get_resource_type($c)."\n";//&nbsp;打印：mysql&nbsp;link$fp&nbsp;=&nbsp;fopen("foo","w");echo&nbsp;get_resource_type($fp)."\n";//&nbsp;打印：file$doc&nbsp;=&nbsp;new_xmldoc("1.0");echo&nbsp;get_resource_type($doc-&gt;doc)."\n";//&nbsp;打印：domxml&nbsp;document?&gt;
+示例:
+
+<?php
+$c = mysql_connect();
+echo get_resource_type($c)."\n";
+// 打印：mysql link
+$fp = fopen("foo","w");
+echo get_resource_type($fp)."\n";
+// 打印：file
+$doc = new_xmldoc("1.0");
+echo get_resource_type($doc->doc)."\n";
+// 打印：domxml document
+?>

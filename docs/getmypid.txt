@@ -1,0 +1,7 @@
+语法:
+   int getmypid    ( void   )
+说明:
+获取当前PHP进程ID。
+返回值:
+  返回值     返回当前 PHP 进程 ID，或在错误时返回 FALSE。   
+示例:

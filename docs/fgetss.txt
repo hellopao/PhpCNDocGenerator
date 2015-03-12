@@ -1,0 +1,30 @@
+语法:
+   string fgetss    ( resource $handle   [, int $length   [, string $allowable_tags  ]] )
+说明:
+和fgets()相同，只除了fgetss()尝试从读取的文本中去掉任何HTML和PHP标记。
+参数:
+  参数              handle           文件指针必须是有效的，必须指向由fopen() 或 fsockopen() 成功打开的文件(并还未由 fclose() 关闭)。                  length                  取回该长度的数据。                        allowable_tags                  可以用可选的第三个参数指定哪些标记不被去掉。                     
+返回值:
+  返回值     从 handle 指向的文件中大读取 length - 1 个字节的字符，并过滤了所有的 HTML 和 PHP 代码。       错误发生时返回 FALSE。   
+示例:
+
+<?php
+$str = <<<EOD
+<html><body>
+ <p>Welcome! Today is the <?php echo(date('jS')); ?> of <?= date('F'); ?>.</p>
+</body></html>
+Text outside of the HTML block.
+EOD;
+file_put_contents('sample.php', $str);
+$handle = @fopen("sample.php", "r");
+if ($handle) {
+    while (!feof($handle)) {
+        $buffer = fgetss($handle, 4096);
+        echo $buffer;
+    }
+    fclose($handle);
+}
+?>
+以上例程的输出类似于：
+ Welcome! Today is the  of .
+Text outside of the HTML block.

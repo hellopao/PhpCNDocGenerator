@@ -1,0 +1,21 @@
+语法:
+   int fpassthru    ( resource $handle   )
+说明:
+将给定的文件指针从当前的位置读取到EOF并把结果写到输出缓冲区。
+参数:
+  参数              handle           文件指针必须是有效的，必须指向由fopen() 或 fsockopen() 成功打开的文件(并还未由 fclose() 关闭)。               
+返回值:
+  返回值     如果发生错误， fpassthru() 返回 FALSE。否则   fpassthru() 返回从 handle   读取并传递到输出的字符数目。   
+示例:
+
+<?php
+// 以二进制格式打开文件
+$name = './img/ok.png';
+$fp = fopen($name, 'rb');
+// 发送合适的报头
+header("Content-Type: image/png");
+header("Content-Length: " . filesize($name));
+// 发送图片并终止脚本
+fpassthru($fp);
+exit;
+?>

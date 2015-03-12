@@ -1,0 +1,17 @@
+语法:
+   string strrchr    ( string $haystack   , mixed $needle   )
+说明:
+该函数返回haystack字符串中的一部分，这部分以needle的最后出现位置开始，直到haystack末尾。
+参数:
+  参数              haystack                  在该字符串中查找。                        needle                  如果 needle 包含了不止一个字符，那么仅使用第一个字符。该行为不同于 strstr()。                   如果 needle 不是一个字符串，那么将被转化为整型并被视为字符顺序值。                     
+返回值:
+  返回值     该函数返回字符串的一部分。如果 needle 未被找到，返回 FALSE。   
+示例:
+
+<?php
+// 获取 $PATH 中不含磁盘符号的目录
+$dir = substr(strrchr($PATH, ":"), 1);
+// 获取最后一行内容
+$text = "Line 1\nLine 2\nLine 3";
+$last = substr(strrchr($text, 10), 1 );
+?>

@@ -1,0 +1,9 @@
+语法:
+   bool openssl_pkcs12_export    ( mixed $x509   , string &$out   , mixed $priv_key   , string $pass   [, array $args  ] )
+说明:
+openssl_pkcs12_export()storesx509intoastringnamedbyoutinaPKCS#12fileformat.
+参数:
+  参数         x509   参见密钥／证书参数以获取有效值列表。          out                  On success, this will hold the PKCS#12.                        priv_key                 Private key component of PKCS#12 file.                        pass                 Encryption password for unlocking the PKCS#12 file.                        args                                
+返回值:
+  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。   
+示例:

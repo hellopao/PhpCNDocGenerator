@@ -1,0 +1,14 @@
+语法:
+    float deg2rad     ( float $number    )
+说明:
+本函数把number从角度转换成弧度。
+参数:
+  参数              number                  以角度为单位的值                     
+返回值:
+  返回值      number 等量的弧度值   
+示例:
+
+<?php
+echo deg2rad(45); // 0.785398163397
+var_dump(deg2rad(45) === M_PI_4); // bool(true)
+?>

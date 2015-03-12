@@ -1,0 +1,31 @@
+语法:
+   array array_diff_ukey    ( array $array1   , array $array2   [, array $ ...   ], callable $key_compare_func   )
+说明:
+array_diff_ukey()返回一个数组，该数组包括了所有出现在array1中但是未出现在任何其它参数数组中的键名的值。注意关联关系保留不变。本函数和array_diff()相同只除了比较是根据键名而不是值来进行的。
+参数:
+  参数              array1                  The array to compare from                        array2                  An array to compare against                        ...                  More arrays to compare against                        key_compare_func                  在第一个参数小于，等于或大于第二个参数时，该比较函数必须相应地返回一个小于，等于或大于 0 的整数。            int callback ( mixed $a, mixed $b )
+返回值:
+  返回值     Returns an array containing all the entries from   array1 that are not present in any of the other arrays.   
+示例:
+
+<?php
+function key_compare_func($key1, $key2)
+{
+    if ($key1 == $key2)
+        return 0;
+    else if ($key1 > $key2)
+        return 1;
+    else
+        return -1;
+}
+$array1 = array('blue'  => 1, 'red'  => 2, 'green'  => 3, 'purple' => 4);
+$array2 = array('green' => 5, 'blue' => 6, 'yellow' => 7, 'cyan'   => 8);
+var_dump(array_diff_ukey($array1, $array2, 'key_compare_func'));
+?>
+以上例程会输出：
+array(2) {
+  ["red"]=>
+  int(2)
+  ["purple"]=>
+  int(4)
+}

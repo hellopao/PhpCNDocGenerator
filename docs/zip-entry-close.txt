@@ -1,0 +1,9 @@
+语法:
+   bool zip_entry_close    ( resource $zip_entry   )
+说明:
+关闭指定的目录项。
+参数:
+  参数              zip_entry                  一个由zip_entry_open()打开的项目。                     
+返回值:
+  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。   
+示例:

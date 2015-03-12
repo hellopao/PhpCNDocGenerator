@@ -1,0 +1,14 @@
+语法:
+   int ezmlm_hash    ( string $addr   )
+参数:
+  参数              addr                  要进行散列算法的电子邮件地址。                     
+返回值:
+  返回值     addr 的散列值。   
+示例:
+
+<?php
+$user = "joecool@example.com";
+$hash = ezmlm_hash($user);
+$query = sprintf("INSERT INTO sample VALUES (%s, '%s')", $hash, $user);
+$db->query($query); // using PHPLIB db interface
+?>

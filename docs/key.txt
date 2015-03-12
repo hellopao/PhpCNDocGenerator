@@ -1,0 +1,30 @@
+语法:
+   mixed key    ( array &$array   )
+说明:
+key()返回数组中当前单元的键名。
+参数:
+  参数              array                  该数组。                     
+返回值:
+  返回值     key() 函数返回数组中内部指针指向的当前单元的键名。   但它不会移动指针。如果内部指针超过了元素列表尾部，或者数组是空的，key() 会返回 NULL。   
+示例:
+
+<?php
+$array = array(
+    'fruit1' => 'apple',
+    'fruit2' => 'orange',
+    'fruit3' => 'grape',
+    'fruit4' => 'apple',
+    'fruit5' => 'apple');
+// this cycle echoes all associative array
+// key where value equals "apple"
+while ($fruit_name = current($array)) {
+    if ($fruit_name == 'apple') {
+        echo key($array).'<br />';
+    }
+    next($array);
+}
+?>
+以上例程会输出：
+fruit1<br />
+fruit4<br />
+fruit5<br />

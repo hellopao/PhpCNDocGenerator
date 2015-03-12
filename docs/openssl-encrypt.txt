@@ -1,0 +1,9 @@
+语法:
+   string openssl_encrypt    ( string $data   , string $method   , string $password   [, int $options = 0   [, string $iv = &quot;&quot;  ]] )
+说明:
+Encryptsgivendatawithgivenmethodandkey,returnsaraworbase64encodedstring
+参数:
+  参数              data                  The data.                        method                  The cipher method.                        password                  The password.                         options                        options can be one of          OPENSSL_RAW_DATA,          OPENSSL_ZERO_PADDING.                           iv                  A non-NULL Initialization Vector.                     
+返回值:
+  返回值     Returns the encrypted string on success 或者在失败时返回 FALSE.   
+示例:

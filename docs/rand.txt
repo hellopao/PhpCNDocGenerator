@@ -1,0 +1,17 @@
+语法:
+   int rand    ( void   )
+参数:
+  参数              min                  返回的最低值（默认：0）                        max                  返回的最高值（默认：getrandmax()）                     
+返回值:
+  返回值     A pseudo random value between min   (or 0) and max (or getrandmax(), inclusive).   
+示例:
+
+<?php
+echo rand() . "\n";
+echo rand() . "\n";
+echo rand(5, 15);
+?>
+以上例程的输出类似于：
+7771
+22264
+11

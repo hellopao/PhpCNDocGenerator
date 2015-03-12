@@ -1,0 +1,38 @@
+语法:
+   array iconv_mime_decode_headers    ( string $encoded_headers   [, int $mode = 0   [, string $charset = ini_get(&quot;iconv.internal_encoding&quot;)  ]] )
+说明:
+一次性解码多个MIME头字段。
+参数:
+  参数              encoded_headers                  编码过的头，是一个字符串。                        mode                  mode 决定了 iconv_mime_decode_headers() 遇到畸形 MIME 头字段时的行为。       你可以指定为以下位掩码的任意组合。               iconv_mime_decode_headers() 接受的位掩码                                      值           常量           描述                                                 1           ICONV_MIME_DECODE_STRICT                       如果设置了，给定的头将会以 &raquo;&nbsp;RFC2047 定义的标准完全一致。            这个选项默认禁用，因为大量有问题的邮件用户代理不遵循标准并产生不正确的 MIME 头。                                          2           ICONV_MIME_DECODE_CONTINUE_ON_ERROR                       如果设置了，iconv_mime_decode_headers() 尝试忽略任何语法错误并继续处理指定的头。                                                                     charset                  可选参数 charset 指定了字符集结果的表现。       如果省略了，将使用       iconv.internal_encoding。                     
+返回值:
+  返回值     成功时返回 encoded_headers 指定的 MIME 头的整套关联数组，解码时出现错误则返回 FALSE。       返回元素的每个键代表独立字段名，相应的元素代表一个字段值。   如果有多个同一名称的字段，   iconv_mime_decode_headers() 自动将他们按出现顺序结合成数字索引的数组。   
+示例:
+
+<?php
+$headers_string = <<<EOF
+Subject: =?UTF-8?B?UHLDvGZ1bmcgUHLDvGZ1bmc=?=
+To: example@example.com
+Date: Thu, 1 Jan 1970 00:00:00 +0000
+Message-Id: <example@example.com>
+Received: from localhost (localhost [127.0.0.1]) by localhost
+    with SMTP id example for <example@example.com>;
+    Thu, 1 Jan 1970 00:00:00 +0000 (UTC)
+    (envelope-from example-return-0000-example=example.com@example.com)
+Received: (qmail 0 invoked by uid 65534); 1 Thu 2003 00:00:00 +0000
+EOF;
+$headers =  iconv_mime_decode_headers($headers_string, 0, "ISO-8859-1");
+print_r($headers);
+?>
+以上例程会输出：
+Array
+(
+    [Subject] => Prüfung Prüfung
+    [To] => example@example.com
+    [Date] => Thu, 1 Jan 1970 00:00:00 +0000
+    [Message-Id] => <example@example.com>
+    [Received] => Array
+        (
+            [0] => from localhost (localhost [127.0.0.1]) by localhost with SMTP id example for <example@example.com>; Thu, 1 Jan 1970 00:00:00 +0000 (UTC) (envelope-from example-return-0000-example=example.com@example.com)
+            [1] => (qmail 0 invoked by uid 65534); 1 Thu 2003 00:00:00 +0000
+        )
+)

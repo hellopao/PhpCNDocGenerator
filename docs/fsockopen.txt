@@ -1,0 +1,38 @@
+语法:
+   resource fsockopen    ( string $hostname   [, int $port = -1   [, int &$errno   [, string &$errstr   [, float $timeout = ini_get(&quot;default_socket_timeout&quot;)  ]]]] )
+说明:
+初始化一个套接字连接到指定主机（hostname）。
+参数:
+  参数              hostname                  如果安装了OpenSSL，那么你也许应该在你的主机名地址前面添加访问协议ssl://或者是tls://，从而可以使用基于TCP/IP协议的SSL或者TLS的客户端连接到远程主机。                        port                  端口号。如果对该参数传一个-1，则表示不使用端口，例如unix://。                        errno                  如果传入了该参数，holds the system level error number that occurred in the       system-level connect() call。                   如果errno的返回值为0，而且这个函数的返回值为FALSE，那么这表明该错误发生在套接字连接（connect()）调用之前，导致连接失败的原因最大的可能是初始化套接字的时候发生了错误。                        errstr                  错误信息将以字符串的信息返回。                        timeout                  设置连接的时限，单位为秒。            Note:                注意：如果你要对建立在套接字基础上的读写操作设置操作时间设置连接时限，请使用stream_set_timeout()，fsockopen()的连接时限（timeout）的参数仅仅在套接字连接的时候生效。                            
+返回值:
+  返回值     fsockopen()将返回一个文件句柄，之后可以被其他文件类函数调用（例如：fgets()，fgetss()，fwrite()，fclose()还有feof()）。如果调用失败，将返回FALSE。   
+示例:
+
+<?php
+$fp = fsockopen("www.example.com", 80, $errno, $errstr, 30);
+if (!$fp) {
+    echo "$errstr ($errno)<br />\n";
+} else {
+    $out = "GET / HTTP/1.1\r\n";
+    $out .= "Host: www.example.com\r\n";
+    $out .= "Connection: Close\r\n\r\n";
+    fwrite($fp, $out);
+    while (!feof($fp)) {
+        echo fgets($fp, 128);
+    }
+    fclose($fp);
+}
+?>
+
+     下面这个例子展示了怎么样在自己的机器上通过UDP套接字连接（端口号13）来检索日期和时间。
+    
+<?php
+$fp = fsockopen("udp://127.0.0.1", 13, $errno, $errstr);
+if (!$fp) {
+    echo "ERROR: $errno - $errstr<br />\n";
+} else {
+    fwrite($fp, "\n");
+    echo fread($fp, 26);
+    fclose($fp);
+}
+?>

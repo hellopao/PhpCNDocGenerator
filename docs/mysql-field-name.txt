@@ -1,0 +1,52 @@
+语法:
+     string mysql_field_name      ( resource $result     , int $field_index     )
+说明:
+mysql_field_name()返回指定字段索引的字段名。result必须是一个合法的结果标识符，field_index是该字段的数字偏移量。
+参数:
+  参数         resultresource型的结果集。此结果集来自对 mysql_query()的调用。    field_offset数值型字段偏移量。field_offset 从 0 开始。如果field_offset 不存在，则会发出一个E_WARNING 级别的错误      
+返回值:
+  返回值     The name of the specified field index on success 或者在失败时返回 FALSE.   
+示例:
+
+<?php
+/* The users table consists of three fields:
+ *   user_id
+ *   username
+ *   password.
+ */
+$link = mysql_connect('localhost', "mysql_user", "mysql_password");
+$dbname = "mydb";
+mysql_select_db($dbname, $link)
+    or die("Could not set $dbname: " . mysql_error());
+$res = mysql_query("select * from users", $link);
+echo mysql_field_name($res, 0) . "\n";
+echo mysql_field_name($res, 2);
+?>
+
+       以上例子将产生如下输出：
+      
+user_id
+password
+
+<?php
+/* The users table consists of three fields:
+ *   user_id
+ *   username
+ *   password.
+ */
+$link = mysql_connect('localhost', 'mysql_user', 'mysql_password');
+if (!$link) {
+    die('Could not connect to MySQL server: ' . mysql_error());
+}
+$dbname = 'mydb';
+$db_selected = mysql_select_db($dbname, $link);
+if (!$db_selected) {
+    die("Could not set $dbname: " . mysql_error());
+}
+$res = mysql_query('select * from users', $link);
+echo mysql_field_name($res, 0) . "\n";
+echo mysql_field_name($res, 2);
+?>
+以上例程会输出：
+user_id
+password

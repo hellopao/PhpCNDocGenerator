@@ -1,0 +1,25 @@
+语法:
+   string metaphone    ( string $str   [, int $phonemes = 0  ] )
+说明:
+Calculatesthemetaphonekeyofstr.
+参数:
+  参数              str                  The input string.                        phonemes                  This parameter restricts the returned metaphone key to        phonemes characters in length.       The default value of 0 means no restriction.                     
+返回值:
+  返回值     Returns the metaphone key as a string,  或者在失败时返回 FALSE.   
+示例:
+
+<?php
+var_dump(metaphone('programming'));
+var_dump(metaphone('programmer'));
+?>
+以上例程的输出类似于：
+string(7) "PRKRMNK"
+string(6) "PRKRMR"
+
+<?php
+var_dump(metaphone('programming', 5));
+var_dump(metaphone('programmer', 5));
+?>
+以上例程的输出类似于：
+string(5) "PRKRM"
+string(5) "PRKRM"

@@ -1,0 +1,9 @@
+语法:
+   array openssl_x509_parse    ( mixed $x509cert   [, bool $shortnames = true  ] )
+说明:
+openssl_x509_parse()returnsinformationaboutthesuppliedx509cert,includingfieldssuchassubjectname,issuername,purposes,validfromandvalidtodatesetc.
+参数:
+  参数              x509cert                                   shortnames                  shortnames controls how the data is indexed in the       array - if shortnames is TRUE (the default) then       fields will be indexed with the short name form, otherwise, the long name       form will be used - e.g.: CN is the shortname form of commonName.                     
+返回值:
+  返回值     The structure of the returned data is (deliberately) not   yet documented, as it is still subject to change.   
+示例:

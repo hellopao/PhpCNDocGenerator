@@ -1,0 +1,41 @@
+语法:
+   string stripslashes    ( string $str   )
+说明:
+反引用一个引用字符串。
+参数:
+  参数              str                  输入字符串。                     
+返回值:
+  返回值     返回一个去除转义反斜线后的字符串（\&#039; 转换为 &#039; 等等）。双反斜线（\\）被转换为单个反斜线（\）。   
+示例:
+
+<?php
+$str = "Is your name O\'reilly?";
+// 输出: Is your name O'reilly?
+echo stripslashes($str);
+?>
+
+<?php
+function stripslashes_deep($value)
+{
+    $value = is_array($value) ?
+                array_map('stripslashes_deep', $value) :
+                stripslashes($value);
+    return $value;
+}
+// 范例
+$array = array("f\\'oo", "b\\'ar", array("fo\\'o", "b\\'ar"));
+$array = stripslashes_deep($array);
+// 输出
+print_r($array);
+?>
+以上例程会输出：
+Array
+(
+    [0] => f&#039;oo
+    [1] => b&#039;ar
+    [2] => Array
+        (
+            [0] => fo&#039;o
+            [1] => b&#039;ar
+        )
+)

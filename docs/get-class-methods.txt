@@ -1,0 +1,39 @@
+语法:
+   array get_class_methods    ( mixed $class_name   )
+说明:
+返回由类的方法名组成的数组。
+参数:
+  参数              class_name                  类名或者对象实例。                     
+返回值:
+  返回值     返回由 class_name   指定的类中定义的方法名所组成的数组。如果出错，则返回 NULL。   
+示例:
+
+<?php
+class myclass {
+    // constructor
+    function myclass()
+    {
+        return(true);
+    }
+    // method 1
+    function myfunc1()
+    {
+        return(true);
+    }
+    // method 2
+    function myfunc2()
+    {
+        return(true);
+    }
+}
+$class_methods = get_class_methods('myclass');
+// or
+$class_methods = get_class_methods(new myclass());
+foreach ($class_methods as $method_name) {
+    echo "$method_name\n";
+}
+?>
+以上例程会输出：
+myclass
+myfunc1
+myfunc2

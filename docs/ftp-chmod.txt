@@ -1,0 +1,25 @@
+语法:
+   int ftp_chmod    ( resource $ftp_stream   , int $mode   , string $filename   )
+说明:
+将服务器上的文件权限设置为mode指定的值。
+参数:
+  参数              ftp_stream                  FTP 连接标示符。                        mode                  要设置的权限值， 八进制 值。                        filename                   远程文件名称。                     
+返回值:
+  返回值     操作成功返回文件新的权限，操作失败返回 FALSE 。   
+示例:
+
+<?php
+$file = 'public_html/index.php';
+// 建立基础连接
+$conn_id = ftp_connect($ftp_server);
+// 使用用户名和密码登录
+$login_result = ftp_login($conn_id, $ftp_user_name, $ftp_user_pass);
+// 尝试设置 $file 的权限为 644
+if (ftp_chmod($conn_id, 0644, $file) !== false) {
+ echo "$file chmoded successfully to 644\n";
+} else {
+ echo "could not chmod $file\n";
+}
+// 关闭连接
+ftp_close($conn_id);
+?>

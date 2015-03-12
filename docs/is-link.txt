@@ -1,0 +1,18 @@
+语法:
+   bool is_link    ( string $filename   )
+说明:
+判断给定文件名是否为一个符号连接。
+参数:
+  参数              filename                  文件的路径。                     
+返回值:
+  返回值     如果文件存在并且是一个符号连接则返回 TRUE，否则返回 FALSE。   
+示例:
+
+<?php
+$link = 'uploads';
+if (is_link($link)) {
+    echo(readlink($link));
+} else {
+    symlink('uploads.php', $link);
+}
+?>

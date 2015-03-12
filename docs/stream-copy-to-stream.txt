@@ -1,0 +1,17 @@
+语法:
+   int stream_copy_to_stream    ( resource $source   , resource $dest   [, int $maxlength = -1   [, int $offset = 0  ]] )
+说明:
+Makesacopyofuptomaxlengthbytesofdatafromthecurrentposition(orfromtheoffsetposition,ifspecified)insourcetodest.Ifmaxlengthisnotspecified,allremainingcontentinsourcewillbecopied.
+参数:
+  参数              source                  The source stream                        dest                  The destination stream                        maxlength                  Maximum bytes to copy                        offset                  The offset where to start to copy data                     
+返回值:
+  返回值     Returns the total count of bytes copied.   
+示例:
+
+<?php
+$src = fopen('http://www.example.com', 'r');
+$dest1 = fopen('first1k.txt', 'w');
+$dest2 = fopen('remainder.txt', 'w');
+echo stream_copy_to_stream($src, $dest1, 1024) . " bytes copied to first1k.txt\n";
+echo stream_copy_to_stream($src, $dest2) . " bytes copied to remainder.txt\n";
+?>

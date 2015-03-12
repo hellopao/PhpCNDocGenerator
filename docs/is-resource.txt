@@ -1,0 +1,5 @@
+语法:
+      bool is_resource       ( mixed $var      )
+说明:
+如果给出的参数var是resource类型，is_resource()返回TRUE，否则返回FALSE。
+示例:

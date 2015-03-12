@@ -1,0 +1,19 @@
+语法:
+   bool output_reset_rewrite_vars    ( void   )
+说明:
+此函数重置URL重写器，移除所有的先前由output_add_rewrite_var()函数设置的重写变量，或者移除会话机制（如果session.use_trans_sid在session_start()上进行了设置）。
+返回值:
+  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。   
+示例:
+
+<?php
+session_start();
+output_add_rewrite_var('var', 'value');
+echo '<a href="file.php">link</a>';
+ob_flush();
+output_reset_rewrite_vars();
+echo '<a href="file.php">link</a>';
+?>
+以上例程会输出：
+<a href="file.php?PHPSESSID=xxx&var=value">link</a>
+<a href="file.php">link</a>

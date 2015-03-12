@@ -1,0 +1,58 @@
+语法:
+   int json_last_error    ( void   )
+说明:
+如果有，返回JSON编码解码时最后发生的错误。
+参数:
+  参数  此函数没有参数。 
+返回值:
+  返回值     返回一个整型（integer），这个值会是以下的常量之一：       JSON 错误码                  常量      含义      可用性                        JSON_ERROR_NONE      没有错误发生      &nbsp;                JSON_ERROR_DEPTH      到达了最大堆栈深度      &nbsp;                JSON_ERROR_STATE_MISMATCH      无效或异常的 JSON      &nbsp;                JSON_ERROR_CTRL_CHAR      控制字符错误，可能是编码不对      &nbsp;                JSON_ERROR_SYNTAX      语法错误      &nbsp;                JSON_ERROR_UTF8      异常的 UTF-8 字符，也许是因为不正确的编码。      PHP 5.3.3                JSON_ERROR_RECURSION      One or more recursive references in the value to be encoded      PHP 5.5.0                JSON_ERROR_INF_OR_NAN             One or more       NAN       or INF       values in the value to be encoded            PHP 5.5.0                JSON_ERROR_UNSUPPORTED_TYPE      A value of a type that cannot be encoded was given      PHP 5.5.0               
+示例:
+
+<?php
+// 一个有效的 json 字符串
+$json[] = '{"Organization": "PHP Documentation Team"}';
+// 一个无效的 json 字符串会导致一个语法错误，在这个例子里我们使用 ' 代替了 " 作为引号
+$json[] = "{'Organization': 'PHP Documentation Team'}";
+foreach ($json as $string) {
+    echo 'Decoding: ' . $string;
+    json_decode($string);
+    switch (json_last_error()) {
+        case JSON_ERROR_NONE:
+            echo ' - No errors';
+        break;
+        case JSON_ERROR_DEPTH:
+            echo ' - Maximum stack depth exceeded';
+        break;
+        case JSON_ERROR_STATE_MISMATCH:
+            echo ' - Underflow or the modes mismatch';
+        break;
+        case JSON_ERROR_CTRL_CHAR:
+            echo ' - Unexpected control character found';
+        break;
+        case JSON_ERROR_SYNTAX:
+            echo ' - Syntax error, malformed JSON';
+        break;
+        case JSON_ERROR_UTF8:
+            echo ' - Malformed UTF-8 characters, possibly incorrectly encoded';
+        break;
+        default:
+            echo ' - Unknown error';
+        break;
+    }
+    echo PHP_EOL;
+}
+?>
+以上例程会输出：
+Decoding: {"Organization": "PHP Documentation Team"} - No errors
+Decoding: {&#039;Organization&#039;: &#039;PHP Documentation Team&#039;} - Syntax error, malformed JSON
+
+<?php
+// 无效的 UTF8 序列
+$text = "\xB1\x31";
+$json  = json_encode($text);
+$error = json_last_error();
+var_dump($json, $error === JSON_ERROR_UTF8);
+?>
+以上例程会输出：
+string(4) "null"
+bool(true)

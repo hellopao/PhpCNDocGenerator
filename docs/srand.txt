@@ -1,0 +1,20 @@
+语法:
+    void srand     ([ int $seed   ] )
+说明:
+用seed播下随机数发生器种子。seed参数没有给出时，会被设为随时数。
+参数:
+  参数              seed                  可选的种子值                     
+返回值:
+  返回值     没有返回值。   
+示例:
+
+<?php
+// seed with microseconds
+function make_seed()
+{
+  list($usec, $sec) = explode(' ', microtime());
+  return (float) $sec + ((float) $usec * 100000);
+}
+srand(make_seed());
+$randval = rand();
+?>

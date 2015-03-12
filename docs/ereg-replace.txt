@@ -1,0 +1,28 @@
+语法:
+   string ereg_replace    ( string $pattern   , string $replacement   , string $string   )
+示例:
+
+<?php
+$string = "This is a test";
+echo str_replace(" is", " was", $string);
+echo ereg_replace("( )is", "\\1was", $string);
+echo ereg_replace("(( )is)", "\\2was", $string);
+?>
+
+<?php
+/* 不能产生出期望的结果 */
+$num = 4;
+$string = "This string has four words.";
+$string = ereg_replace('four', $num, $string);
+echo $string;   /* Output: 'This string has   words.' */
+/* 本例工作正常 */
+$num = '4';
+$string = "This string has four words.";
+$string = ereg_replace('four', $num, $string);
+echo $string;   /* Output: 'This string has 4 words.' */
+?>
+
+<?php
+$text = ereg_replace("[[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/]",
+                     "<a href=\"\\0\">\\0</a>", $text);
+?>

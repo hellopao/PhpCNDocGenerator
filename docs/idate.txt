@@ -1,0 +1,12 @@
+语法:
+   int idate    ( string $format   [, int $timestamp  ] )
+说明:
+根据给定的格式字符对timestamp格式化并返回数字结果。timestamp为可选项，默认值为本地当前时间，即time()的值。
+示例:
+
+<?php
+$timestamp = strtotime('1st January 2004'); //1072915200
+// 下面以两位数字格式显示年份，但是因为
+// 以“0”打头，因此只会显示“4”
+echo idate('y', $timestamp);
+?>

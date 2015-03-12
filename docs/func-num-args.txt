@@ -1,0 +1,41 @@
+语法:
+   int func_num_args    ( void   )
+说明:
+Getsthenumberofargumentspassedtothefunction.
+返回值:
+  返回值     Returns the number of arguments passed into the current user-defined   function.   
+示例:
+
+<?php
+function foo()
+{
+    $numargs = func_num_args();
+    echo "Number of arguments: $numargs\n";
+}
+foo(1, 2, 3);   
+?>
+以上例程会输出：
+Number of arguments: 3
+
+test.php
+<?php
+function foo() {
+    include './fna.php';
+}
+foo('First arg', 'Second arg');
+?>
+fna.php
+<?php
+$num_args = func_num_args();
+var_export($num_args);
+?>
+
+     Output previous to PHP 5.3:
+    
+2
+
+     Output in PHP 5.3 and later will be something similar to:
+    
+Warning: func_num_args():  Called from the global scope - no function
+context in /home/torben/Desktop/code/ml/fna.php on line 3
+-1

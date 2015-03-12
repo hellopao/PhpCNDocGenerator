@@ -1,0 +1,17 @@
+语法:
+   int mt_rand    ( void   )
+参数:
+  参数              min                  可选的、返回的最小值（默认：0）                        max                  可选的、返回的最大值（默认：mt_getrandmax()）                     
+返回值:
+  返回值     返回 min （或者 0） 到 max （或者是到  mt_getrandmax()     ，包含这个值）之间的随机整数。   
+示例:
+
+<?php
+echo mt_rand() . "\n";
+echo mt_rand() . "\n";
+echo mt_rand(5, 15);
+?>
+以上例程的输出类似于：
+1604716014
+1478613278
+6

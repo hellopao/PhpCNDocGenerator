@@ -1,0 +1,13 @@
+语法:
+   string str_rot13    ( string $str   )
+说明:
+对str参数执行ROT13编码并将结果字符串返回。
+参数:
+  参数              str                  输入字符串。                     
+返回值:
+  返回值     返回给定字符串的 ROT13 版本。   
+示例:
+
+<?php
+echo str_rot13('PHP 4.3.0'); // CUC 4.3.0
+?>

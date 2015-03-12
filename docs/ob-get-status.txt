@@ -1,0 +1,43 @@
+语法:
+   array ob_get_status    ([ bool  $full_status  = FALSE  ] )
+说明:
+ob_get_status()返回最顶层输出缓冲区的状态信息；或者如果full_status设为TRUE，返回所有有效的输出缓冲级别。
+参数:
+  参数              full_status                   设为TRUE 返回所有有效的输出缓冲区级别的状态信息。如果设为 FALSE 或者没有设置，仅返回最        顶层输出缓冲区的状态信息。                     
+返回值:
+  返回值      如果调用时没有full_status参数，或者full_status = FALSE 将返回一个包含下面元素的简单数组：       Array(    [level] =&gt; 2    [type] =&gt; 0    [status] =&gt; 0    [name] =&gt; URL-Rewriter    [del] =&gt; 1)
+示例:
+
+Array
+(
+    [level] => 2
+    [type] => 0
+    [status] => 0
+    [name] => URL-Rewriter
+    [del] => 1
+)
+
+Array
+(
+    [0] => Array
+        (
+            [chunk_size] => 0
+            [size] => 40960
+            [block_size] => 10240
+            [type] => 1
+            [status] => 0
+            [name] => default output handler
+            [del] => 1
+        )
+    [1] => Array
+        (
+            [chunk_size] => 0
+            [size] => 40960
+            [block_size] => 10240
+            [type] => 0
+            [buffer_size] => 0
+            [status] => 0
+            [name] => URL-Rewriter
+            [del] => 1
+        )
+)

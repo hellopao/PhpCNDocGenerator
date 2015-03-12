@@ -1,0 +1,43 @@
+语法:
+      resource proc_open       ( string $cmd      , array $descriptorspec      , array &$pipes      [, string $cwd      [, array $env      [, array $other_options     ]]] )
+说明:
+类似popen()函数，但是proc_open()提供了更加强大的控制程序执行的能力。
+参数:
+  参数              cmd                  要执行的命令                        descriptorspec                   一个索引数组。        数组的键表示描述符，数组元素值表示 PHP 如何将这些描述符传送至子进程。        0 表示标准输入（stdin），1 表示标准输出（stdout），2 表示标准错误（stderr）。                   数组中的元素可以是：                         包含了要传送至进程的管道的描述信息。          第一个元素为描述符类型，          第二个元素是针对该描述符的选项。          有效的类型有：pipe           （第二个元素可以是： r 向进程传送该管道的读取端，w 向进程传送该管道的写入端），          以及 file（第二个元素为文件名）。                          表达一个真实文件描述符的流资源类型          （例如：已打开的文件，一个 socket 端口，STDIN）。                                   文件描述符的值不限于 0，1 和 2，你可以使用任何有效的文件描述符        并将其传送至子进程。        这使得你的脚本可以和其他脚本交互操作。        例如，可以通过指定文件描述符将密码以更加安全的方式        传送至诸如 PGP，GPG 和 openssl 程序，        同时也可以很方便的获取这些程序的状态信息。                        pipes                   将被置为索引数组，        其中的元素是被执行程序创建的管道对应到 PHP 这一端的文件指针。                        cwd                   要执行命令的初始工作目录。        必须是 绝对 路径，        设置此参数为 NULL         表示使用默认值（当前 PHP 进程的工作目录）。                        env                   要执行的命令所使用的环境变量。        设置此参数为 NULL 表示使用和当前 PHP 进程相同的环境变量。                        other_options                   你还可以指定一些附加选项。        目前支持的选项包括：                        suppress_errors （仅用于 Windows 平台）：         设置为 TRUE 表示抑制本函数产生的错误。                         bypass_shell （仅用于 Windows 平台）：         设置为 TRUE 表示绕过 cmd.exe shell。                                    
+返回值:
+  返回值      返回表示进程的资源类型，    当使用完毕之后，请调用 proc_close() 函数来关闭此资源。    如果失败，返回 FALSE。   
+示例:
+
+<?php
+$descriptorspec = array(
+   0 => array("pipe", "r"),  // 标准输入，子进程从此管道中读取数据
+   1 => array("pipe", "w"),  // 标准输出，子进程向此管道中写入数据
+   2 => array("file", "/tmp/error-output.txt", "a") // 标准错误，写入到一个文件
+);
+$cwd = '/tmp';
+$env = array('some_option' => 'aeiou');
+$process = proc_open('php', $descriptorspec, $pipes, $cwd, $env);
+if (is_resource($process)) {
+    // $pipes 现在看起来是这样的：
+    // 0 => 可以向子进程标准输入写入的句柄
+    // 1 => 可以从子进程标准输出读取的句柄
+    // 错误输出将被追加到文件 /tmp/error-output.txt
+    fwrite($pipes[0], '<?php print_r($_ENV); ?>');
+    fclose($pipes[0]);
+    echo stream_get_contents($pipes[1]);
+    fclose($pipes[1]);
+    
+    // 切记：在调用 proc_close 之前关闭所有的管道以避免死锁。
+    $return_value = proc_close($process);
+    echo "command returned $return_value\n";
+}
+?>
+以上例程的输出类似于：
+Array
+(
+    [some_option] => aeiou
+    [PWD] => /tmp
+    [SHLVL] => 1
+    [_] => /usr/local/bin/php
+)
+command returned 0

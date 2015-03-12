@@ -1,0 +1,20 @@
+语法:
+   resource hash_copy    ( resource $context   )
+参数:
+  参数              context                  由 hash_init() 函数返回的哈希运算上下文。                     
+返回值:
+  返回值     返回哈希运算上下文资源的一个复本。   
+示例:
+
+<?php
+$context = hash_init("md5");
+hash_update($context, "data");
+/* 拷贝上下文资源以便继续使用 */
+$copy_context = hash_copy($context);
+echo hash_final($context), "\n";
+hash_update($copy_context, "data");
+echo hash_final($copy_context), "\n";
+?>
+以上例程会输出：
+8d777f385d3dfec8815d20f7496026dc
+511ae0b1c13f95e5f08f1a0dd3da3d93

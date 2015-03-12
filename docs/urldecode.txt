@@ -1,0 +1,19 @@
+语法:
+   string urldecode    ( string $str   )
+说明:
+解码给出的已编码字符串中的任何%##。加号（&#039;+&#039;）被解码成一个空格字符。
+参数:
+  参数              str                  要解码的字符串。                     
+返回值:
+  返回值     返回解码后的字符串。   
+示例:
+
+<?php
+$query = "my=apples&are=green+and+red";
+foreach (explode('&', $query) as $chunk) {
+    $param = explode("=", $chunk);
+    if ($param) {
+        printf("Value for parameter \"%s\" is \"%s\"<br/>\n", urldecode($param[0]), urldecode($param[1]));
+    }
+}
+?>

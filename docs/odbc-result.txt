@@ -1,0 +1,14 @@
+语法:
+   mixed odbc_result    ( resource $result_id   , mixed $field   )
+说明:
+Getresultdata
+参数:
+  参数              result_id                  The ODBC resource.                        field                  The field name being retrieved. It can either be an integer containing       the column number of the field you want; or it can be a string       containing the name of the field.                     
+返回值:
+  返回值     Returns the string contents of the field, FALSE on error, NULL for   NULL data, or TRUE for binary data.   
+示例:
+
+<?php
+$item_3   = odbc_result($Query_ID, 3);
+$item_val = odbc_result($Query_ID, "val");
+?>

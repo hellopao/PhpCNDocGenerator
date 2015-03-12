@@ -1,0 +1,15 @@
+语法:
+      mixed array_search       ( mixed $needle      , array $haystack   [, bool $strict = false     ] )
+说明:
+在haystack中搜索needle参数。
+参数:
+  参数              needle                  搜索的值。            Note:                如果 needle 是字符串，则比较以区分大小写的方式进行。                               haystack                  这个数组。                        strict                  如果可选的第三个参数 strict 为 TRUE，则     array_search() 将在 haystack     中检查完全相同的元素。       这意味着同样检查 haystack 里 needle 的 类型，并且对象需是同一个实例。                     
+返回值:
+  返回值     如果找到了 needle 则返回它的键，否则返回 FALSE。       如果 needle 在     haystack     中出现不止一次，则返回第一个匹配的键。要返回所有匹配值的键，应该用     array_keys() 加上可选参数     search_value 来代替。    Warning此函数可能返回布尔值FALSE，但也可能返回等同于 FALSE 的非布尔值。请阅读 布尔类型章节以获取更多信息。应使用===运算符来测试此函数的返回值。
+示例:
+
+<?php
+$array = array(0 => 'blue', 1 => 'red', 2 => 'green', 3 => 'red');
+$key = array_search('green', $array); // $key = 2;
+$key = array_search('red', $array);   // $key = 1;
+?>

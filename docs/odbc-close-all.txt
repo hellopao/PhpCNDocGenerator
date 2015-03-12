@@ -1,0 +1,9 @@
+语法:
+   void odbc_close_all    ( void   )
+说明:
+odbc_close_all()willclosedownallconnectionstodatabaseserver(s).
+参数:
+  参数  此函数没有参数。 
+返回值:
+  返回值     没有返回值。   
+示例:

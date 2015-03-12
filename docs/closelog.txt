@@ -1,0 +1,7 @@
+语法:
+   bool closelog    ( void   )
+说明:
+closelog()closesthedescriptorbeingusedtowritetothesystemlogger.Theuseofcloselog()isoptional.
+返回值:
+  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。   
+示例:

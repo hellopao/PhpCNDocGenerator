@@ -1,0 +1,12 @@
+语法:
+   int getlastmod    ( void   )
+说明:
+获取执行的主脚本的最后修改时间。
+返回值:
+  返回值     返回当前页面最后修改的时间。这个值是一个 Unix 时间戳，可以传入 date()。   错误时返回 FALSE。   
+示例:
+
+<?php
+// 输出类似 'Last modified: March 04 1998 20:43:59.'
+echo "Last modified: " . date ("F d Y H:i:s.", getlastmod());
+?>

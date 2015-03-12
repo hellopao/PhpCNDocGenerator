@@ -1,0 +1,21 @@
+语法:
+   void parse_str    ( string $str   [, array &$arr  ] )
+说明:
+如果str是URL传递入的查询字符串（querystring），则将它解析为变量并设置到当前作用域。
+参数:
+  参数              str                  输入的字符串。                        arr                  如果设置了第二个变量 arr，变量将会以数组元素的形式存入到这个数组，作为替代。                     
+返回值:
+  返回值     没有返回值。   
+示例:
+
+<?php
+$str = "first=value&arr[]=foo+bar&arr[]=baz";
+parse_str($str);
+echo $first;  // value
+echo $arr[0]; // foo bar
+echo $arr[1]; // baz
+parse_str($str, $output);
+echo $output['first'];  // value
+echo $output['arr'][0]; // foo bar
+echo $output['arr'][1]; // baz
+?>

@@ -1,0 +1,3 @@
+语法:
+   object stream_bucket_make_writeable    ( resource $brigade   )
+示例:

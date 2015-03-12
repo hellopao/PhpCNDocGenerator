@@ -1,0 +1,11 @@
+语法:
+   string eregi_replace    ( string $pattern   , string $replacement   , string $string   )
+说明:
+本函数和ereg_replace()完全相同，只除了在匹配字母字符时忽略大小写的区别。
+示例:
+
+<?php
+$pattern = '(>[^<]*)('. quotemeta($_GET['search']) .')';
+$replacement = '\\1<span class="search">\\2</span>';
+$body = eregi_replace($pattern, $replacement, $body);
+?>

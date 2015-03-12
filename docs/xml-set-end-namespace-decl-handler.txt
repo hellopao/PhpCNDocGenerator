@@ -1,0 +1,9 @@
+语法:
+   bool xml_set_end_namespace_decl_handler    ( resource $parser   , callable $handler   )
+说明:
+Setahandlertobecalledwhenleavingthescopeofanamespacedeclaration.Thiswillbecalled,foreachnamespacedeclaration,afterthehandlerfortheendtagoftheelementinwhichthenamespacewasdeclared.
+参数:
+  参数              parser                  A reference to the XML parser.                        handler                  handler is a string containing the name of a       function that must exist when xml_parse() is called       for parser.                   The function named by handler must accept       two parameters, and should return an integer value. If the       value returned from the handler is FALSE (which it will be if no       value is returned), the XML parser will stop parsing and       xml_get_error_code() will return       XML_ERROR_EXTERNAL_ENTITY_HANDLING.               handler         ( resource $parser        , string $prefix        )
+返回值:
+  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。   
+示例:

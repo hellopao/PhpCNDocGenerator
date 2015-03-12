@@ -1,0 +1,19 @@
+语法:
+   bool date_default_timezone_set    ( string $timezone_identifier   )
+说明:
+date_default_timezone_set()设定用于所有日期时间函数的默认时区。
+参数:
+  参数              timezone_identifier                  时区标识符，例如 UTC 或       Europe/Lisbon。合法标识符列表见所支持的时区列表。                     
+返回值:
+  返回值     如果 timezone_identifier 参数无效则返回 FALSE，否则返回 TRUE。   
+示例:
+
+<?php
+date_default_timezone_set('America/Los_Angeles');
+$script_tz = date_default_timezone_get();
+if (strcmp($script_tz, ini_get('date.timezone'))){
+    echo 'Script timezone differs from ini-set timezone.';
+} else {
+    echo 'Script timezone and ini-set timezone match.';
+}
+?>

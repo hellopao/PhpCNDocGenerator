@@ -1,0 +1,9 @@
+语法:
+   string quoted_printable_encode    ( string $str   )
+说明:
+返回quoted-printable格式的字符，该格式由&raquo;&nbsp;RFC20456.7.章节里制定。
+参数:
+  参数              str                  输入的字符串。                     
+返回值:
+  返回值     返回编码之后的字符串。   
+示例:

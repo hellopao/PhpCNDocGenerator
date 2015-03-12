@@ -1,0 +1,9 @@
+语法:
+   resource odbc_statistics    ( resource $connection_id   , string $qualifier   , string $owner   , string $table_name   , int $unique   , int $accuracy   )
+说明:
+Getstatisticsaboutatableanditsindexes.
+参数:
+  参数              connection_id           ODBC 连接标识符，详见odbc_connect()。                  qualifier                  The qualifier.                        owner                  The owner.                        table_name                  The table name.                        unique                  The unique attribute.                        accuracy                  The accuracy.                     
+返回值:
+  返回值     Returns an ODBC result identifier 或者在失败时返回 FALSE.       The result set has the following columns:       TABLE_QUALIFIER    TABLE_OWNER    TABLE_NAME    NON_UNIQUE    INDEX_QUALIFIER    INDEX_NAME    TYPE    SEQ_IN_INDEX    COLUMN_NAME    COLLATION    CARDINALITY    PAGES    FILTER_CONDITION          The result set is ordered by NON_UNIQUE, TYPE, INDEX_QUALIFIER,   INDEX_NAME and SEQ_IN_INDEX.   
+示例:

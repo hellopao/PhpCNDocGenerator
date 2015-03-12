@@ -1,0 +1,9 @@
+语法:
+     bool xml_set_character_data_handler      ( resource $parser   , callable $handler     )
+说明:
+为parser变量指向的XML解析器指定字符数据处理函数。
+参数:
+  参数              parser                  XML 解析器的引用，用于建立字符数据处理器。                        handler                  handler 为表示一个函数名称的字符串，该函数必须在为 parser 指定的解析器调用 xml_parse() 函数时已存在。                    由 handler 参数命名的函数名必须接受两个参数：               handler         ( resource $parser        , string $data        )
+返回值:
+  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。   
+示例:

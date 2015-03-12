@@ -1,0 +1,9 @@
+语法:
+     string xml_error_string      ( int $code     )
+说明:
+根据给定的code获得XML解析器错误字符串。
+参数:
+    参数                      code                        由 xml_get_error_code() 返回的错误代码。                                 
+返回值:
+    返回值        返回与 code 描述的错误代码参数对应的文本描述字符串，若没有与之对应的描述，则返回 FALSE。       
+示例:

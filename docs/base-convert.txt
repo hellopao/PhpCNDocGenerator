@@ -1,0 +1,16 @@
+语法:
+    string base_convert     ( string $number    , int $frombase    , int $tobase    )
+说明:
+返回一字符串，包含number以tobase进制的表示。number本身的进制由frombase指定。frombase和tobase都只能在2和36之间（包括2和36）。高于十进制的数字用字母a-z表示，例如a表示10，b表示11以及z表示35。
+参数:
+  参数              number                  要转换的数字                        frombase                  The base number is in                        tobase                  The base to convert number to                     
+返回值:
+  返回值     number converted to base tobase   
+示例:
+
+<?php
+$hexadecimal = 'A37334';
+echo base_convert($hexadecimal, 16, 2);
+?>
+以上例程会输出：
+101000110111001100110100

@@ -1,0 +1,14 @@
+语法:
+   string sha1    ( string $str   [, bool $raw_output = false  ] )
+参数:
+  参数              str                  输入字符串。                        raw_output                  如果可选的 raw_output 参数被设置为 TRUE，那么 sha1 摘要将以 20 字符长度的原始格式返回，否则返回值是一个 40 字符长度的十六进制数字。                     
+返回值:
+  返回值     返回 sha1 散列值字符串。   
+示例:
+
+<?php
+$str = 'apple';
+if (sha1($str) === 'd0be2dc421be4fcd0172e5afceea3970e2f3d940') {
+    echo "Would you like a green or red apple?";
+}
+?>

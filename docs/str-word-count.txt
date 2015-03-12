@@ -1,0 +1,49 @@
+语法:
+   mixed str_word_count    ( string $string   [, int $format = 0   [, string $charlist  ]] )
+说明:
+统计string中单词的数量。如果可选的参数format没有被指定，那么返回值是一个代表单词数量的整型数。如果指定了format参数，返回值将是一个数组，数组的内容则取决于format参数。format的可能值和相应的输出结果如下所列。
+参数:
+  参数              string                  字符串。                        format                  指定函数的返回值。当前支持的值如下：                                  0 - 返回单词数量                                            1 - 返回一个包含 string 中全部单词的数组                                            2 - 返回关联数组。数组的键是单词在 string 中出现的数值位置，数组的值是这个单词                                                 charlist                  附加的字符串列表，其中的字符将被视为单词的一部分。                     
+返回值:
+  返回值     返回一个数组或整型数，这取决于 format 参数的选择。   
+示例:
+
+<?php
+$str = "Hello fri3nd, you're
+       looking          good today!";
+print_r(str_word_count($str, 1));
+print_r(str_word_count($str, 2));
+print_r(str_word_count($str, 1, 'àáãç3'));
+echo str_word_count($str);
+?>
+以上例程会输出：
+Array
+(
+    [0] => Hello
+    [1] => fri
+    [2] => nd
+    [3] => you&#039;re
+    [4] => looking
+    [5] => good
+    [6] => today
+)
+Array
+(
+    [0] => Hello
+    [6] => fri
+    [10] => nd
+    [14] => you&#039;re
+    [29] => looking
+    [46] => good
+    [51] => today
+)
+Array
+(
+    [0] => Hello
+    [1] => fri3nd
+    [2] => you&#039;re
+    [3] => looking
+    [4] => good
+    [5] => today
+)
+7

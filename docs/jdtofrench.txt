@@ -1,0 +1,9 @@
+语法:
+   string jdtofrench    ( int $juliandaycount   )
+说明:
+转变一个JulianDay计数到FrenchRepublican历法的日期。
+参数:
+  参数              julianday                  一个julian天数                     
+返回值:
+  返回值     以&quot;月/日/年&quot;形式的french revolution日期   
+示例:

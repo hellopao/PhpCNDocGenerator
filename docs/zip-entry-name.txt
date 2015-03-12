@@ -1,0 +1,9 @@
+语法:
+   string zip_entry_name    ( resource $zip_entry   )
+说明:
+返回指定目录项的名称。
+参数:
+  参数              zip_entry                  由函数zip_read() 返回的目录项。                     
+返回值:
+  返回值     目录项的名称。   
+示例:

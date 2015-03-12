@@ -1,0 +1,9 @@
+语法:
+   string wddx_serialize_value    ( mixed $var   [, string $comment  ] )
+说明:
+CreatesaWDDXpacketfromasinglegivenvalue.
+参数:
+  参数              var                  The value to be serialized                        comment                  An optional comment string that appears in the packet header.                     
+返回值:
+  返回值     Returns the WDDX packet, or FALSE on error.   
+示例:

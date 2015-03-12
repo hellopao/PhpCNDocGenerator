@@ -1,0 +1,96 @@
+语法:
+   array get_class_vars    ( string $class_name   )
+说明:
+返回由类的默认公有属性组成的关联数组，此数组的元素以varname=&gt;value的形式存在。
+参数:
+  参数              class_name                  The class name                     
+返回值:
+  返回值     Returns an associative array of declared properties visible from the   current scope, with their default value.   The resulting array elements are in the form of    varname =&gt; value.   In case of an error, it returns FALSE.   
+示例:
+
+<?php
+class myclass {
+    var $var1; // 此变量没有默认值……
+    var $var2 = "xyz";
+    var $var3 = 100;
+    private $var4; // PHP 5
+    // constructor
+    function myclass() {
+        // change some properties
+        $this->var1 = "foo";
+        $this->var2 = "bar";
+        return true;
+    }
+}
+$my_class = new myclass();
+$class_vars = get_class_vars(get_class($my_class));
+foreach ($class_vars as $name => $value) {
+    echo "$name : $value\n";
+}
+?>
+以上例程会输出：
+// 在 PHP 4.2.0 之前
+var2 : xyz
+var3 : 100
+// 从 PHP 4.2.0 开始
+var1 :
+var2 : xyz
+var3 : 100
+
+<?php
+class myclass {
+    var $var1; // this has no default value...
+    var $var2 = "xyz";
+    var $var3 = 100;
+    private $var4; // PHP 5
+    // constructor
+    function myclass() {
+        // change some properties
+        $this->var1 = "foo";
+        $this->var2 = "bar";
+        return true;
+    }
+}
+$my_class = new myclass();
+$class_vars = get_class_vars(get_class($my_class));
+foreach ($class_vars as $name => $value) {
+    echo "$name : $value\n";
+}
+?>
+以上例程会输出：
+// Before PHP 4.2.0
+var2 : xyz
+var3 : 100
+// As of PHP 4.2.0
+var1 :
+var2 : xyz
+var3 : 100
+
+<?php
+function format($array)
+{
+    return implode('|', array_keys($array)) . "\r\n";
+}
+class TestCase
+{
+    public $a    = 1;
+    protected $b = 2;
+    private $c   = 3;
+    public static function expose()
+    {
+        echo format(get_class_vars(__CLASS__));
+    }
+}
+TestCase::expose();
+echo format(get_class_vars('TestCase'));
+?>
+以上例程会输出：
+// 5.0.0
+a| * b| TestCase c
+a| * b| TestCase c
+// 5.0.1 - 5.0.2
+a|b|c
+a|b|c
+// 5.0.3 +
+a|b|c
+a

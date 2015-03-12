@@ -1,0 +1,35 @@
+语法:
+   bool is_callable    ( callable $name   [, bool $syntax_only = false   [, string &$callable_name  ]] )
+说明:
+验证变量的内容能否作为函数调用。这可以检查包含有效函数名的变量，或者一个数组，包含了正确编码的对象以及函数名。
+参数:
+  参数              name                  要检查的回调函数。                        syntax_only                  如果设置为 TRUE，这个函数仅仅验证 name 可能是函数或方法。       它仅仅拒绝非字符，或者未包含能用于回调函数的有效结构。有效的应该包含两个元素，第一个是一个对象或者字符，第二个元素是个字符。                        callable_name                  接受“可调用的名称”。下面的例子是“someClass::someMethod”。       注意，尽管 someClass::SomeMethod() 的含义是可调用的静态方法，但例子的情况并不是这样的。                     
+返回值:
+  返回值     如果 name 可调用则返回 TRUE，否则返回 FALSE。   
+示例:
+
+<?php
+//  How to check a variable to see if it can be called
+//  as a function.
+//
+//  Simple variable containing a function
+//
+function someFunction() 
+{
+}
+$functionVariable = 'someFunction';
+var_dump(is_callable($functionVariable, false, $callable_name));  // bool(true)
+echo $callable_name, "\n";  // someFunction
+//
+//  Array containing a method
+//
+class someClass {
+  function someMethod() 
+  {
+  }
+}
+$anObject = new someClass();
+$methodVariable = array($anObject, 'someMethod');
+var_dump(is_callable($methodVariable, true, $callable_name));  //  bool(true)
+echo $callable_name, "\n";  //  someClass::someMethod
+?>

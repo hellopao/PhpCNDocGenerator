@@ -1,0 +1,9 @@
+语法:
+   bool openssl_x509_check_private_key    ( mixed $cert   , mixed $key   )
+说明:
+Checkswhetherthegivenkeyistheprivatekeythatcorrespondstocert.
+参数:
+  参数              cert                  The certificate.                        key                  The private key.                     
+返回值:
+  返回值     Returns TRUE if key is the private key that   corresponds to cert, or FALSE otherwise.   
+示例:

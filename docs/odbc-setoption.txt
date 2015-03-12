@@ -1,0 +1,22 @@
+语法:
+   bool odbc_setoption    ( resource $id   , int $function   , int $option   , int $param   )
+说明:
+ThisfunctionallowsfiddlingwiththeODBCoptionsforaparticularconnectionorqueryresult.ItwaswrittentohelpfindworkaroundtoproblemsinquirkyODBCdrivers.YoushouldprobablyonlyusethisfunctionifyouareanODBCprogrammerandunderstandtheeffectsthevariousoptionswillhave.YouwillcertainlyneedagoodODBCreferencetoexplainallthedifferentoptionsandvaluesthatcanbeused.Differentdriverversionssupportdifferentoptions.
+参数:
+  参数              id                  Is a connection id or result id on which to change the settings.       For SQLSetConnectOption(), this is a connection id.       For SQLSetStmtOption(), this is a result id.                        function                  Is the ODBC function to use. The value should be       1 for SQLSetConnectOption() and       2 for SQLSetStmtOption().                        option                  The option to set.                        param                  The value for the given option.                     
+返回值:
+  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。   
+示例:
+
+<?php
+// 1. Option 102 of SQLSetConnectOption() is SQL_AUTOCOMMIT.
+//    Value 1 of SQL_AUTOCOMMIT is SQL_AUTOCOMMIT_ON.
+//    This example has the same effect as
+//    odbc_autocommit($conn, true);
+odbc_setoption($conn, 1, 102, 1);
+// 2. Option 0 of SQLSetStmtOption() is SQL_QUERY_TIMEOUT.
+//    This example sets the query to timeout after 30 seconds.
+$result = odbc_prepare($conn, $sql);
+odbc_setoption($result, 2, 0, 30);
+odbc_execute($result);
+?>

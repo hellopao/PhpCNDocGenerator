@@ -1,0 +1,30 @@
+语法:
+     bool ftp_fget      ( resource $ftp_stream     , resource $handle     , string $remote_file     , int $mode   [, int $resumepos = 0    ] )
+说明:
+ftp_fget()函数用来下载由remote_file指定的文件，并写入到本地已经被打开的一个文件中。
+参数:
+  参数              ftp_stream                  FTP 连接的链接标识符。                        handle                  本地已经打开的文件的句柄。                        remote_file                  远程文件的路径。                        mode                  传送模式参数，     必须是 (文本模式) FTP_ASCII 或 (二进制模式) FTP_BINARY 中的一个。                        resumepos                  远程文件开始下载的位置。                     
+返回值:
+  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。   
+示例:
+
+<?php
+// path to remote file
+$remote_file = 'somefile.txt';
+$local_file = 'localfile.txt';
+// open some file to write to
+$handle = fopen($local_file, 'w');
+// set up basic connection
+$conn_id = ftp_connect($ftp_server);
+// login with username and password
+$login_result = ftp_login($conn_id, $ftp_user_name, $ftp_user_pass);
+// try to download $remote_file and save it to $handle
+if (ftp_fget($conn_id, $handle, $remote_file, FTP_ASCII, 0)) {
+ echo "successfully written to $local_file\n";
+} else {
+ echo "There was a problem while downloading $remote_file to $local_file\n";
+}
+// close the connection and the file handler
+ftp_close($conn_id);
+fclose($handle);
+?>

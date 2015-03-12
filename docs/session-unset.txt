@@ -1,0 +1,7 @@
+语法:
+   void session_unset    ( void   )
+说明:
+Thesession_unset()functionfreesallsessionvariablescurrentlyregistered.
+返回值:
+  返回值     没有返回值。   
+示例:

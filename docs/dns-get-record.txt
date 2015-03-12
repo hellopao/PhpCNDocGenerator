@@ -1,0 +1,155 @@
+语法:
+            array dns_get_record             ( string $hostname            [, int $type = DNS_ANY            [, array &$authns            [, array &$addtl            [, bool &$raw = false        ]]]] )
+说明:
+获取指定主机（hostname）的DNS记录。
+参数:
+        参数                                                        hostname                                                                        主机名（hostname）应该是一个DNS解析生效的域名，例如“www.example.com”。主机名也可以是通过对逆向解析域做DNS逆向域名解析而得到，但是在大多数情况下gethostbyaddr()更加适合做逆向域名解析。                                                Note:                                                             每个DNS标准，邮件地址必须是user.host这样的格式（例如hostmaster.example.com而不是hostmaster@example.com），在使用mail()这个函数之前请检查这个值，有必要的话还需要修改。                                                                                                                            type                                                                        默认情况下，dns_get_record()将会搜索所有与hostname相关的记录，可以通过设置type来限定查询。type的值可以是下面的其中的任何一个： DNS_A，DNS_CNAME，DNS_HINFO，DNS_MX，DNS_NS，DNS_PTR，DNS_SOA，DNS_TXT，DNS_AAAA，DNS_SRV，DNS_NAPTR，DNS_A6，DNS_ALL或者DNS_ANY。                                                Note:                                                             由于dns在各个平台上表现有些不一样，DNS_ANY不会总是返回所有的记录，DNS_ALL虽然慢一些，但是会得到所有的记录，所以使用DNS_ALL更加可靠些。                                                                                                                            authns                                                                        以引用方式传递，如果写了该参数，那么将会得到该解析记录的DNS服务器（Authoritative Name Servers）的信息。                                                                                                addtl                                                                        以引用方式传递，如果填写了该参数，将会得到其他所有的DNS解析记录。                                                                                                raw                                                                        在原生模式下，在进行额外的查询的时候之前我们只执行请求的DNS类型，而不是循环查询所有的类型。                                                                                    
+返回值:
+        返回值                    这个函数返回一个关联数组，如果失败则  或者在失败时返回 FALSE。每个关联数组都至少包含了以下的这些键。            at minimum the following keys:                            Basic DNS attributes                                                                                        Attribute                            Meaning                                                                                                                    host                                                            The record in the DNS namespace to which the rest of the associated data refers.                                                                                                        class                                                            dns_get_record() only returns Internet class records and as                                such this parameter will always return IN.                                                                                                        type                                                            String containing the record type.  Additional attributes will also be contained                                in the resulting array dependant on the value of type. See table below.                                                                                                        ttl                                                            &quot;Time To Live&quot; remaining for this record. This will not equal                                the record&#039;s original ttl, but will rather equal the original ttl minus whatever                                length of time has passed since the authoritative name server was queried.                                                                                                                                                Other keys in associative arrays dependant on &#039;type&#039;                                                                                        Type                            Extra Columns                                                                                                                    A                                                            ip: An IPv4 addresses in dotted decimal notation.                                                                                                        MX                                                            pri: Priority of mail exchanger.                                Lower numbers indicate greater priority.                                target: FQDN of the mail exchanger.                                See also dns_get_mx().                                                                                                        CNAME                                                            target: FQDN of location in DNS namespace to which                                the record is aliased.                                                                                                        NS                                                            target: FQDN of the name server which is authoritative                                for this hostname.                                                                                                        PTR                                                            target: Location within the DNS namespace to which                                this record points.                                                                                                        TXT                                                            txt: Arbitrary string data associated with this record.                                                                                                        HINFO                                                            cpu: IANA number designating the CPU of the machine                                referenced by this record.                                os: IANA number designating the Operating System on                                the machine referenced by this record.                                See IANA&#039;s &raquo;&nbsp;Operating System                                Names for the meaning of these values.                                                                                                        SOA                                                            mname: FQDN of the machine from which the resource                                records originated.                                rname: Email address of the administrative contain                                for this domain.                                serial: Serial # of this revision of the requested                                domain.                                refresh: Refresh interval (seconds) secondary name                                servers should use when updating remote copies of this domain.                                retry: Length of time (seconds) to wait after a                                failed refresh before making a second attempt.                                expire: Maximum length of time (seconds) a secondary                                DNS server should retain remote copies of the zone data without a                                successful refresh before discarding.                                minimum-ttl: Minimum length of time (seconds) a                                client can continue to use a DNS resolution before it should request                                a new resolution from the server.  Can be overridden by individual                                resource records.                                                                                                        AAAA                                                            ipv6: IPv6 address                                                                                                        A6(PHP &gt;= 5.1.0)                                                            masklen: Length (in bits) to inherit from the target                                specified by chain.                                ipv6: Address for this specific record to merge with                                chain.                                chain: Parent record to merge with                                ipv6 data.                                                                                                        SRV                                                            pri: (Priority) lowest priorities should be used first.                                weight: Ranking to weight which of commonly prioritized                                targets should be chosen at random.                                target and port: hostname and port                                where the requested service can be found.                                For additional information see: &raquo;&nbsp;RFC 2782                                                                                                        NAPTR                                                            order and pref: Equivalent to                                pri and weight above.                                flags, services, regex,                                and replacement: Parameters as defined by                                &raquo;&nbsp;RFC 2915.                                                                                                                
+示例:
+
+                    
+<?php
+$result = dns_get_record("php.net");
+print_r($result);
+?>
+以上例程的输出类似于：
+                    
+Array
+(
+    [0] => Array
+        (
+            [host] => php.net
+            [type] => MX
+            [pri] => 5
+            [target] => pair2.php.net
+            [class] => IN
+            [ttl] => 6765
+        )
+    [1] => Array
+        (
+            [host] => php.net
+            [type] => A
+            [ip] => 64.246.30.37
+            [class] => IN
+            [ttl] => 8125
+        )
+)
+
+                    由于我们经常会想获取一个邮件服务器的对应的IP地址的MX记录是否已经生效。在使用dns_get_record()函数之后，addtl能够返回一个相关的数组记录，authns参数则会返回授权服务器的列表信息。
+                
+                    
+<?php
+/* Request "ANY" record for php.net,
+   and create $authns and $addtl arrays
+   containing list of name servers and
+   any additional records which go with
+   them */
+$result = dns_get_record("php.net", DNS_ANY, $authns, $addtl);
+echo "Result = ";
+print_r($result);
+echo "Auth NS = ";
+print_r($authns);
+echo "Additional = ";
+print_r($addtl);
+?>
+以上例程的输出类似于：
+                    
+Result = Array
+(
+    [0] => Array
+        (
+            [host] => php.net
+            [type] => MX
+            [pri] => 5
+            [target] => pair2.php.net
+            [class] => IN
+            [ttl] => 6765
+        )
+    [1] => Array
+        (
+            [host] => php.net
+            [type] => A
+            [ip] => 64.246.30.37
+            [class] => IN
+            [ttl] => 8125
+        )
+)
+Auth NS = Array
+(
+    [0] => Array
+        (
+            [host] => php.net
+            [type] => NS
+            [target] => remote1.easydns.com
+            [class] => IN
+            [ttl] => 10722
+        )
+    [1] => Array
+        (
+            [host] => php.net
+            [type] => NS
+            [target] => remote2.easydns.com
+            [class] => IN
+            [ttl] => 10722
+        )
+    [2] => Array
+        (
+            [host] => php.net
+            [type] => NS
+            [target] => ns1.easydns.com
+            [class] => IN
+            [ttl] => 10722
+        )
+    [3] => Array
+        (
+            [host] => php.net
+            [type] => NS
+            [target] => ns2.easydns.com
+            [class] => IN
+            [ttl] => 10722
+        )
+)
+Additional = Array
+(
+    [0] => Array
+        (
+            [host] => pair2.php.net
+            [type] => A
+            [ip] => 216.92.131.5
+            [class] => IN
+            [ttl] => 6766
+        )
+    [1] => Array
+        (
+            [host] => remote1.easydns.com
+            [type] => A
+            [ip] => 64.39.29.212
+            [class] => IN
+            [ttl] => 100384
+        )
+    [2] => Array
+        (
+            [host] => remote2.easydns.com
+            [type] => A
+            [ip] => 212.100.224.80
+            [class] => IN
+            [ttl] => 81241
+        )
+    [3] => Array
+        (
+            [host] => ns1.easydns.com
+            [type] => A
+            [ip] => 216.220.40.243
+            [class] => IN
+            [ttl] => 81241
+        )
+    [4] => Array
+        (
+            [host] => ns2.easydns.com
+            [type] => A
+            [ip] => 216.220.40.244
+            [class] => IN
+            [ttl] => 81241
+        )
+)

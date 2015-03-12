@@ -1,0 +1,5 @@
+语法:
+   string mcrypt_cfb    ( int $cipher   , string $key   , string $data   , int $mode   , string $iv   )
+说明:
+第一个原型是针对libmcrypt2.2.x的，第二个原型是针对libmcrypt2.4.x及更高版本的。mode可选值为：MCRYPT_ENCRYPT或MCRYPT_DECRYPT。
+示例:

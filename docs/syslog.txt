@@ -1,0 +1,26 @@
+语法:
+   bool syslog    ( int $priority   , string $message   )
+说明:
+syslog()generatesalogmessagethatwillbedistributedbythesystemlogger.
+参数:
+  参数              priority                  priority is a combination of the facility and       the level. Possible values are:               syslog() Priorities (in descending order)                                      Constant           Description                                                 LOG_EMERG           system is unusable                               LOG_ALERT           action must be taken immediately                               LOG_CRIT           critical conditions                               LOG_ERR           error conditions                               LOG_WARNING           warning conditions                               LOG_NOTICE           normal, but significant, condition                               LOG_INFO           informational message                               LOG_DEBUG           debug-level message                                                          message                  The message to send, except that the two characters       %m will be replaced by the error message string       (strerror) corresponding to the present value of       errno.                     
+返回值:
+  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。   
+示例:
+
+<?php
+// open syslog, include the process ID and also send
+// the log to standard error, and use a user defined
+// logging mechanism
+openlog("myScriptLog", LOG_PID | LOG_PERROR, LOG_LOCAL0);
+// some code
+if (authorized_client()) {
+    // do something
+} else {
+    // unauthorized client!
+    // log the attempt
+    $access = date("Y/m/d H:i:s");
+    syslog(LOG_WARNING, "Unauthorized client: $access {$_SERVER['REMOTE_ADDR']} ({$_SERVER['HTTP_USER_AGENT']})");
+}
+closelog();
+?>

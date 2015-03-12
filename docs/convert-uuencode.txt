@@ -1,0 +1,14 @@
+语法:
+   string convert_uuencode    ( string $data   )
+说明:
+convert_uuencode()使用uuencode算法对一个字符串进行编码。
+参数:
+  参数              data                  需要被编码的数据。                     
+返回值:
+  返回值     返回 uuencode 编码后的数据  或者在失败时返回 FALSE。   
+示例:
+
+<?php
+$some_string = "test\ntext text\r\n";
+echo convert_uuencode($some_string);
+?>

@@ -1,0 +1,20 @@
+语法:
+   string ob_get_contents    ( void   )
+说明:
+只是得到输出缓冲区的内容，但不清除它。
+返回值:
+  返回值    此函数返回输出缓冲区的内容，或者如果输出缓冲区无效将返回FALSE 。   
+示例:
+
+<?php
+ob_start();
+echo "Hello ";
+$out1 = ob_get_contents();
+echo "World";
+$out2 = ob_get_contents();
+ob_end_clean();
+var_dump($out1, $out2);
+?>
+以上例程会输出：
+string(6) "Hello "
+string(11) "Hello World"

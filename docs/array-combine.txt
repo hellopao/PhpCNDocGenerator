@@ -1,0 +1,23 @@
+语法:
+      array array_combine       ( array $keys      , array $values      )
+说明:
+返回一个array，用来自keys数组的值作为键名，来自values数组的值作为相应的值。
+参数:
+  参数              keys                  将被作为新数组的键。非法的值将会被转换为字符串类型（string）。                        values                  将被作为数组的值。                     
+返回值:
+  返回值     返回合并的 array，如果两个数组的单元数不同则返回 FALSE。   
+示例:
+
+<?php
+$a = array('green', 'red', 'yellow');
+$b = array('avocado', 'apple', 'banana');
+$c = array_combine($a, $b);
+print_r($c);
+?>
+以上例程会输出：
+Array
+(
+    [green]  => avocado
+    [red]    => apple
+    [yellow] => banana
+)

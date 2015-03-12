@@ -1,0 +1,9 @@
+语法:
+   resource stream_socket_accept    ( resource $server_socket   [, float $timeout = ini_get(&quot;default_socket_timeout&quot;)   [, string &$peername  ]] )
+说明:
+接受由stream_socket_server()创建的套接字连接。
+参数:
+  参数              server_socket                  需要接受的服务器创建的套接字连接。                        timeout                  覆盖默认的套接字接受的超时时限。输入的时间需以秒为单位。                        peername                  如果包含该参数并且是可以从选中的传输数据中获取到，则将被设置给连接中的客户端主机的名称（地址）（怕出入很大，附带上原文：Will be set to the name (address) of the client which connected, if       included and available from the selected transport.）            Note:                也可以之后通过 stream_socket_get_name() 来确定。                            
+返回值:
+  返回值     返回接受套接之后的资源流  或者在失败时返回 FALSE。   
+示例:

@@ -1,0 +1,30 @@
+语法:
+   string wordwrap    ( string $str   [, int $width = 75   [, string $break = &quot;\n&quot;   [, bool $cut = false  ]]] )
+说明:
+使用字符串断点将字符串打断为指定数量的字串。
+参数:
+  参数              str                  输入字符串。                        width                  列宽度。                        break                  使用可选的 break 参数打断字符串。                        cut                  如果 cut 设置为 TRUE，字符串总是在指定的宽度或者之前位置被打断。因此，如果有的单词宽度超过了给定的宽度，它将被分隔开来。（参见第二个范例）。                     
+返回值:
+  返回值     返回打断后的字符串。   
+示例:
+
+<?php
+$text = "The quick brown fox jumped over the lazy dog.";
+$newtext = wordwrap($text, 20, "<br />\n");
+echo $newtext;
+?>
+以上例程会输出：
+The quick brown fox<br />
+jumped over the lazy<br />
+dog.
+
+<?php
+$text = "A very long woooooooooooord.";
+$newtext = wordwrap($text, 8, "\n", true);
+echo "$newtext\n";
+?>
+以上例程会输出：
+A very
+long
+wooooooo
+ooooord.

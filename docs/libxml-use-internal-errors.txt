@@ -1,0 +1,27 @@
+语法:
+   bool libxml_use_internal_errors    ([ bool $use_errors = false  ] )
+说明:
+libxml_use_internal_errors()allowsyoutodisablestandardlibxmlerrorsandenableusererrorhandling.
+参数:
+  参数              use_errors                     Enable (TRUE) user error handling or disable (FALSE) user error handling. Disabling will also clear any existing libxml errors.                        
+返回值:
+  返回值     This function returns the previous value of   use_errors.   
+示例:
+
+     This example demonstrates the basic usage of libxml errors and the value
+     returned by this function.
+    
+<?php
+// enable user error handling
+var_dump(libxml_use_internal_errors(true));
+// load the document
+$doc = new DOMDocument;
+if (!$doc->load('file.xml')) {
+    foreach (libxml_get_errors() as $error) {
+        // handle errors here
+    }
+    libxml_clear_errors();
+}
+?>
+以上例程会输出：
+bool(false)

@@ -1,0 +1,13 @@
+语法:
+    float tan     ( float $arg    )
+说明:
+tan()返回参数arg的正切值。参数arg的单位为弧度。
+参数:
+  参数              arg                  要处理的以弧度为单位的参数                     
+返回值:
+  返回值     arg 的正切值   
+示例:
+
+<?php
+echo tan(M_PI_4); // 1
+?>

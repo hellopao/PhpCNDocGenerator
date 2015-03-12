@@ -1,0 +1,25 @@
+语法:
+   bool dl    ( string $library   )
+说明:
+载入指定参数library的PHP扩展。
+参数:
+  参数              library                  此参数仅仅是要加载的扩展的文件名，依赖于你的平台。       比如，sockets（作为共享模块编译，而不是默认的！）在 Unix 平台上称为 sockets.so 而 在 Windows 平台上是 php_sockets.dll。                   扩展加载的目录依赖于你的平台：                   Windows - 如果没有在 php.ini 里明确设置，扩展默认会从 C:\php4\extensions\ (PHP 4) 或 C:\php5\ (PHP 5)加载。                   Unix - 如果没有在 php.ini 里明确设置，默认的扩展目录依赖于                                  PHP 是否通过 --enable-debug 选项构建                                            PHP 是否以（实验性质的）ZTS （Zned 线程安全）支持构建                                            当前的内部 ZEND_MODULE_API_NO（Zend 内部模块 API 数字，基本上是主要模块修改时的日期）                               考虑到上述，目录默认为 &lt;install-dir&gt;/lib/php/extensions/ &lt;debug-or-not&gt;-&lt;zts-or-not&gt;-ZEND_MODULE_API_NO，例如       /usr/local/php/lib/php/extensions/debug-non-zts-20010901       或       /usr/local/php/lib/php/extensions/no-debug-zts-20010901。                     
+返回值:
+  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。 如果加载模块的功能是无效或者禁用的（既可以通过设置关闭 enable_dl 设置，也可以通过启用 php.ini 里的 安全模式）将导致一个 E_ERROR 并中断执行。   如果因为指定的库无法加载而导致 dl() 失败，除了返回 FALSE，还会产生一个 E_WARNING 的消息。   
+示例:
+
+<?php
+// 加载一个扩展的例子，基于操作系统
+if (!extension_loaded('sqlite')) {
+    if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+        dl('php_sqlite.dll');
+    } else {
+        dl('sqlite.so');
+    }
+}
+// 或者，PHP_SHLIB_SUFFIX 常量在 PHP 4.3.0 后有效
+if (!extension_loaded('sqlite')) {
+    $prefix = (PHP_SHLIB_SUFFIX === 'dll') ? 'php_' : '';
+    dl($prefix . 'sqlite.' . PHP_SHLIB_SUFFIX);
+}
+?>

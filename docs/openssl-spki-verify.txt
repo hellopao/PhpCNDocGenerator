@@ -1,0 +1,32 @@
+语法:
+   string openssl_spki_verify    ( string &$spkac   )
+说明:
+Validatesthesuppliedsignedpublickeyandchallenge
+参数:
+  参数           spkac                   Expects a valid signed public key and challenge                   
+返回值:
+  返回值     Returns a boolean on success or failure.   
+示例:
+
+      Validates an existing signed public key and challenge
+   
+<?php
+$pkey = openssl_pkey_new('secret password');
+$spkac = openssl_spki_new($pkey, 'challenge string');
+if (openssl_spki_verify(preg_replace('/SPKAC=/', '', $spkac))) {
+    echo $spkac;
+} else {
+    echo "SPKAC validation failed";
+}
+?>
+
+      Validates an existing signed public key and challenge issued from the <keygen> element
+   
+<?php
+if (openssl_spki_verify(preg_replace('/SPKAC=/', '', $_POST['spkac']))) {
+    echo $spkac;
+} else {
+    echo "SPKAC validation failed";
+}
+?>
+<keygen name="spkac" challenge="challenge string" keytype="RSA">

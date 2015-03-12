@@ -1,0 +1,63 @@
+语法:
+   array scandir    ( string $directory   [, int $sorting_order   [, resource $context  ]] )
+说明:
+返回一个array，包含有directory中的文件和目录。
+参数:
+  参数              directory                  要被浏览的目录                        sorting_order                  默认的排序顺序是按字母升序排列。如果使用了可选参数       sorting_order（设为       1），则排序顺序是按字母降序排列。                        context                  context 参数的说明见手册中的       Streams API 一章。                     
+返回值:
+  返回值     成功则返回包含有文件名的 array，如果失败则返回   FALSE。如果 directory   不是个目录，则返回布尔值 FALSE 并生成一条   E_WARNING 级的错误。   
+示例:
+
+<?php
+$dir    = '/tmp';
+$files1 = scandir($dir);
+$files2 = scandir($dir, 1);
+print_r($files1);
+print_r($files2);
+?>
+以上例程的输出类似于：
+Array
+(
+    [0] => .
+    [1] => ..
+    [2] => bar.php
+    [3] => foo.txt
+    [4] => somedir
+)
+Array
+(
+    [0] => somedir
+    [1] => foo.txt
+    [2] => bar.php
+    [3] => ..
+    [4] => .
+)
+
+<?php
+$dir = "/tmp";
+$dh  = opendir($dir);
+while (false !== ($filename = readdir($dh))) {
+    $files[] = $filename;
+}
+sort($files);
+print_r($files);
+rsort($files);
+print_r($files);
+?>
+以上例程的输出类似于：
+Array
+(
+    [0] => .
+    [1] => ..
+    [2] => bar.php
+    [3] => foo.txt
+    [4] => somedir
+)
+Array
+(
+    [0] => somedir
+    [1] => foo.txt
+    [2] => bar.php
+    [3] => ..
+    [4] => .
+)

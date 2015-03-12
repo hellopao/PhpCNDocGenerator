@@ -1,0 +1,9 @@
+语法:
+   int cal_to_jd    ( int $calendar   , int $month   , int $day   , int $year   )
+说明:
+cal_to_jd()函数从一个给定的历法日期计算出Julian天数，支持的历法有CAL_GREGORIAN，CAL_JULIAN，CAL_JEWISH和CAL_FRENCH。
+参数:
+  参数              calendar                  选定的历法，可以是CAL_GREGORIAN，CAL_JULIAN，CAL_JEWISH或CAL_FRENCH中的某一个。                        month                  数字形式的月份，根据选定的calendar历法来确定范围。                        day                  数字形式的日期，根据选定的calendar历法来确定范围。                        year                  数字形式的年份，根据选定的calendar历法来确定范围。                       
+返回值:
+  返回值     一个Julian天数。   
+示例:

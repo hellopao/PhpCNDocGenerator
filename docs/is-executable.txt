@@ -1,0 +1,18 @@
+语法:
+   bool is_executable    ( string $filename   )
+说明:
+判断给定文件名是否可执行。
+参数:
+  参数              filename                  文件的路径。                     
+返回值:
+  返回值     如果文件存在且可执行则返回 TRUE，错误时返回FALSE。   
+示例:
+
+<?php
+$file = '/home/vincent/somefile.sh';
+if (is_executable($file)) {
+    echo $file.' is executable';
+} else {
+    echo $file.' is not executable';
+}
+?>

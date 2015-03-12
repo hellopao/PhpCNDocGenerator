@@ -1,0 +1,15 @@
+语法:
+   string sys_get_temp_dir    ( void   )
+说明:
+返回PHP储存临时文件的默认目录的路径。
+返回值:
+  返回值     返回临时目录的路径。   
+示例:
+
+<?php
+// 使用 sys_get_temp_dir() 在目录里创建临时文件
+$temp_file = tempnam(sys_get_temp_dir(), 'Tux');
+echo $temp_file;
+?>
+以上例程的输出类似于：
+C:\Windows\Temp\TuxA318.tmp

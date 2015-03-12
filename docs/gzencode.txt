@@ -1,0 +1,17 @@
+语法:
+   string gzencode    ( string $data   [, int $level = -1   [, int $encoding_mode = FORCE_GZIP  ]] )
+说明:
+Thisfunctionreturnsacompressedversionoftheinputdatacompatiblewiththeoutputofthegzipprogram.
+参数:
+  参数              data                  The data to encode.                        level                  The level of compression. Can be given as 0 for no compression up to 9       for maximum compression. If not given, the default compression level will       be the default compression level of the zlib library.                        encoding_mode                  The encoding mode. Can be FORCE_GZIP (the default)       or FORCE_DEFLATE.                    Prior to PHP 5.4.0, using FORCE_DEFLATE results in       a standard zlib deflated string (inclusive zlib headers) after a gzip       file header but without the trailing crc32 checksum.                   In PHP 5.4.0 and later, FORCE_DEFLATE generates       RFC 1950 compliant output, consisting of a zlib header, the deflated       data, and an Adler checksum.                     
+返回值:
+  返回值     The encoded string, or FALSE if an error occurred.   
+示例:
+
+<?php
+$data = implode("", file("bigfile.txt"));
+$gzdata = gzencode($data, 9);
+$fp = fopen("bigfile.txt.gz", "w");
+fwrite($fp, $gzdata);
+fclose($fp);
+?>

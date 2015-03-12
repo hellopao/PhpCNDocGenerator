@@ -1,0 +1,15 @@
+语法:
+     string mysql_escape_string      ( string $unescaped_string     )
+说明:
+本函数将unescaped_string转义，使之可以安全用于mysql_query()。
+示例:
+
+<?php
+    $item = "Zak's Laptop";
+    $escaped_item = mysql_escape_string($item);
+    printf ("Escaped string: %s\n", $escaped_item);
+?>
+
+       以上例子将产生如下输出：
+      
+Escaped string: Zak\&#039;s Laptop

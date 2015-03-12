@@ -1,0 +1,25 @@
+语法:
+      mixed array_shift       ( array &$array      )
+说明:
+array_shift()将array的第一个单元移出并作为结果返回，将array的长度减一并将所有其它单元向前移动一位。所有的数字键名将改为从零开始计数，文字键名将不变。
+参数:
+  参数              array                  输入的数组。                     
+返回值:
+  返回值     返回移出的值，如果 array 为 空或不是一个数组则返回 NULL。   
+示例:
+
+<?php
+$stack = array("orange", "banana", "apple", "raspberry");
+$fruit = array_shift($stack);
+print_r($stack);
+?>
+以上例程会输出：
+Array
+(
+    [0] => banana
+    [1] => apple
+    [2] => raspberry
+)
+
+      并且 orange 被赋给了 $fruit。
+     

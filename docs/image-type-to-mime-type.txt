@@ -1,0 +1,9 @@
+语法:
+    string image_type_to_mime_type     ( int $imagetype    )
+说明:
+image_type_to_mime_type()函数可以判断一个IMAGETYPE常量的MIME类型。Example#1image_type_to_mime_type(file)
+示例:
+
+<?php
+header("Content-type: " . image_type_to_mime_type(IMAGETYPE_PNG));
+?>

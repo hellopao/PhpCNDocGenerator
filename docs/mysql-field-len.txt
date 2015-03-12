@@ -1,0 +1,5 @@
+语法:
+      int mysql_field_len       ( resource $result      , int $field_offset      )
+说明:
+mysql_field_len()返回指定字段的长度。
+示例:

@@ -1,0 +1,5 @@
+语法:
+      resource mysql_pconnect       ([ string $server       [, string $username      [, string $password      [, int $client_flags     ]]]] )
+说明:
+如果成功则返回一个正的MySQL持久连接标识符，出错则返回FALSE。
+示例:

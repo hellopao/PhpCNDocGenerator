@@ -1,0 +1,38 @@
+语法:
+   array array_diff_uassoc    ( array $array1   , array $array2   [, array $...   ], callable $key_compare_func   )
+说明:
+对比了array1和array2并返回不同之处。注意和array_diff()不同的是键名也用于比较。
+参数:
+  参数              array1                  待比较的数组                        array2                  和这个数组进行比较                        ...                  更多比较的数组                        key_compare_func                  在第一个参数小于，等于或大于第二个参数时，该比较函数必须相应地返回一个小于，等于或大于 0 的整数。            int callback ( mixed $a, mixed $b )
+返回值:
+  返回值     返回一个 array，该数组包括了所有在   array1 中但是不在任何其它参数数组中的值。   
+示例:
+
+     上面的例子中 "a" => "green"
+   出现在两个数组中因此不在函数的输出中。但是
+   0 => "red" 却在输出中，因为第二个参数中的
+   "red" 的键名是 1。
+    
+<?php
+function key_compare_func($a, $b)
+{
+    if ($a === $b) {
+        return 0;
+    }
+    return ($a > $b)? 1:-1;
+}
+$array1 = array("a" => "green", "b" => "brown", "c" => "blue", "red");
+$array2 = array("a" => "green", "yellow", "red");
+$result = array_diff_uassoc($array1, $array2, "key_compare_func");
+print_r($result);
+?>
+以上例程会输出：
+Array
+(
+    [b] => brown
+    [c] => blue
+    [0] => red
+)
+
+     The equality of 2 indices is checked by the user supplied callback function.
+    

@@ -1,0 +1,38 @@
+语法:
+   mixed forward_static_call    ( callable $function   [, mixed $parameter   [, mixed $...  ]] )
+说明:
+Callsauserdefinedfunctionormethodgivenbythefunctionparameter,withthefollowingarguments.Thisfunctionmustbecalledwithinamethodcontext,itcan&#039;tbeusedoutsideaclass.Itusesthelatestaticbinding.
+参数:
+  参数              function                  The function or method to be called. This parameter may be an array,       with the name of the class, and the method, or a string, with a function       name.                        parameter                  Zero or more parameters to be passed to the function.                     
+返回值:
+  返回值     Returns the function result, or FALSE on error.   
+示例:
+
+<?php
+class A
+{
+    const NAME = 'A';
+    public static function test() {
+        $args = func_get_args();
+        echo static::NAME, " ".join(',', $args)." \n";
+    }
+}
+class B extends A
+{
+    const NAME = 'B';
+    public static function test() {
+        echo self::NAME, "\n";
+        forward_static_call(array('A', 'test'), 'more', 'args');
+        forward_static_call( 'test', 'other', 'args');
+    }
+}
+B::test('foo');
+function test() {
+        $args = func_get_args();
+        echo "C ".join(',', $args)." \n";
+    }
+?>
+以上例程会输出：
+B
+B more,args 
+C other,args

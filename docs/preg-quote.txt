@@ -1,0 +1,24 @@
+语法:
+   string preg_quote    ( string $str  [, string $delimiter = NULL  ] )
+说明:
+preg_quote()需要参数str并向其中每个正则表达式语法中的字符前增加一个反斜线。这通常用于你有一些运行时字符串需要作为正则表达式进行匹配的时候。
+参数:
+  参数              str                  输入字符串                        delimiter                 如果指定了可选参数 delimiter，它也会被转义。这通常用于      转义PCRE函数使用的分隔符。 /是最通用的分隔符。                     
+返回值:
+  返回值     返回转义后的字符串。   
+示例:
+
+<?php
+$keywords = '$40 for a g3/400';
+$keywords = preg_quote($keywords, '/');
+echo $keywords; // 返回 \$40 for a g3\/400
+?>
+
+<?php
+//在这个例子中，preg_quote($word) 用于保持星号原文涵义，使其不使用正则表达式中的特殊语义。
+$textbody = "This book is *very* difficult to find.";
+$word = "*very*";
+$textbody = preg_replace ("/" . preg_quote($word) . "/",
+                          "<i>" . $word . "</i>",
+                          $textbody);
+?>

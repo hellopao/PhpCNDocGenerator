@@ -1,0 +1,7 @@
+语法:
+   int printf    ( string $format   [, mixed $args   [, mixed $...  ]] )
+参数:
+  参数              format                  format 描述信息，请参见 sprintf()。                        args                                   ...                                
+返回值:
+  返回值     返回输出字符串的长度。   
+示例:

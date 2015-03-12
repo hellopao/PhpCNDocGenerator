@@ -1,0 +1,33 @@
+语法:
+   array array_fill    ( int $start_index   , int $num   , mixed $value   )
+说明:
+array_fill()用value参数的值将一个数组填充num个条目，键名由start_index参数指定的开始。
+参数:
+    参数                            start_index                        返回的数组的第一个索引值。                         如果 start_index 是负数，         那么返回的数组的第一个索引将会是         start_index ，而后面索引则从0开始。            (参见 例子)。                                        num                        插入元素的数量。         必须大于 0。                                        value                        用来填充的值。                                       
+返回值:
+    返回值         返回填充后的数组。       
+示例:
+
+<?php
+$a = array_fill(5, 6, 'banana');
+$b = array_fill(-2, 4, 'pear');
+print_r($a);
+print_r($b);
+?>
+以上例程会输出：
+Array
+(
+    [5]  => banana
+    [6]  => banana
+    [7]  => banana
+    [8]  => banana
+    [9]  => banana
+    [10] => banana
+)
+Array
+(
+    [-2] => pear
+    [0] => pear
+    [1] => pear
+    [2] => pear
+)

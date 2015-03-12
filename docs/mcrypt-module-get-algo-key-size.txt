@@ -1,0 +1,9 @@
+语法:
+   int mcrypt_module_get_algo_key_size    ( string $algorithm   [, string $lib_dir  ] )
+说明:
+获取打开模式所支持的最大密钥大小。
+参数:
+  参数              algorithm                  算法名称。                        lib_dir                  可选参数，       表示在操作系统上包含模式模块的路径。                     
+返回值:
+  返回值     本函数返回算法所支持的最大密钥大小，   以字节为单位。   
+示例:

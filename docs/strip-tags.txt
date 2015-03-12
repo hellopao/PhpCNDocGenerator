@@ -1,0 +1,20 @@
+语法:
+   string strip_tags    ( string $str   [, string $allowable_tags  ] )
+说明:
+该函数尝试返回给定的字符串str去除空字符、HTML和PHP标记后的结果。它使用与函数fgetss()一样的机制去除标记。
+参数:
+  参数              str                  输入字符串。                        allowable_tags                  使用可选的第二个参数指定不被去除的字符列表。            Note:                HTML 注释和 PHP 标签也会被去除。这里是硬编码处理的，所以无法通过 allowable_tags 参数进行改变。                   Note:                This parameter should not contain whitespace.        strip_tags() sees a tag as a case-insensitive        string between &lt; and the first whitespace or        &gt;. It means that        strip_tags(&quot;&lt;br/&gt;&quot;, &quot;&lt;br&gt;&quot;) returns an        empty string.                            
+返回值:
+  返回值     返回处理后的字符串。   
+示例:
+
+<?php
+$text = '<p>Test paragraph.</p><!-- Comment --> <a href="#fragment">Other text</a>';
+echo strip_tags($text);
+echo "\n";
+// 允许 <p> 和 <a>
+echo strip_tags($text, '<p><a>');
+?>
+以上例程会输出：
+Test paragraph. Other text
+<p>Test paragraph.</p> <a href="#fragment">Other text</a>

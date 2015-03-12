@@ -1,0 +1,23 @@
+语法:
+   bool ctype_alnum    ( string $text   )
+说明:
+检查提供的string,text是否全部为字母和(或)数字字符。
+参数:
+  参数              text                  测试字符串。                     
+返回值:
+   返回值     如果text中所有的字符全部是字母和(或者)数字，返回 TRUE    否则返回FALSE    
+示例:
+
+<?php
+$strings = array('AbCd1zyZ9', 'foo!#$bar');
+foreach ($strings as $testcase) {
+    if (ctype_alnum($testcase)) {
+        echo "The string $testcase consists of all letters or digits.\n";
+    } else {
+        echo "The string $testcase does not consist of all letters or digits.\n";
+    }
+}
+?>
+以上例程会输出：
+The string AbCd1zyZ9 consists of all letters or digits.
+The string foo!#$bar does not consist of all letters or digits.

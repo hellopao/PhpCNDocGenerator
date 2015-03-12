@@ -1,0 +1,32 @@
+语法:
+   bool chown    ( string $filename   , mixed $user   )
+说明:
+尝试将文件filename的所有者改成用户user（由用户名或用户ID指定）。只有超级用户可以改变文件的所有者。
+参数:
+  参数              filename                  文件路径。                        user                  用户名或数字。                     
+返回值:
+  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。   
+示例:
+
+<?php
+// File name and username to use
+$file_name= "foo.php";
+$path = "/home/sites/php.net/public_html/sandbox/" . $file_name ;
+$user_name = "root";
+// Set the user
+chown($path, $user_name);
+// Check the result
+$stat = stat($path);
+print_r(posix_getpwuid($stat['uid']));
+?>
+以上例程的输出类似于：
+Array
+(
+    [name] => root
+    [passwd] => x
+    [uid] => 0
+    [gid] => 0
+    [gecos] => root
+    [dir] => /root
+    [shell] => /bin/bash
+)

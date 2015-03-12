@@ -1,0 +1,30 @@
+语法:
+   bool phpcredits    ([ int $flag = CREDITS_ALL  ] )
+说明:
+这个函数打印出了PHP开发者、模块等贡献者名单。它生成了合适、可嵌入信息到页面中的HTML代码。
+参数:
+  参数              flag                  生成自定义的贡献者页面，你也许想要使用 flag 参数。                           预定义的 phpcredits() flags                                      名称           描述                                                 CREDITS_ALL                       所有贡献者，等同于使用： CREDITS_DOCS +            CREDITS_GENERAL + CREDITS_GROUP +            CREDITS_MODULES + CREDITS_FULLPAGE。            它以适当的标签产生了完整独立的 HTML 页面。                                          CREDITS_DOCS           文档组贡献名单                               CREDITS_FULLPAGE                       常用于和其他标志进行组合。            表示需要打印包含其他标志表示信息的独立 HTML 页面。                                          CREDITS_GENERAL                       普遍名单：语言设计与理念、PHP作者以及 SAPI 模块。                                          CREDITS_GROUP           核心开发者名单                               CREDITS_MODULES                       PHP 扩展模块以及它们的作者的清单                                          CREDITS_SAPI                       PHP 的服务器 API 模块以及他们的作者的清单                                                                  
+返回值:
+  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。   
+示例:
+
+<?php
+phpcredits(CREDITS_GENERAL);
+?>
+
+<?php
+phpcredits(CREDITS_GROUP | CREDITS_DOCS | CREDITS_FULLPAGE);
+?>
+
+<html>
+ <head>
+  <title>My credits page</title>
+ </head>
+ <body>
+<?php
+// 一些你自己的代码
+phpcredits(CREDITS_ALL - CREDITS_FULLPAGE);
+// 一些其他的代码
+?>
+ </body>
+</html>

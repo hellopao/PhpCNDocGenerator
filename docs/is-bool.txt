@@ -1,0 +1,18 @@
+语法:
+       bool is_bool        ( mixed $var      )
+说明:
+如果var是boolean则返回TRUE。
+示例:
+
+<?php
+$a = false;
+$b = 0;
+// 因为 $a 是布尔型，所以结果为真
+if (is_bool($a)) {
+    print "Yes, this is a boolean";
+}
+// 因为 $b 不是布尔型，所以结果为非真
+if (is_bool($b)) {
+    print "Yes, this is a boolean";
+}
+?>

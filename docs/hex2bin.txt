@@ -1,0 +1,16 @@
+语法:
+   string hex2bin    ( string $data   )
+说明:
+转换十六进制字符串为二进制字符串。
+参数:
+  参数         data               十六进制表示的数据               
+返回值:
+  返回值     返回给定数据的二进制表示  或者在失败时返回 FALSE。   
+示例:
+
+<?php
+$hex = hex2bin("6578616d706c65206865782064617461");
+var_dump($hex);
+?>
+以上例程的输出类似于：
+string(16) "example hex data"

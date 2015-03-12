@@ -1,0 +1,16 @@
+语法:
+   int mhash_count    ( void   )
+说明:
+GetsthehighestavailablehashID.
+返回值:
+  返回值     Returns the highest available hash ID. Hashes are numbered from 0 to this   hash ID.   
+示例:
+
+<?php
+$nr = mhash_count();
+for ($i = 0; $i <= $nr; $i++) {
+    echo sprintf("The blocksize of %s is %d\n",
+        mhash_get_hash_name($i),
+        mhash_get_block_size($i));
+}
+?>

@@ -1,0 +1,18 @@
+语法:
+   string sha1_file    ( string $filename   [, bool $raw_output = false  ] )
+参数:
+  参数              filename                  要散列的文件的文件名。                        raw_output                  如果被设置为 TRUE，sha1 摘要将以 20 字符长度的原始格式返回。                     
+返回值:
+  返回值     成功返回一个字符串，否则返回 FALSE。   
+示例:
+
+<?php
+foreach(glob('/home/Kalle/myproject/*.php') as $ent)
+{
+    if(is_dir($ent))
+    {
+        continue;
+    }
+    echo $ent . ' (SHA1: ' . sha1_file($ent) . ')', PHP_EOL;
+}
+?>

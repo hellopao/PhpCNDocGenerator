@@ -1,0 +1,13 @@
+语法:
+   string escapeshellarg    ( string $arg   )
+说明:
+escapeshellarg()将给字符串增加一个单引号并且能引用或者转码任何已经存在的单引号，这样以确保能够直接将一个字符串传入shell函数，并且还是确保安全的。对于用户输入的部分参数就应该使用这个函数。shell函数包含exec(),system()执行运算符。
+参数:
+  参数              arg                  需要被转码的参数。                     
+返回值:
+  返回值     转换之后字符串。   
+示例:
+
+<?php
+system('ls '.escapeshellarg($dir));
+?>

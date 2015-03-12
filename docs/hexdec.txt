@@ -1,0 +1,17 @@
+语法:
+   number hexdec    ( string $hex_string   )
+说明:
+返回与hex_string参数所表示的十六进制数等值的的十进制数。hexdec()将一个十六进制字符串转换为十进制数。
+参数:
+    参数                      hex_string                        要转换的十六进制的字符串                                 
+返回值:
+    返回值     hex_string 十进制的表示       
+示例:
+
+<?php
+var_dump(hexdec("See"));
+var_dump(hexdec("ee"));
+// both print "int(238)"
+var_dump(hexdec("that")); // print "int(10)"
+var_dump(hexdec("a0")); // print "int(160)"
+?>

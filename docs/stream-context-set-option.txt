@@ -1,0 +1,7 @@
+语法:
+   bool stream_context_set_option    ( resource $stream_or_context   , string $wrapper   , string $option   , mixed $value   )
+参数:
+  参数              stream_or_context                  需要添加参数的资源流或者上下文。                        options                  添加给默认的上下文的参数。            Note:                options 必须是一个 $arr[&#039;wrapper&#039;][&#039;option&#039;] = $value 格式二维关联数组 。                      请参考 context options and parameters 查看资源流参数列表。                             
+返回值:
+  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。   
+示例:

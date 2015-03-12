@@ -1,0 +1,17 @@
+语法:
+     int mysql_thread_id      ([ resource $link_identifier    ] )
+说明:
+mysql_thread_id()返回当前线程的ID。如果连接丢失了并用mysql_ping()重新连接上，线程ID会改变。这意味着不能取得线程的ID后保存起来备用。当需要的时候再去获取之。
+示例:
+
+<?php
+$link = mysql_connect('localhost', 'mysql_user', 'mysql_password');
+$thread_id = mysql_thread_id($link);
+if ($thread_id){
+    printf ("current thread id is %d\n", $thread_id);
+}
+?>
+
+       以上例子将产生如下输出：
+      
+current thread id is 73

@@ -1,0 +1,23 @@
+语法:
+   bool stream_filter_remove    ( resource $stream_filter   )
+说明:
+移除之前通过stream_filter_prepend()或者stream_filter_append()添加到资源流里面的过滤器。在移除之前，残留在过滤器内部缓冲区里的所有数据刷新到下一个过滤器。
+参数:
+  参数              stream_filter                  需要被移除的资源流过滤器。                     
+返回值:
+  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。   
+示例:
+
+<?php
+/* Open a test file for reading and writing */
+$fp = fopen("test.txt", "rw");
+$rot13_filter = stream_filter_append($fp, "string.rot13", STREAM_FILTER_WRITE);
+fwrite($fp, "This is ");
+stream_filter_remove($rot13_filter);
+fwrite($fp, "a test\n");
+rewind($fp);
+fpassthru($fp);
+fclose($fp);
+?>
+以上例程会输出：
+Guvf vf a test

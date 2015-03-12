@@ -1,0 +1,5 @@
+语法:
+   int getmyuid    ( void   )
+返回值:
+  返回值     返回当前脚本的用户 ID，或在错误时返回 FALSE。   
+示例:

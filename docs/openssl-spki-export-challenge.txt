@@ -1,0 +1,24 @@
+语法:
+   string openssl_spki_export_challenge    ( string &$spkac   )
+说明:
+Exportschallengefromencodedsignedpublickeyandchallenge
+参数:
+  参数           spkac                   Expects a valid signed public key and challenge                   
+返回值:
+  返回值     Returns the associated challenge string or NULL on failure.   
+示例:
+
+      Extracts the associated challenge string or NULL on failure.
+   
+<?php
+$pkey = openssl_pkey_new('secret password');
+$spkac = openssl_spki_new($pkey, 'challenge string');
+$challenge = openssl_spki_export_challenge(preg_replace('/SPKAC=/', '', $spkac));
+?>
+
+      Extracts the associated challenge string issued from the <keygen> element 
+   
+<?php
+$challenge = openssl_spki_export_challenge(preg_replace('/SPKAC=/', '', $_POST['spkac']));
+?>
+<keygen name="spkac" challenge="challenge string" keytype="RSA">

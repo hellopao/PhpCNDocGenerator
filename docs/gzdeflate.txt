@@ -1,0 +1,14 @@
+语法:
+   string gzdeflate    ( string $data   [, int $level = -1   [, int $encoding = ZLIB_ENCODING_RAW  ]] )
+说明:
+ThisfunctioncompressesthegivenstringusingtheDEFLATEdataformat.
+参数:
+  参数              data                  The data to deflate.                        level                  The level of compression. Can be given as 0 for no compression up to 9       for maximum compression. If not given, the default compression level will       be the default compression level of the zlib library.                        encoding                  One of ZLIB_ENCODING_* constants.                     
+返回值:
+  返回值     The deflated string or FALSE if an error occurred.   
+示例:
+
+<?php
+$compressed = gzdeflate('Compress me', 9);
+echo $compressed;
+?>

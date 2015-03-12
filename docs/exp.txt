@@ -1,0 +1,17 @@
+语法:
+      float exp       ( float $arg      )
+说明:
+返回e的arg次方值。
+参数:
+  参数              arg                  要处理的参数                     
+返回值:
+  返回值     &#039;e&#039; raised to the power of arg   
+示例:
+
+<?php
+echo exp(12) . "\n";
+echo exp(5.7);
+?>
+以上例程会输出：
+1.6275E+005
+298.87

@@ -1,0 +1,9 @@
+语法:
+   int mcrypt_enc_self_test    ( resource $td   )
+说明:
+在td指定的算法上进行自检操作。
+参数:
+  参数              td                  加密描述符。                     
+返回值:
+  返回值     自检成功，返回 FALSE，   如果发生错误，返回 TRUE。   
+示例:

@@ -1,0 +1,27 @@
+语法:
+   string number_format    ( float $number   [, int $decimals = 0  ] )
+说明:
+本函数可以接受1个、2个或者4个参数（注意：不能是3个）:
+参数:
+  参数              number                  你要格式化的数字                        decimals                  要保留的小数位数                        dec_point                  指定小数点显示的字符                        thousands_sep                  指定千位分隔符显示的字符                     
+返回值:
+  返回值     格式化以后的 number.   
+示例:
+
+     For instance, French notation usually use two decimals,
+     comma (&#039;,&#039;) as decimal separator, and space (&#039; &#039;) as
+     thousand separator. This is achieved with this line :
+    
+<?php
+$number = 1234.56;
+// english notation (default)
+$english_format_number = number_format($number);
+// 1,235
+// French notation
+$nombre_format_francais = number_format($number, 2, ',', ' ');
+// 1 234,56
+$number = 1234.5678;
+// english notation without thousands separator
+$english_format_number = number_format($number, 2, '.', '');
+// 1234.57
+?>

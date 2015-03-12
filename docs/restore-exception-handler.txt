@@ -1,0 +1,24 @@
+语法:
+   bool restore_exception_handler    ( void   )
+说明:
+在使用set_exception_handler()改变异常处理函数之后，此函数可以用于还原之前的异常处理程序(可以是内置的或者也可以是用户所定义的函数)。
+返回值:
+  返回值     该函数总是返回 TRUE。   
+示例:
+
+<?php
+    function exception_handler_1(Exception $e)
+    {
+        echo '[' . __FUNCTION__ . '] ' . $e->getMessage();
+    }
+    function exception_handler_2(Exception $e)
+    {
+        echo '[' . __FUNCTION__ . '] ' . $e->getMessage();
+    }
+    set_exception_handler('exception_handler_1');
+    set_exception_handler('exception_handler_2');
+    restore_exception_handler();
+    throw new Exception('This triggers the first exception handler...');
+?>
+以上例程会输出：
+[exception_handler_1] This triggers the first exception handler...

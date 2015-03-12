@@ -1,0 +1,23 @@
+语法:
+   int array_unshift    ( array &$array   , mixed $var   [, mixed $...  ] )
+说明:
+array_unshift()将传入的单元插入到array数组的开头。注意单元是作为整体被插入的，因此传入单元将保持同样的顺序。所有的数值键名将修改为从零开始重新计数，所有的文字键名保持不变。
+参数:
+  参数              array                  输入的数组。                        var                  开头插入的变量。                     
+返回值:
+  返回值      返回 array 数组新的单元数目。   
+示例:
+
+<?php
+$queue = array("orange", "banana");
+array_unshift($queue, "apple", "raspberry");
+print_r($queue);
+?>
+以上例程会输出：
+Array
+(
+    [0] => apple
+    [1] => raspberry
+    [2] => orange
+    [3] => banana
+)

@@ -1,0 +1,25 @@
+语法:
+      bool ftp_delete       ( resource $ftp_stream      , string $path      )
+说明:
+ftp_delete()函数用来删除FTP服务器上的一个由参数path指定的的文件。
+参数:
+  参数              ftp_stream                  FTP 连接的链接标识符。                        path                  要删除的文件。                     
+返回值:
+  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。   
+示例:
+
+<?php
+$file = 'public_html/old.txt';
+// set up basic connection
+$conn_id = ftp_connect($ftp_server);
+// login with username and password
+$login_result = ftp_login($conn_id, $ftp_user_name, $ftp_user_pass);
+// try to delete $file
+if (ftp_delete($conn_id, $file)) {
+ echo "$file deleted successful\n";
+} else {
+ echo "could not delete $file\n";
+}
+// close the connection
+ftp_close($conn_id);
+?>

@@ -1,0 +1,9 @@
+语法:
+      float expm1    ( float $arg      )
+说明:
+expm1()返回&#039;exp(number)-1&#039;，甚至当number的值接近零也能计算出准确结果。但是当两个数值趋近于相等的时候，&#039;exp(number)-1&#039;就会变得不太准确。
+参数:
+  参数              arg                  要处理的参数                     
+返回值:
+  返回值     &#039;e&#039; to the power of arg minus one   
+示例:

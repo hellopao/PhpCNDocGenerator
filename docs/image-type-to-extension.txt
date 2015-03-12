@@ -1,0 +1,17 @@
+语法:
+   string image_type_to_extension    ( int $imagetype   [, bool $include_dot = TRUE  ] )
+说明:
+根据给定的常量IMAGETYPE_XXX返回后缀名。
+参数:
+  参数              imagetype                  IMAGETYPE_XXX 系列常量之一。                        include_dot                  是否在后缀名前加一个点。默认是 TRUE。                     
+返回值:
+  返回值     根据指定的图像类型返回对应的后缀名。   
+示例:
+
+<?php
+// 创建图像实例
+$im = imagecreatetruecolor(100, 100);
+// 保存图像
+imagepng($im, './test' . image_type_to_extension(IMAGETYPE_PNG));
+imagedestroy($im);
+?>

@@ -1,0 +1,9 @@
+语法:
+   string mcrypt_generic    ( resource $td   , string $data   )
+说明:
+本函数用来加密数据。传入数据长度必须是n*分组大小，否则需要后补&quot;\0&quot;。本函数返回加密后的数据。注意，根据数据补齐不同，返回的数据可能比输入的数据长度有所增加。
+参数:
+  参数              td                  加密描述符。                    在调用本函数之前，        请使用 mcrypt_generic_init() 函数初始化加密句柄。        在加密完成之后，        需要调用 mcrypt_generic_deinit() 函数进行必要的清理工作。        请参见 mcrypt_module_open() 。                        data                  要加密的数据。                     
+返回值:
+  返回值     返回加密后的数据。   
+示例:

@@ -1,0 +1,20 @@
+语法:
+   resource fopen    ( string $filename   , string $mode   [, bool $use_include_path = false   [, resource $context  ]] )
+说明:
+fopen()将filename指定的名字资源绑定到一个流上。
+参数:
+  参数                  filename                     如果        filename        是 &quot;scheme://...&quot; 的格式，则被当成一个        URL，PHP 将搜索协议处理器（也被称为封装协议）来处理此模式。如果该协议尚未注册封装协议，PHP        将发出一条消息来帮助检查脚本中潜在的问题并将        filename        当成一个普通的文件名继续执行下去。                      如果 PHP 认为        filename        指定的是一个本地文件，将尝试在该文件上打开一个流。该文件必须是        PHP 可以访问的，因此需要确认文件访问权限允许该访问。如果激活了安全模式或者        open_basedir        则会应用进一步的限制。                      如果 PHP 认为        filename        指定的是一个已注册的协议，而该协议被注册为一个网络        URL，PHP 将检查并确认        allow_url_fopen        已被激活。如果关闭了，PHP 将发出一个警告，而 fopen 的调用则失败。              Note:                  所支持的协议列表见支持的协议和封装协议。某些协议（也被称为         wrappers）支持         context 和／或 php.ini         选项。参见相应的页面哪些选项可以被设定（例如 php.ini 中用于         http wrapper 的 user_agent 值）。                              On the Windows platform, be careful to escape any backslashes        used in the path to the file, or use forward slashes.                 &lt;?php$handle&nbsp;=&nbsp;fopen("c:\\folder\\resource.txt",&nbsp;"r");?&gt;
+返回值:
+  返回值     成功时返回文件指针资源，如果打开失败，本函数返回 FALSE。   
+示例:
+
+<?php
+$handle = fopen("c:\\folder\\resource.txt", "r");
+?>
+
+<?php
+$handle = fopen("/home/rasmus/file.txt", "r");
+$handle = fopen("/home/rasmus/file.gif", "wb");
+$handle = fopen("http://www.example.com/", "r");
+$handle = fopen("ftp://user:password@example.com/somefile.txt", "w");
+?>

@@ -1,0 +1,13 @@
+语法:
+   bool rename    ( string $oldname   , string $newname   [, resource $context  ] )
+说明:
+尝试把oldname重命名为newname。
+参数:
+  参数              oldname                       Note:                用于 oldname 中的封装协议必须和用于    newname 中的相匹配。                               newname                  新的名字。                        context           Note: 在 PHP 5.0.0中增加了对上下文（Context）的支持。有关上下文（Context）的说明参见Streams。               
+返回值:
+  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。   
+示例:
+
+<?php
+rename("/tmp/tmp_file.txt", "/home/user/login/docs/my_file.txt");
+?>

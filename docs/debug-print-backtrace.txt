@@ -1,0 +1,34 @@
+语法:
+     void debug_print_backtrace      ([ int $options = 0     [, int $limit = 0    ]] )
+说明:
+debug_print_backtrace()打印了一条PHP回溯。它打印了函数调用、被included/required的文件和eval()的代码。
+参数:
+  参数              options                  截至 5.3.6，这个参数是以下选项的位掩码：               debug_print_backtrace() 选项                                      DEBUG_BACKTRACE_IGNORE_ARGS                       是否忽略 &quot;args&quot; 的索引，包括所有的 function/method 的参数，能够节省内存开销。                                                                     limit                  截至 5.4.0，这个参数能够用于限制返回堆栈帧的数量。       默认为 (limit=0) ，返回所有的堆栈帧。                     
+返回值:
+    返回值         没有返回值。       
+示例:
+
+<?php
+// include.php file
+function a() {
+    b();
+}
+function b() {
+    c();
+}
+function c(){
+    debug_print_backtrace();
+}
+a();
+?>
+
+<?php
+// 文件 test.php
+// 这是你应该运行的文件
+include 'include.php';
+?>
+以上例程的输出类似于：
+#0  c() called at [/tmp/include.php:10]
+#1  b() called at [/tmp/include.php:6]
+#2  a() called at [/tmp/include.php:17]
+#3  include(/tmp/include.php) called at [/tmp/test.php:3]

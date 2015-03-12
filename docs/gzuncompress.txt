@@ -1,0 +1,15 @@
+语法:
+   string gzuncompress    ( string $data   [, int $length = 0  ] )
+说明:
+Thisfunctionuncompressacompressedstring.
+参数:
+  参数              data                  The data compressed by gzcompress().                        length                  The maximum length of data to decode.                     
+返回值:
+  返回值     The original uncompressed data or FALSE on error.       The function will return an error if the uncompressed data is more than   32768 times the length of the compressed input data    or more than the optional parameter length.   
+示例:
+
+<?php
+$compressed   = gzcompress('Compress me', 9);
+$uncompressed = gzuncompress($compressed);
+echo $uncompressed;
+?>

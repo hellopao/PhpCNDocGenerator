@@ -1,0 +1,14 @@
+语法:
+   int filegroup    ( string $filename   )
+说明:
+取得该文件所属组的ID。组ID以数字格式返回，用posix_getgrgid()来将其解析为组名。
+参数:
+  参数              filename                  文件的路径。                     
+返回值:
+  返回值     返回该文件所属组的 ID。或在错误时返回   FALSE。 组 ID 以数字格式返回，用   posix_getgrgid() 来将其解析为组名。如果出错则返回 FALSE。   
+示例:
+
+<?php
+$filename = 'index.php';
+print_r(posix_getgrgid(filegroup($filename)));
+?>

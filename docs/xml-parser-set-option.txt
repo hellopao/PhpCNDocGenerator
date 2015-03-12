@@ -1,0 +1,5 @@
+语法:
+     bool xml_parser_set_option      ( resource $parser     , int $option     , mixed $value     )
+说明:
+parser指向要设置选项信息的XML解析器的指针。option要设置的选项名称。请参考下文。value要给选项设置的新值。
+示例:

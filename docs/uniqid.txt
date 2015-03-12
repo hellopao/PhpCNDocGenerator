@@ -1,0 +1,26 @@
+语法:
+   string uniqid    ([ string $prefix = &quot;&quot;   [, bool $more_entropy = false  ]] )
+说明:
+获取一个带前缀、基于当前时间微秒数的唯一ID。
+参数:
+  参数              prefix                  有用的参数。例如：如果在多台主机上可能在同一微秒生成唯一ID。                   prefix为空，则返回的字符串长度为13。more_entropy 为       TRUE，则返回的字符串长度为23。                        more_entropy                  如果设置为 TRUE，uniqid() 会在返回的字符串结尾增加额外的煽（使用combined linear congruential generator）。       使得唯一ID更具唯一性。                     
+返回值:
+  返回值     返回字符串形式的唯一ID。   
+示例:
+
+<?php
+/* A uniqid, like: 4b3403665fea6 */
+printf("uniqid(): %s\r\n", uniqid());
+/* We can also prefix the uniqid, this the same as 
+ * doing:
+ *
+ * $uniqid = $prefix . uniqid();
+ * $uniqid = uniqid($prefix);
+ */
+printf("uniqid('php_'): %s\r\n", uniqid('php_'));
+/* We can also activate the more_entropy parameter, which is 
+ * required on some systems, like Cygwin. This makes uniqid()
+ * produce a value like: 4b340550242239.64159797
+ */
+printf("uniqid('', true): %s\r\n", uniqid('', true));
+?>

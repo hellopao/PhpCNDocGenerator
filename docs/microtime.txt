@@ -1,0 +1,22 @@
+语法:
+   mixed microtime    ([ bool $get_as_float  ] )
+说明:
+microtime()当前Unix时间戳以及微秒数。本函数仅在支持gettimeofday()系统调用的操作系统下可用。
+示例:
+
+<?php
+/**
+ * Simple function to replicate PHP 5 behaviour
+ */
+function microtime_float()
+{
+    list($usec, $sec) = explode(" ", microtime());
+    return ((float)$usec + (float)$sec);
+}
+$time_start = microtime_float();
+// Sleep for a while
+usleep(100);
+$time_end = microtime_float();
+$time = $time_end - $time_start;
+echo "Did nothing in $time seconds\n";
+?>

@@ -1,0 +1,14 @@
+语法:
+   bool get_magic_quotes_runtime    ( void   )
+返回值:
+  返回值     magic_quotes_runtime 在关闭时返回 0，否则返回 1。   自 PHP 5.4.0 起始终返回 FALSE。   
+示例:
+
+<?php
+// 检测 magic_quotes_runtime 是否已经激活
+if(get_magic_quotes_runtime())
+{
+    // 关闭功能
+    set_magic_quotes_runtime(false);
+}
+?>

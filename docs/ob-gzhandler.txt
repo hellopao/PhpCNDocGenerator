@@ -1,0 +1,18 @@
+语法:
+   string ob_gzhandler    ( string $buffer   , int $mode   )
+说明:
+ob_gzhandler()目的是用在ob_start()中作回调函数，以方便将gz编码的数据发送到支持压缩页面的浏览器。在ob_gzhandler()真正发送压缩过的数据之前，该函数会确定（判定）浏览器可以接受哪种类型内容编码（&quot;gzip&quot;,&quot;deflate&quot;,或者根本什么都不支持），然后返回相应的输出。所有可以发送正确头信息表明他自己可以接受压缩的网页的浏览器，都可以支持。Allbrowsersaresupportedsinceit&#039;suptothebrowsertosendthecorrectheadersayingthatitacceptscompressedwebpages.如果一个浏览器不支持压缩过的页面，此函数返回FALSE。
+参数:
+  参数              buffer                                   mode                                
+返回值:
+  返回值        
+示例:
+
+<?php
+ob_start("ob_gzhandler");
+?>
+<html>
+<body>
+<p>This should be a compressed page.</p>
+</html>
+<body>

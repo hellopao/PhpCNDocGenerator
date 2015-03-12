@@ -1,0 +1,19 @@
+语法:
+   int getprotobyname    ( string $name   )
+说明:
+getprotobyname()returnstheprotocolnumberassociatedwiththeprotocolnameasper/etc/protocols.
+参数:
+  参数              name                  The protocol name.                     
+返回值:
+  返回值     Returns the protocol number,  或者在失败时返回 FALSE.   
+示例:
+
+<?php
+$protocol = 'tcp';
+$get_prot = getprotobyname($protocol);
+if ($get_prot === FALSE) {
+    echo 'Invalid Protocol';
+} else {
+    echo 'Protocol #' . $get_prot;
+}
+?>

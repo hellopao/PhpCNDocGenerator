@@ -1,0 +1,22 @@
+语法:
+   array token_get_all    ( string $source   )
+说明:
+token_get_all()解析提供的source源码字符，然后使用Zend引擎的语法分析器获取源码中的PHP语言的解析器代号
+参数:
+  参数              source                  需要解析的 PHP 源码.                     
+返回值:
+  返回值     An array of token identifiers. Each individual token identifier is either   a single character (i.e.: ;, .,    or a three element array containing the token index in element 0, the string   content of the original token in element 1 and the line number in element 2.   
+示例:
+
+<?php
+$tokens = token_get_all('<?php echo; ?>'); /* => array(
+                                                  array(T_OPEN_TAG, '<?php'), 
+                                                  array(T_ECHO, 'echo'),
+                                                  ';',
+                                                  array(T_CLOSE_TAG, '?>') ); */
+/* Note in the following example that the string is parsed as T_INLINE_HTML
+   rather than the otherwise expected T_COMMENT (T_ML_COMMENT in PHP <5).
+   This is because no open/close tags were used in the "code" provided.
+   This would be equivalent to putting a comment outside of <?php ?> tags in a normal file. */
+$tokens = token_get_all('/* comment */'); // => array(array(T_INLINE_HTML, '/* comment */'));
+?>

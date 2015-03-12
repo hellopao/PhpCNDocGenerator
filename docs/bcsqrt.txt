@@ -1,0 +1,13 @@
+语法:
+   string bcsqrt    ( string $operand   [, int $scale  ] )
+说明:
+Returnthesquarerootoftheoperand.
+参数:
+  参数              operand                  The operand, as a string.                   scale此可选参数用于设置结果中小数点后的小数位数。也可通过使用bcscale() 来设置全局默认的小数位数，用于所有函数。      
+返回值:
+  返回值     Returns the square root as a string, or NULL if    operand is negative.    
+示例:
+
+<?php
+echo bcsqrt('2', 3); // 1.414
+?>

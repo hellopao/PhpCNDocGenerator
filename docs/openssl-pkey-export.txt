@@ -1,0 +1,9 @@
+语法:
+   bool openssl_pkey_export    ( mixed $key   , string &$out   [, string $passphrase   [, array $configargs  ]] )
+说明:
+openssl_pkey_export()exportskeyasaPEMencodedstringandstoresitintoout(whichispassedbyreference).
+参数:
+  参数              key                                   out                                   passphrase                  The key is optionally protected by passphrase.                        configargs                  configargs can be used to fine-tune the export       process by specifying and/or overriding options for the openssl       configuration file.  See openssl_csr_new() for more       information about configargs.                     
+返回值:
+  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。   
+示例:

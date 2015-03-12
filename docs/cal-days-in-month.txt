@@ -1,0 +1,14 @@
+语法:
+   int cal_days_in_month    ( int $calendar   , int $month   , int $year   )
+说明:
+该函数返回特定历法中的某年中的某月的天数。
+参数:
+  参数              calendar                  用来计算的某个历法                        month                  选定历法中的某月                        year                  选定历法中的某年                     
+返回值:
+  返回值    指定历法中选定的某月的天数。   
+示例:
+
+<?php
+$num = cal_days_in_month(CAL_GREGORIAN, 8, 2003); // 31
+echo "There was $num days in August 2003";
+?>

@@ -1,0 +1,37 @@
+语法:
+   array fstat    ( resource $handle   )
+说明:
+获取由文件指针handle所打开文件的统计信息。本函数和stat()函数相似，除了它是作用于已打开的文件指针而不是文件名。
+参数:
+  参数              handle           文件系统指针，是典型地由fopen() 创建的 resource(资源)。               
+返回值:
+  返回值     返回一个数组具有该文件的统计信息，该数组的格式详细说明于手册中   stat() 页面里。   
+示例:
+
+<?php
+// 打开文件
+$fp = fopen("/etc/passwd", "r");
+// 取得统计信息
+$fstat = fstat($fp);
+// 关闭文件
+fclose($fp);
+// 只显示关联数组部分
+print_r(array_slice($fstat, 13));
+?>
+以上例程的输出类似于：
+Array
+(
+    [dev] => 771
+    [ino] => 488704
+    [mode] => 33188
+    [nlink] => 1
+    [uid] => 0
+    [gid] => 0
+    [rdev] => 0
+    [size] => 1114
+    [atime] => 1061067181
+    [mtime] => 1056136526
+    [ctime] => 1056136526
+    [blksize] => 4096
+    [blocks] => 8
+)

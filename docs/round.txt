@@ -1,0 +1,31 @@
+语法:
+    float round     ( float $val    [, int $precision = 0    [, int $mode = PHP_ROUND_HALF_UP   ]] )
+说明:
+返回将val根据指定精度precision（十进制小数点后数字的数目）进行四舍五入的结果。precision也可以是负数或零（默认值）。
+参数:
+  参数              val                  要处理的值                        precision                  可选的十进制小数点后数字的数目。                        mode                  以下之一： PHP_ROUND_HALF_UP、       PHP_ROUND_HALF_DOWN       PHP_ROUND_HALF_EVEN 或       PHP_ROUND_HALF_ODD                     
+返回值:
+  返回值     四舍五入后的值   
+示例:
+
+<?php
+echo round(3.4);         // 3
+echo round(3.5);         // 4
+echo round(3.6);         // 4
+echo round(3.6, 0);      // 4
+echo round(1.95583, 2);  // 1.96
+echo round(1241757, -3); // 1242000
+echo round(5.045, 2);    // 5.05
+echo round(5.055, 2);    // 5.06
+?>
+
+<?php
+echo round(9.5, 0, PHP_ROUND_HALF_UP);   // 10
+echo round(9.5, 0, PHP_ROUND_HALF_DOWN); // 9
+echo round(9.5, 0, PHP_ROUND_HALF_EVEN); // 10
+echo round(9.5, 0, PHP_ROUND_HALF_ODD);  // 9
+echo round(8.5, 0, PHP_ROUND_HALF_UP);   // 9
+echo round(8.5, 0, PHP_ROUND_HALF_DOWN); // 8
+echo round(8.5, 0, PHP_ROUND_HALF_EVEN); // 8
+echo round(8.5, 0, PHP_ROUND_HALF_ODD);  // 9
+?>

@@ -1,0 +1,18 @@
+语法:
+   callable set_exception_handler    ( callable $exception_handler   )
+说明:
+设置默认的异常处理程序，用于没有用try/catch块来捕获的异常。在exception_handler调用后异常会中止。
+参数:
+  参数              exception_handler                  当一个未捕获的异常发生时所调用函数的名称。       该函数必须在调用 set_exception_handler() 之前已经定义。       该处理函数需要接受一个参数，该参数是一个抛出的异常对象。            Note:                也可以传递一个 NULL 值用于重置异常处理函数为默认值。                            
+返回值:
+  返回值     返回之前定义的异常处理程序的名称，或者在错误时返回 NULL。   如果之前没有定义一个错误处理程序，也会返回 NULL。   如果参数使用了 NULL，重置处理程序为默认状态，并且会返回一个 TRUE。   
+示例:
+
+<?php
+function exception_handler($exception) {
+  echo "Uncaught exception: " , $exception->getMessage(), "\n";
+}
+set_exception_handler('exception_handler');
+throw new Exception('Uncaught Exception');
+echo "Not Executed\n";
+?>

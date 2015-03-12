@@ -1,0 +1,19 @@
+语法:
+   int ob_get_length    ( void   )
+说明:
+此函数将返回输出缓中冲区内容的长度。
+返回值:
+  返回值     返回输出缓冲区内容的长度；或者返回FALSE——如果没有起作用的缓冲区。   
+示例:
+
+<?php
+ob_start();
+echo "Hello ";
+$len1 = ob_get_length();
+echo "World";
+$len2 = ob_get_length();
+ob_end_clean();
+echo $len1 . ", ." . $len2;
+?>
+以上例程会输出：
+6, 11

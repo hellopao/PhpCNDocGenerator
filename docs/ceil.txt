@@ -1,0 +1,13 @@
+语法:
+    float ceil     ( float $value    )
+参数:
+  参数              value                  要进一法取整的值                     
+返回值:
+  返回值     返回不小于     value 的下一个整数。  ceil() 返回的类型仍然是     float，因为 float 值的范围通常比 integer 要大。   
+示例:
+
+<?php
+echo ceil(4.3);    // 5
+echo ceil(9.999);  // 10
+echo ceil(-3.14);  // -3
+?>

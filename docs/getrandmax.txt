@@ -1,0 +1,5 @@
+语法:
+    int getrandmax     ( void    )
+返回值:
+  返回值      rand() 返回      随机数可能返回的最大值   
+示例:

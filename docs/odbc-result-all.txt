@@ -1,0 +1,9 @@
+语法:
+   int odbc_result_all    ( resource $result_id   [, string $format  ] )
+说明:
+Printsallrowsfromaresultidentifierproducedbyodbc_exec().TheresultisprintedinHTMLtableformat.
+参数:
+  参数              result_id                  The result identifier.                        format                  Additional overall table formatting.                     
+返回值:
+  返回值     Returns the number of rows in the result or FALSE on error.   
+示例:

@@ -1,0 +1,33 @@
+语法:
+   string nl2br    ( string $string   [, bool $is_xhtml = true  ] )
+说明:
+在字符串string所有新行之前插入&#039;&lt;br/&gt;&#039;或&#039;&lt;br&gt;&#039;，并返回。
+参数:
+  参数              string                  输入字符串。                        is_xhtml                  是否使用 XHTML 兼容换行符。                     
+返回值:
+  返回值     返回调整后的字符串。   
+示例:
+
+<?php
+echo nl2br("foo isn't\n bar");
+?>
+以上例程会输出：
+foo isn&#039;t<br />
+ bar
+
+<?php
+echo nl2br("Welcome\r\nThis is my HTML document", false);
+?>
+以上例程会输出：
+Welcome<br>
+This is my HTML document
+
+<?php
+$string = "This\r\nis\n\ra\nstring\r";
+echo nl2br($string);
+?>
+以上例程会输出：
+This<br />
+is<br />
+a<br />
+string<br />

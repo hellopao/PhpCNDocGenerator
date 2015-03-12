@@ -1,0 +1,13 @@
+语法:
+    float cos     ( float $arg    )
+说明:
+cos()返回参数arg的余弦值。参数arg的单位为弧度。
+参数:
+  参数              arg                  以弧度表示的角度                     
+返回值:
+  返回值   arg的余弦值   
+示例:
+
+<?php
+echo cos(M_PI); // -1
+?>

@@ -1,0 +1,18 @@
+语法:
+   int fseek    ( resource $handle   , int $offset   [, int $whence = SEEK_SET  ] )
+说明:
+在与handle关联的文件中设定文件指针位置。新位置从文件头开始以字节数度量，是以whence指定的位置加上offset。
+参数:
+  参数              handle           文件系统指针，是典型地由fopen() 创建的 resource(资源)。                  offset                  偏移量。                   要移动到文件尾之前的位置，需要给    offset 传递一个负值，并设置 whence       为 SEEK_END。                        whence                  whence values are:               SEEK_SET - 设定位置等于 offset 字节。        SEEK_CUR - 设定位置为当前位置加上 offset。        SEEK_END - 设定位置为文件尾加上    offset。                            
+返回值:
+  返回值      成功则返回 0；否则返回 -1。注意移动到 EOF 之后的位置不算错误。   
+示例:
+
+<?php
+$fp = fopen('somefile.txt', 'r');
+// read some data
+$data = fgets($fp, 4096);
+// move back to the beginning of the file
+// same as rewind($fp);
+fseek($fp, 0);
+?>

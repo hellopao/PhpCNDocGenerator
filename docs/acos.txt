@@ -1,0 +1,9 @@
+语法:
+    float acos     ( float $arg    )
+说明:
+返回arg的反余弦值，单位是弧度。acos()是cos()的反函数，它的意思是在acos()范围里的每个值都是a==cos(acos(a))。
+参数:
+  参数              arg                  要处理的参数                     
+返回值:
+  返回值     arg 的反余弦弧度。   
+示例:

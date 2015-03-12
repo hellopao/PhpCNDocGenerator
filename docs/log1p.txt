@@ -1,0 +1,9 @@
+语法:
+      float log1p       ( float $number      )
+说明:
+log1p()返回log(1+number)，甚至当number的值接近零也能计算出准确结果。log()mightonlyreturnlog(1)inthiscaseduetolackofprecision.
+参数:
+  参数              number                  要处理的参数                     
+返回值:
+  返回值     log(1 + number)   
+示例:

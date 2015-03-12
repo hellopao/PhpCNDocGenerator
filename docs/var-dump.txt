@@ -1,0 +1,37 @@
+语法:
+      void var_dump       ( mixed $expression   [, mixed $...     ] )
+参数:
+  参数              expression                  你要打印的变量。                     
+返回值:
+  返回值     没有返回值。   
+示例:
+
+<?php
+$a = array(1, 2, array("a", "b", "c"));
+var_dump($a);
+?>
+以上例程会输出：
+array(3) {
+  [0]=>
+  int(1)
+  [1]=>
+  int(2)
+  [2]=>
+  array(3) {
+    [0]=>
+    string(1) "a"
+    [1]=>
+    string(1) "b"
+    [2]=>
+    string(1) "c"
+  }
+}
+
+<?php
+$b = 3.1;
+$c = true;
+var_dump($b, $c);
+?>
+以上例程会输出：
+float(3.1)
+bool(true)

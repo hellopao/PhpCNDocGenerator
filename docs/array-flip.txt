@@ -1,0 +1,28 @@
+语法:
+   array array_flip    ( array $trans   )
+说明:
+array_flip()返回一个反转后的array，例如trans中的键名变成了值，而trans中的值成了键名。
+参数:
+  参数              trans                  要交换键/值对的数组。                     
+返回值:
+  返回值     成功时返回交换后的数组，如果失败返回 NULL。   
+示例:
+
+<?php
+$trans = array_flip($trans);
+$original = strtr($str, $trans);
+?>
+
+<?php
+$trans = array("a" => 1, "b" => 1, "c" => 2);
+$trans = array_flip($trans);
+print_r($trans);
+?>
+
+     现在 $trans 是：
+    
+Array
+(
+    [1] => b
+    [2] => c
+)

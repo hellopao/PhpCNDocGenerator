@@ -1,0 +1,14 @@
+语法:
+   string jdtojewish    ( int $juliandaycount   [, bool $hebrew = false   [, int $fl = 0  ]] )
+说明:
+转换一个julian天数为Jewish历法的日期。
+参数:
+  参数              julianday                  一个julian天数                        hebrew                  如果参数 hebrew设置为 TRUE，参数fl可用于希伯莱语的格式。                          fl                  可用的格式有：         CAL_JEWISH_ADD_ALAFIM_GERESH,       CAL_JEWISH_ADD_ALAFIM,       CAL_JEWISH_ADD_GERESHAYIM.                     
+返回值:
+  返回值    以“月/日/年”的格式显示jewish日期。   
+示例:
+
+<?php
+echo jdtojewish(gregoriantojd(10, 8, 2002), true,
+       CAL_JEWISH_ADD_GERESHAYIM + CAL_JEWISH_ADD_ALAFIM + CAL_JEWISH_ADD_ALAFIM_GERESH); 
+?>

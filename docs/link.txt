@@ -1,0 +1,15 @@
+语法:
+   bool link    ( string $target   , string $link   )
+说明:
+link()建立一个硬连接。
+参数:
+  参数              target                  要链接的目标。                        link                  链接的名称。                     
+返回值:
+  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。   
+示例:
+
+<?php
+$target = 'source.ext'; // This is the file that already exists
+$link = 'newfile.ext'; // This the filename that you want to link it to
+link($target, $link);
+?>

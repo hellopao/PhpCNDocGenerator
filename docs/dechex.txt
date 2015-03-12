@@ -1,0 +1,29 @@
+语法:
+      string dechex       ( int $number      )
+说明:
+返回一字符串，包含有给定number参数的十六进制表示。
+参数:
+  参数              number                  要转换的十进制值                   PHP 的 integer 类型是有符号的，但 dechex() 处理无符号整数，负正数会以无符号处理。                     
+返回值:
+  返回值     number 的16进制表示   
+示例:
+
+<?php
+echo dechex(10) . "\n";
+echo dechex(47);
+?>
+以上例程会输出：
+a
+2f
+
+<?php
+// The output below assumes a 32-bit platform.
+// Note that the output is the same for all values.
+echo dechex(-1)."\n";
+echo dechex(PHP_INT_MAX * 2 + 1)."\n";
+echo dechex(pow(2, 32) - 1)."\n";
+?>
+以上例程会输出：
+ffffffff
+ffffffff
+ffffffff

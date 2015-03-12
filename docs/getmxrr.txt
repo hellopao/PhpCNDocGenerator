@@ -1,0 +1,9 @@
+语法:
+   bool getmxrr    ( string $hostname   , array &$mxhosts   [, array &$weight  ] )
+说明:
+SearchesDNSforMXrecordscorrespondingtohostname.
+参数:
+  参数              hostname                  The Internet host name.                        mxhosts                  A list of the MX records found is placed into the array       mxhosts.                         weight                  If the weight array is given, it will be filled       with the weight information gathered.                     
+返回值:
+  返回值     Returns TRUE if any records are found; returns FALSE if no records   were found or if an error occurred.   
+示例:

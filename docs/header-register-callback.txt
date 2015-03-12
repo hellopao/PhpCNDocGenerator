@@ -1,0 +1,27 @@
+语法:
+   bool header_register_callback    ( callable $callback   )
+说明:
+RegistersafunctionthatwillbecalledwhenPHPstartssendingoutput.
+参数:
+  参数         callback               Function called just before the headers are sent. It gets no parameters      and the return value is ignored.               
+返回值:
+  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。   
+示例:
+
+<?php
+header('Content-Type: text/plain');
+header('X-Test: foo');
+function foo() {
+ foreach (headers_list() as $header) {
+   if (strpos($header, 'X-Powered-By:') !== false) {
+     header_remove('X-Powered-By');
+   }
+   header_remove('X-Test');
+ }
+}
+$result = header_register_callback('foo');
+echo "a";
+?>
+以上例程的输出类似于：
+Content-Type: text/plain
+a

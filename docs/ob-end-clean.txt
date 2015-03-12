@@ -1,0 +1,13 @@
+语法:
+   bool ob_end_clean    ( void   )
+说明:
+此函数丢弃最顶层输出缓冲区的内容并关闭这个缓冲区。如果想要进一步处理缓冲区的内容，必须在ob_end_clean()之前调用ob_get_contents()，因为当调用ob_end_clean()时缓冲区内容将被丢弃。
+返回值:
+  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。 错误的原因首先是，在调用时没有一个起作用的缓冲区，或者是因为某些原因缓冲区不能被删除（可能对特殊缓冲区而言）。      
+示例:
+
+<?php
+ob_start();
+echo 'Text that won\'t get displayed.';
+ob_end_clean();
+?>

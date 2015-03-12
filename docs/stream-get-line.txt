@@ -1,0 +1,9 @@
+语法:
+   string stream_get_line    ( resource $handle   , int $length   [, string $ending  ] )
+说明:
+从给定的资源流里读取一行。
+参数:
+  参数              handle                  一个有效的文件句柄。                        length                  需要从句柄里读取的字节数。                        ending                  可选参数，字符串定界符。                     
+返回值:
+  返回值     返回一个字符串，该字符串的内容根据 length 字节数从 handle 里读取。       如果发生错误，则返回 FALSE.   
+示例:

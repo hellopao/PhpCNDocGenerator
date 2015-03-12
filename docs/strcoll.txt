@@ -1,0 +1,9 @@
+语法:
+   int strcoll    ( string $str1   , string $str2   )
+说明:
+注意该比较区分大小写。和strcmp()不同，该函数不是二进制安全的。
+参数:
+  参数              str1                  第一个字符串。                        str2                  第二个字符串。                     
+返回值:
+  返回值       如果 str1 小于   str2 返回 &lt; 0；   如果 str1   大于 str2   返回 &gt; 0；如果两者相等，返回 0。   
+示例:

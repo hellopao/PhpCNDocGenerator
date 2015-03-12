@@ -1,0 +1,17 @@
+语法:
+   string escapeshellcmd    ( string $command   )
+说明:
+escapeshellcmd()对字符串中可能会欺骗shell命令执行任意命令的字符进行转义。此函数保证用户输入的数据在传送到exec()或system()函数，或者执行操作符之前进行转义。
+参数:
+  参数              command                   要转义的命令。                     
+返回值:
+  返回值     转义后的字符串。   
+示例:
+
+<?php
+// 我们故意允许任意数量的参数
+$command = './configure '.$_POST['configure_options'];
+$escaped_command = escapeshellcmd($command);
+ 
+system($escaped_command);
+?>

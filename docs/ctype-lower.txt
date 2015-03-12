@@ -1,0 +1,24 @@
+语法:
+   bool ctype_lower    ( string $text   )
+说明:
+检查提供的string和text里面的字符是不是都是小写字母。
+参数:
+  参数              text                  需要被测试的字符串。                     
+返回值:
+  返回值     如果在当前的语言环境下 text 里面的每个字符都是小写字母，就返回 TRUE ；反之就返回 FALSE 。   
+示例:
+
+<?php
+$strings = array('aac123', 'qiutoas', 'QASsdks');
+foreach ($strings as $testcase) {
+    if (ctype_lower($testcase)) {
+        echo "The string $testcase consists of all lowercase letters.\n";
+    } else {
+        echo "The string $testcase does not consist of all lowercase letters.\n";
+    }
+}
+?>
+以上例程会输出：
+The string aac123 does not consist of all lowercase letters.
+The string qiutoas consists of all lowercase letters.
+The string QASsdks does not consist of all lowercase letters.

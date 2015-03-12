@@ -1,0 +1,43 @@
+语法:
+   void libxml_set_external_entity_loader    ( callable $resolver_function   )
+说明:
+Changesthedefaultexternalentityloader.
+参数:
+  参数         resolver_function               A callable that takes three arguments. Two strings, a public id      and system id, and a context (an array with four keys) as the third argument.      This callback should return a resource, a string from which a resource can be      opened, or NULL.               
+返回值:
+  返回值     没有返回值。   
+示例:
+
+<?php
+$xml = <<<XML
+<!DOCTYPE foo PUBLIC "-//FOO/BAR" "http://example.com/foobar">
+<foo>bar</foo>
+XML;
+$dtd = <<<DTD
+<!ELEMENT foo (#PCDATA)>
+DTD;
+libxml_set_external_entity_loader(
+    function ($public, $system, $context) use($dtd) {
+        var_dump($public);
+        var_dump($system);
+        var_dump($context);
+        $f = fopen("php://temp", "r+");
+        fwrite($f, $dtd);
+        rewind($f);
+        return $f;
+    }
+);
+$dd = new DOMDocument;
+$r  = $dd->loadXML($xml);
+var_dump($dd->validate());
+?>
+以上例程会输出：
+string(10) "-//FOO/BAR"
+string(25) "http://example.com/foobar"
+array(4) {
+    ["directory"]    => NULL
+    ["intSubName"]   => NULL
+    ["extSubURI"]    => NULL
+    ["extSubSystem"] => NULL
+}
+bool(true)

@@ -1,0 +1,9 @@
+语法:
+   bool openssl_csr_export_to_file    ( resource $csr   , string $outfilename   [, bool $notext = true  ] )
+说明:
+openssl_csr_export_to_file()takestheCertificateSigningRequestrepresentedbycsrandsavesitasascii-armouredtextintothefilenamedbyoutfilename.
+参数:
+  参数              csr                                   outfilename                  Path to the output file.                        notext           可选参数 notext 影响输出的冗余度。如果设为FALSE，输出内容将包含附加的人类可读信息。notext 的缺省值为 TRUE。               
+返回值:
+  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。   
+示例:

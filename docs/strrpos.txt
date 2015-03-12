@@ -1,0 +1,27 @@
+语法:
+   int strrpos    ( string $haystack   , string $needle   [, int $offset = 0  ] )
+说明:
+返回字符串haystack中needle最后一次出现的数字位置。注意PHP4中，needle只能为单个字符。如果needle被指定为一个字符串，那么将仅使用第一个字符。
+参数:
+  参数              haystack                  在此字符串中进行查找。                        needle                  如果 needle不是一个字符串，它将被转换为整型并被视为字符的顺序值。                        offset                  或许会查找字符串中任意长度的子字符串。负数值将导致查找在字符串结尾处开始的计数位置处结束。                     
+返回值:
+  返回值     返回 needle 存在的位置。如果没有找到，返回 FALSE。   Also note that string positions start at 0, and not 1.       Returns FALSE if the needle was not found.    Warning此函数可能返回布尔值FALSE，但也可能返回等同于 FALSE 的非布尔值。请阅读 布尔类型章节以获取更多信息。应使用===运算符来测试此函数的返回值。
+示例:
+
+     很容易将“在位置 0 处找到”和“未发现字符串”这两种情况搞错。这是检测区别的办法：
+    
+<?php
+$pos = strrpos($mystring, "b");
+if ($pos === false) { // 注意: 三个等号
+    // 未发现...
+}
+?>
+
+<?php
+$foo = "0123456789a123456789b123456789c";
+var_dump(strrpos($foo, '7', -5));  // 从尾部第 5 个位置开始查找
+                                   // 结果: int(17)
+var_dump(strrpos($foo, '7', 20));  // 从第 20 个位置开始查找
+                                   // 结果: int(27)
+var_dump(strrpos($foo, '7', 28));  // 结果: bool(false)
+?>

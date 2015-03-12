@@ -1,0 +1,5 @@
+语法:
+   bool mcrypt_generic_end    ( resource $td   )
+说明:
+Warning本函数已经废弃，当和mcrypt_module_close()联合使用时，可能会由于重复释放缓冲区导致崩溃。请使用mcrypt_generic_deinit()来完成清理工作。
+示例:

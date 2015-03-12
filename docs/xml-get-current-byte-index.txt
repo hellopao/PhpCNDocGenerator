@@ -1,0 +1,9 @@
+语法:
+     int xml_get_current_byte_index      ( resource $parser     )
+说明:
+获取指定的XML解析器的当前字节索引（currentbyteindex）。
+参数:
+    参数                      parser                  指向要取得字节索引的 XML 解析器的引用。                                 
+返回值:
+    返回值      如果 parser 没有指向一个合法的解析器，该函数将返回  FALSE，否则将返回解析器当前在其数据缓冲区中的字节索引（起始值为 0）。       
+示例:

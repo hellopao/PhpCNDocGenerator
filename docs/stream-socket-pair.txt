@@ -1,0 +1,35 @@
+语法:
+   array stream_socket_pair    ( int $domain   , int $type   , int $protocol   )
+说明:
+stream_socket_pair()创建一对完全一样的网络套接字连接，这个函数通常会被用在进程间通信(Inter-ProcessCommunication)
+参数:
+  参数              domain                  使用的协议族： STREAM_PF_INET,       STREAM_PF_INET6 or       STREAM_PF_UNIX                        type                  通信类型:       STREAM_SOCK_DGRAM,       STREAM_SOCK_RAW,       STREAM_SOCK_RDM,       STREAM_SOCK_SEQPACKET or       STREAM_SOCK_STREAM                        protocol                  使用的传输协议: STREAM_IPPROTO_ICMP,       STREAM_IPPROTO_IP,       STREAM_IPPROTO_RAW,       STREAM_IPPROTO_TCP or       STREAM_IPPROTO_UDP                             Note:        Please consult the Streams constant     list for further details on each constant.      
+返回值:
+  返回值     如果成功将返回一个数组包括了两个socket资源，错误时返回FALSE   
+示例:
+
+     This example shows the basic usage of
+     stream_socket_pair() in Inter-Process Comunication.
+    
+<?php
+$sockets = stream_socket_pair(STREAM_PF_UNIX, STREAM_SOCK_STREAM, STREAM_IPPROTO_IP);
+$pid     = pcntl_fork();
+if ($pid == -1) {
+     die('could not fork');
+} else if ($pid) {
+     /* parent */
+    fclose($sockets[0]);
+    fwrite($sockets[1], "child PID: $pid\n");
+    echo fgets($sockets[1]);
+    fclose($sockets[1]);
+} else {
+    /* child */
+    fclose($sockets[1]);
+    fwrite($sockets[0], "message from child\n");
+    echo fgets($sockets[0]);
+    fclose($sockets[0]);
+}
+?>
+以上例程的输出类似于：
+child PID: 1378
+message from child

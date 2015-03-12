@@ -1,0 +1,13 @@
+语法:
+   resource gzopen    ( string $filename   , string $mode   [, int $use_include_path = 0  ] )
+说明:
+Opensagzip(.gz)fileforreadingorwriting.
+参数:
+  参数              filename                  The file name.                        mode                  As in fopen() (rb or        wb) but can also include a compression level        (wb9) or a strategy: f for       filtered data as in wb6f, h for       Huffman only compression as in wb1h.       (See the description of deflateInit2       in zlib.h for        more information about the strategy parameter.)                        use_include_path                  You can set this optional parameter to 1, if you       want to search for the file in the include_path too.                     
+返回值:
+  返回值     Returns a file pointer to the file opened, after that, everything you read   from this file descriptor will be transparently decompressed and what you    write gets compressed.       If the open fails, the function returns FALSE.   
+示例:
+
+<?php
+$fp = gzopen("/tmp/file.gz", "r");
+?>

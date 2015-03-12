@@ -1,0 +1,21 @@
+语法:
+   mixed date_sunrise    ( int $timestamp   [, int $format = SUNFUNCS_RET_STRING   [, float $latitude = ini_get(&quot;date.default_latitude&quot;)   [, float $longitude = ini_get(&quot;date.default_longitude&quot;)   [, float $zenith = ini_get(&quot;date.sunrise_zenith&quot;)   [, float $gmt_offset = 0  ]]]]] )
+说明:
+date_sunrise()返回给定的日期（以timestamp指定）与地点的日出时间。
+参数:
+  参数              timestamp                         取 timestamp所在日期的日出时间。                        format                          format 常量                                       常量      说明      取值举例                                                 SUNFUNCS_RET_STRING      以 string 格式返回结果           16:46                               SUNFUNCS_RET_DOUBLE      以 float 格式返回结果           16.78243132                               SUNFUNCS_RET_TIMESTAMP      以 integer 格式（时间戳）返回结果           1095034606                                                          latitude                  默认是指北纬。因此如果要指定南纬，必须传递一个负值。       参见 date.default_latitude。                        longitude                  默认是指东经。因此如果要指定西经，必须传递一个负值。       参见 date.default_longitude。                        zenith                  默认： date.sunrise_zenith。                        gmtoffset                    单位是小时。                     
+返回值:
+  返回值     按指定格式 format 返回的日出时间， 或者在失败时返回 FALSE。   
+示例:
+
+<?php
+/* 计算葡萄牙里斯本的日出时间
+Latitude:  北纬 38.4 度
+Longitude: 西经 9 度
+Zenith ~= 90
+offset: +1 GMT
+*/
+echo date("D M d Y"). ', sunrise time : ' .date_sunrise(time(), SUNFUNCS_RET_STRING, 38.4, -9, 90, 1);
+?>
+以上例程的输出类似于：
+Mon Dec 20 2004, sunrise time : 08:54

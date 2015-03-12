@@ -1,0 +1,31 @@
+语法:
+   mixed assert_options    ( int $what   [, mixed $value  ] )
+说明:
+设置assert()的各种控制选项，或者是仅仅查询当前的设置。
+参数:
+  参数              what                          断言标志                                      标志           INI 设置           默认值           描述                                                 ASSERT_ACTIVE           assert.active           1           启用 assert() 断言                               ASSERT_WARNING           assert.warning           1           为每个失败的断言产生一个 PHP 警告（warning）                               ASSERT_BAIL           assert.bail           0           在断言失败时中止执行                               ASSERT_QUIET_EVAL           assert.quiet_eval           0                       在断言表达式求值时禁用 error_reporting                                          ASSERT_CALLBACK           assert.callback           (NULL)           断言失败时调用回调函数                                                          value                  标志的新值。                     
+返回值:
+  返回值     返回任意标志的原始设置，出错时返回 FALSE。   
+示例:
+
+<?php
+// 处理断言失败时的函数
+function assert_failure()
+{
+    echo 'Assert failed';
+}
+// 我们的测试函数
+function test_assert($parameter)
+{
+    assert(is_bool($parameter));
+}
+// 设置断言标志
+assert_options(ASSERT_ACTIVE,   true);
+assert_options(ASSERT_BAIL,     true);
+assert_options(ASSERT_WARNING,  false);
+assert_options(ASSERT_CALLBACK, 'assert_failure');
+// 让一个断言会失败
+test_assert(1);
+// 由于 ASSERT_BAIL 是 true，这里永远也到不了
+echo 'Never reached';
+?>

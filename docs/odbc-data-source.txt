@@ -1,0 +1,9 @@
+语法:
+   array odbc_data_source    ( resource $connection_id   , int $fetch_type   )
+说明:
+ThisfunctionwillreturnthelistofavailableDSN(aftercallingitseveraltimes).
+参数:
+  参数              connection_id           ODBC 连接标识符，详见odbc_connect()。                  fetch_type                  The fetch_type can be one of two constant types:       SQL_FETCH_FIRST, SQL_FETCH_NEXT.       Use SQL_FETCH_FIRST the first time this function is       called, thereafter use the SQL_FETCH_NEXT.                     
+返回值:
+  返回值     Returns FALSE on error, and an array upon success.   
+示例:

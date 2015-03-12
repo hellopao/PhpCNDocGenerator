@@ -1,0 +1,18 @@
+语法:
+   bool chgrp    ( string $filename   , mixed $group   )
+说明:
+尝试将文件filename所属的组改成group（通过组名或组ID指定）。
+参数:
+  参数              filename                  文件的路径。                        group                  组的名称或数字。                     
+返回值:
+  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。   
+示例:
+
+<?php
+$filename = 'shared_file.txt';
+$format = "%s's Group ID @ %s: %d\n";
+printf($format, $filename, date('r'), filegroup($filename));
+chgrp($filename, 8);
+clearstatcache(); // do not cache filegroup() results
+printf($format, $filename, date('r'), filegroup($filename));
+?>

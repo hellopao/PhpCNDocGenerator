@@ -1,0 +1,50 @@
+语法:
+      array array_chunk       ( array $input      , int $size   [, bool $preserve_keys = false     ] )
+说明:
+将一个数组分割成多个数组，其中每个数组的单元数目由size决定。最后一个数组的单元数目可能会少于size个。
+参数:
+  参数              input                  需要操作的数组                        size                  每个数组的单元数目                        preserve_keys                  设为 TRUE，可以使 PHP     保留输入数组中原来的键名。如果你指定了 FALSE，那每个结果数组将用从零开始的新数字索引。默认值是 FALSE。                     
+返回值:
+  返回值     得到的数组是一个多维数组中的单元，其索引从零开始，每一维包含了 size 个元素。   
+示例:
+
+<?php
+$input_array = array('a', 'b', 'c', 'd', 'e');
+print_r(array_chunk($input_array, 2));
+print_r(array_chunk($input_array, 2, true));
+?>
+以上例程会输出：
+Array
+(
+    [0] => Array
+        (
+            [0] => a
+            [1] => b
+        )
+    [1] => Array
+        (
+            [0] => c
+            [1] => d
+        )
+    [2] => Array
+        (
+            [0] => e
+        )
+)
+Array
+(
+    [0] => Array
+        (
+            [0] => a
+            [1] => b
+        )
+    [1] => Array
+        (
+            [2] => c
+            [3] => d
+        )
+    [2] => Array
+        (
+            [4] => e
+        )
+)

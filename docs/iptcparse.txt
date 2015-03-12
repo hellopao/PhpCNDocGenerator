@@ -1,0 +1,18 @@
+语法:
+     array iptcparse      ( string $iptcblock     )
+说明:
+本函数将一个二进制的&raquo;&nbsp;IPTC块解析为单个的标记。
+参数:
+  参数              iptcblock                  二进制的 IPTC 块。                     
+返回值:
+  返回值     返回一个数组，用 tagmarker 作为索引，以其值为值。如果出错或未发现 IPTC 数据则返回 FALSE。   
+示例:
+
+<?php
+$size = getimagesize('./test.jpg', $info);
+if(isset($info['APP13']))
+{
+    $iptc = iptcparse($info['APP13']);
+    var_dump($iptc);
+}
+?>

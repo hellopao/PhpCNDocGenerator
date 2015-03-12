@@ -1,0 +1,9 @@
+语法:
+   string zlib_decode    ( string $data   [, string $max_decoded_len  ] )
+说明:
+Uncompressanyraw/gzip/zlibencodeddata.
+参数:
+  参数         data                                  max_decoded_len                              
+返回值:
+  返回值     
+示例:

@@ -1,0 +1,17 @@
+语法:
+   string bcpow    ( string $left_operand   , string $right_operand   [, int $scale  ] )
+说明:
+Raiseleft_operandtothepowerright_operand.
+参数:
+  参数              left_operand                  The left operand, as a string.                        right_operand                  The right operand, as a string.                   scale此可选参数用于设置结果中小数点后的小数位数。也可通过使用bcscale() 来设置全局默认的小数位数，用于所有函数。      
+返回值:
+  返回值     Returns the result as a string.   
+示例:
+
+<?php
+echo bcpow('4.2', '3', 2); // 74.08
+?>
+
+<?php
+echo bcpow('5', '2', 2);     // prints "25", not "25.00"
+?>

@@ -1,0 +1,9 @@
+语法:
+   resource odbc_columns    ( resource $connection_id   [, string $qualifier   [, string $schema   [, string $table_name   [, string $column_name  ]]]] )
+说明:
+Listsallcolumnsintherequestedrange.
+参数:
+  参数              connection_id           ODBC 连接标识符，详见odbc_connect()。                  qualifier                  The qualifier.                        schema                  The owner.                        table_name                  The table name.                        column_name                  The column name.                         The schema, table_name, and   column_name accept search patterns (&#039;%&#039; to match   zero or more characters and &#039;_&#039; to match a single character).   
+返回值:
+  返回值     Returns an ODBC result identifier 或者在失败时返回 FALSE.       The result set has the following columns:       TABLE_QUALIFIER    TABLE_SCHEM    TABLE_NAME    COLUMN_NAME    DATA_TYPE    TYPE_NAME    PRECISION    LENGTH    SCALE    RADIX    NULLABLE    REMARKS          The result set is ordered by TABLE_QUALIFIER, TABLE_SCHEM and   TABLE_NAME.   
+示例:

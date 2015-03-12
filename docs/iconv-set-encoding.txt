@@ -1,0 +1,14 @@
+语法:
+   bool iconv_set_encoding    ( string $type   , string $charset   )
+说明:
+将type设置的值从内部配置变量更改为charset。
+参数:
+  参数              type                  type 的值可以是以下其中任意一个：               input_encoding        output_encoding        internal_encoding                               charset                  字符集。                     
+返回值:
+  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。   
+示例:
+
+<?php
+iconv_set_encoding("internal_encoding", "UTF-8");
+iconv_set_encoding("output_encoding", "ISO-8859-1");
+?>

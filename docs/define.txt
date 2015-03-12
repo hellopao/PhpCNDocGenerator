@@ -1,0 +1,18 @@
+语法:
+   bool define    ( string $name   , mixed $value   [, bool $case_insensitive = false  ] )
+说明:
+在运行时定义一个常量。
+参数:
+  参数              name                  常量名。                        value                 常量的值；仅允许标量和 null。标量的类型是 integer，       float，string 或者 boolean。       也能够定义常量值的类型为 resource ，但并不推荐这么做，可能会导致未知状况的发生。                        case_insensitive                  如果设置为 TRUE，该常量则大小写不敏感。默认是大小写敏感的。比如，       CONSTANT 和 Constant 代表了不同的值。            Note:                大小写不敏感的常量以小写的方式储存。                            
+返回值:
+  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。   
+示例:
+
+<?php
+define("CONSTANT", "Hello world.");
+echo CONSTANT; // outputs "Hello world."
+echo Constant; // outputs "Constant" and issues a notice.
+define("GREETING", "Hello you.", true);
+echo GREETING; // outputs "Hello you."
+echo Greeting; // outputs "Hello you."
+?>

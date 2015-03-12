@@ -1,0 +1,5 @@
+语法:
+     int ftp_nb_continue      ( resource $ftp_stream     )
+说明:
+以不分块的方式连续获取／发送一个文件。
+示例:

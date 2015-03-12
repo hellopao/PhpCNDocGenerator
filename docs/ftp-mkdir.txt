@@ -1,0 +1,5 @@
+语法:
+     string ftp_mkdir      ( resource $ftp_stream     , string $directory     )
+说明:
+在FTP服务器上建立一个目录名为参数directory的新目录。
+示例:

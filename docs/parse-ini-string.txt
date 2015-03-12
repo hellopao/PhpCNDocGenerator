@@ -1,0 +1,9 @@
+语法:
+   array parse_ini_string    ( string $ini   [, bool $process_sections = false   [, int $scanner_mode = INI_SCANNER_NORMAL  ]] )
+说明:
+parse_ini_string()returnsthesettingsinstringiniinanassociativearray.
+参数:
+  参数              ini                  The contents of the ini file being parsed.                        process_sections                  By setting the process_sections       parameter to TRUE, you get a multidimensional array, with       the section names and settings included. The default       for process_sections is FALSE                              scanner_mode                  Can either be INI_SCANNER_NORMAL (default) or        INI_SCANNER_RAW. If INI_SCANNER_RAW        is supplied, then option values will not be parsed.                     
+返回值:
+  返回值     The settings are returned as an associative array on success,   and FALSE on failure.   
+示例:

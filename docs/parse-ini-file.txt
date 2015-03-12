@@ -1,0 +1,99 @@
+语法:
+   array parse_ini_file    ( string $filename   [, bool $process_sections = false   [, int $scanner_mode = INI_SCANNER_NORMAL  ]] )
+说明:
+parse_ini_file()载入一个由filename指定的ini文件，并将其中的设置作为一个联合数组返回。
+参数:
+  参数              filename                  要解析的 ini 文件的文件名。                        process_sections                  如果将最后的   process_sections 参数设为   TRUE，将得到一个多维数组，包括了配置文件中每一节的名称和设置。process_sections   的默认值是 FALSE。                        scanner_mode                  Can either be INI_SCANNER_NORMAL (default) or        INI_SCANNER_RAW. If INI_SCANNER_RAW        is supplied, then option values will not be parsed.                     
+返回值:
+  返回值     成功时以关联数组 array 返回设置，失败时返回 FALSE。   
+示例:
+
+; This is a sample configuration file
+; Comments start with &#039;;&#039;, as in php.ini
+[first_section]
+one = 1
+five = 5
+animal = BIRD
+[second_section]
+path = "/usr/local/bin"
+URL = "http://www.example.com/~username"
+[third_section]
+phpversion[] = "5.0"
+phpversion[] = "5.1"
+phpversion[] = "5.2"
+phpversion[] = "5.3"
+
+      常量也可以在 ini
+   文件中被解析，因此如果在运行 parse_ini_file()
+   之前定义了常量作为 ini 的值，将会被集成到结果中去。只有 ini
+   的值会被求值。例如：
+    
+<?php
+define('BIRD', 'Dodo bird');
+// Parse without sections
+$ini_array = parse_ini_file("sample.ini");
+print_r($ini_array);
+// Parse with sections
+$ini_array = parse_ini_file("sample.ini", true);
+print_r($ini_array);
+?>
+以上例程的输出类似于：
+Array
+(
+    [one] => 1
+    [five] => 5
+    [animal] => Dodo bird
+    [path] => /usr/local/bin
+    [URL] => http://www.example.com/~username
+    [phpversion] => Array
+        (
+            [0] => 5.0
+            [1] => 5.1
+            [2] => 5.2
+            [3] => 5.3
+        )
+)
+Array
+(
+    [first_section] => Array
+        (
+            [one] => 1
+            [five] => 5
+            [animal] => Dodo bird
+        )
+    [second_section] => Array
+        (
+            [path] => /usr/local/bin
+            [URL] => http://www.example.com/~username
+        )
+    [third_section] => Array
+        (
+            [phpversion] => Array
+                (
+                    [0] => 5.0
+                    [1] => 5.1
+                    [2] => 5.2
+                    [3] => 5.3
+                )
+        )
+)
+
+<?php
+// A simple function used for comparing the results below
+function yesno($expression)
+{
+    return($expression ? 'Yes' : 'No');
+}
+// Get the path to php.ini using the php_ini_loaded_file() 
+// function available as of PHP 5.2.4
+$ini_path = php_ini_loaded_file();
+// Parse php.ini
+$ini = parse_ini_file($ini_path);
+// Print and compare the values, note that using get_cfg_var()
+// will give the same results for parsed and loaded here
+echo '(parsed) magic_quotes_gpc = ' . yesno($ini['magic_quotes_gpc']) . PHP_EOL;
+echo '(loaded) magic_quotes_gpc = ' . yesno(get_cfg_var('magic_quotes_gpc')) . PHP_EOL;
+?>
+以上例程的输出类似于：
+(parsed) magic_quotes_gpc = Yes
+(loaded) magic_quotes_gpc = Yes

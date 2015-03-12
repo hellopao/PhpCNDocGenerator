@@ -1,0 +1,20 @@
+语法:
+   void register_shutdown_function    ( callable $callback   [, mixed $parameter   [, mixed $...  ]] )
+说明:
+Registersacallbacktobeexecutedafterscriptexecutionfinishesorexit()iscalled.
+参数:
+  参数              callback                  The shutdown callback to register.                   The shutdown callbacks are executed as the part of the request, so       it&#039;s possible to send output from them and access output buffers.                        parameter                  It is possible to pass parameters to the shutdown function by passing       additional parameters.                        ...                                
+返回值:
+  返回值     没有返回值。   
+示例:
+
+<?php
+function shutdown()
+{
+    // This is our shutdown function, in 
+    // here we can do any last operations
+    // before the script is complete.
+    echo 'Script executed with success', PHP_EOL;
+}
+register_shutdown_function('shutdown');
+?>

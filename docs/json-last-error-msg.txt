@@ -1,0 +1,9 @@
+语法:
+   string json_last_error_msg    ( void   )
+说明:
+
+参数:
+  参数  此函数没有参数。 
+返回值:
+  返回值     Returns the error message on success, &quot;No Error&quot; if no   error has occurred,  或者在失败时返回 FALSE.   
+示例:

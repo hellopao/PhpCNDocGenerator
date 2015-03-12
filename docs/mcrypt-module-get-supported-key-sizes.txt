@@ -1,0 +1,9 @@
+语法:
+   array mcrypt_module_get_supported_key_sizes    ( string $algorithm   [, string $lib_dir  ] )
+说明:
+以数组形式返回指定算法所支持的密钥大小。如果从1到mcrypt_module_get_algo_key_size()的密钥大小都支持，则返回空数组。
+参数:
+  参数              algorithm                  算法名称。                        lib_dir                  可选参数，       表示在操作系统上包含算法模块的路径。                     
+返回值:
+  返回值     以数组形式返回指定算法所支持的密钥大小。   如果从 1 到 mcrypt_module_get_algo_key_size()    的密钥大小都支持，则返回空数组。   
+示例:

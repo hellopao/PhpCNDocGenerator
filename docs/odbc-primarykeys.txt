@@ -1,0 +1,9 @@
+语法:
+   resource odbc_primarykeys    ( resource $connection_id   , string $qualifier   , string $owner   , string $table   )
+说明:
+Returnsaresultidentifierthatcanbeusedtofetchthecolumnnamesthatcomprisetheprimarykeyforatable.
+参数:
+  参数              connection_id           ODBC 连接标识符，详见odbc_connect()。                  qualifier                                   owner                                   table                                
+返回值:
+  返回值     Returns an ODBC result identifier 或者在失败时返回 FALSE.       The result set has the following columns:       TABLE_QUALIFIER    TABLE_OWNER    TABLE_NAME    COLUMN_NAME    KEY_SEQ    PK_NAME      
+示例:

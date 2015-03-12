@@ -1,0 +1,25 @@
+语法:
+   string addcslashes    ( string $str   , string $charlist   )
+说明:
+返回字符串，该字符串在属于参数charlist列表中的字符前都加上了反斜线。
+参数:
+  参数              str                  要转义的字符。                        charlist                  如果 charlist   中包含有 \n，\r   等字符，将以 C 语言风格转换，而其它非字母数字且 ASCII 码低于 32 以及高于 126    的字符均转换成使用八进制表示。                   当定义 charlist   参数中的字符序列时，需要确实知道介于自己设置的开始及结束范围之内的都是些什么字符。               &lt;?phpecho&nbsp;addcslashes('foo[&nbsp;]',&nbsp;'A..z');//&nbsp;输出：\f\o\o\[&nbsp;\]//&nbsp;所有大小写字母均被转义//&nbsp;...&nbsp;但&nbsp;[\]^_`&nbsp;以及分隔符、换行符、回车符等也一并被转义了。?&gt;
+返回值:
+  返回值     返回转义后的字符。   
+示例:
+
+<?php
+echo addcslashes('foo[ ]', 'A..z');
+// 输出：\f\o\o\[ \]
+// 所有大小写字母均被转义
+// ... 但 [\]^_` 以及分隔符、换行符、回车符等也一并被转义了。
+?>
+
+<?php
+echo addcslashes("zoo['.']", 'z..A');
+// 输出：\zoo['\.']
+?>
+
+<?php
+$escaped = addcslashes($not_escaped, "\0..\37!@\177..\377");
+?>

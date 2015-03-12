@@ -1,0 +1,14 @@
+语法:
+   bool fclose    ( resource $handle   )
+说明:
+将handle指向的文件关闭。
+参数:
+  参数              handle                 文件指针必须有效，并且是通过   fopen() 或   fsockopen() 成功打开的。                     
+返回值:
+  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。   
+示例:
+
+<?php
+$handle = fopen('somefile.txt', 'r');
+fclose($handle);
+?>

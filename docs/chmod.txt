@@ -1,0 +1,26 @@
+语法:
+   bool chmod    ( string $filename   , int $mode   )
+说明:
+尝试将filename所指定文件的模式改成mode所给定的。
+参数:
+  参数              filename                  文件的路径。                        mode              注意 mode 不会被自动当成八进制数值，而且也不能用字符串（例如 &quot;g+w&quot;）。要确保正确操作，需要给   mode 前面加上 0：                           &lt;?phpchmod("/somedir/somefile",&nbsp;755);&nbsp;&nbsp;&nbsp;//&nbsp;十进制数，可能不对chmod("/somedir/somefile",&nbsp;"u+rwx,go+rx");&nbsp;//&nbsp;字符串，不对chmod("/somedir/somefile",&nbsp;0755);&nbsp;&nbsp;//&nbsp;八进制数，正确的&nbsp;mode&nbsp;值?&gt;
+返回值:
+  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。   
+示例:
+
+<?php
+chmod("/somedir/somefile", 755);   // 十进制数，可能不对
+chmod("/somedir/somefile", "u+rwx,go+rx"); // 字符串，不对
+chmod("/somedir/somefile", 0755);  // 八进制数，正确的 mode 值
+?>
+
+<?php
+// Read and write for owner, nothing for everybody else
+chmod("/somedir/somefile", 0600);
+// Read and write for owner, read for everybody else
+chmod("/somedir/somefile", 0644);
+// Everything for owner, read and execute for others
+chmod("/somedir/somefile", 0755);
+// Everything for owner, read and execute for owner's group
+chmod("/somedir/somefile", 0750);
+?>

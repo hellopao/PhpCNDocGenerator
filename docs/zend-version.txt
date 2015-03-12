@@ -1,0 +1,13 @@
+语法:
+   string zend_version    ( void   )
+说明:
+获取当前运行的Zend引擎的版本字符串。
+返回值:
+  返回值     获取 Zend 引擎的版本数字的字符串。   
+示例:
+
+<?php
+echo "Zend engine version: " . zend_version();
+?>
+以上例程的输出类似于：
+Zend engine version: 2.2.0

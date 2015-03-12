@@ -1,0 +1,20 @@
+语法:
+      array array_values       ( array $input      )
+说明:
+array_values()返回input数组中所有的值并给其建立数字索引。
+参数:
+  参数              input                  数组。                     
+返回值:
+  返回值     返回含所有值的索引数组。   
+示例:
+
+<?php
+$array = array("size" => "XL", "color" => "gold");
+print_r(array_values($array));
+?>
+以上例程会输出：
+Array
+(
+    [0] => XL
+    [1] => gold
+)

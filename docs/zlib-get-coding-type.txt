@@ -1,0 +1,7 @@
+语法:
+   string zlib_get_coding_type    ( void   )
+说明:
+Returnsthecodingtypeusedforoutputcompression.
+返回值:
+  返回值     Possible return values are gzip, deflate,   or FALSE.   
+示例:

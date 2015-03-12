@@ -1,0 +1,16 @@
+语法:
+   string php_sapi_name    ( void   )
+返回值:
+  返回值     返回接口类型的小写字符串。       尽管不够全面，可能返回的值包括了   aolserver、apache、   apache2filter、apache2handler、   caudium、cgi （直到 PHP 5.3）,    cgi-fcgi、cli、 cli-server、   continuity、embed、fpm-fcgi、   isapi、litespeed、   milter、nsapi、   phttpd、pi3web、roxen、   thttpd、tux 和 webjames。   
+示例:
+
+     以下例子检测了子字符串 cgi，因为它也有可能会是 cgi-fcgi。
+    
+<?php
+$sapi_type = php_sapi_name();
+if (substr($sapi_type, 0, 3) == 'cgi') {
+    echo "You are using CGI PHP\n";
+} else {
+    echo "You are not using CGI PHP\n";
+}
+?>

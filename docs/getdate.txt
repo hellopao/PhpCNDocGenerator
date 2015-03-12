@@ -1,0 +1,29 @@
+语法:
+   array getdate    ([ int $timestamp = time()  ] )
+说明:
+返回一个根据timestamp得出的包含有日期信息的关联数组array。如果没有给出时间戳则认为是当前本地时间。
+参数:
+  参数             timestamp可选的 timestamp 参数是一个 integer 的 Unix时间戳，如未指定，参数值默认为当前本地时间。也就是说，其值默认为time() 的返回值。         
+返回值:
+  返回值     返回一个根据 timestamp   得出的包含有日期信息的关联数组 array。   返回的关联数组中的键名单元有以下几个：           返回的关联数组中的键名单元                      键名       说明       返回值例子                             &quot;seconds&quot;       秒的数字表示       0 到 59                   &quot;minutes&quot;       分钟的数字表示       0 到 59                   &quot;hours&quot;       小时的数字表示       0 到 23                   &quot;mday&quot;       月份中第几天的数字表示       1 到 31                   &quot;wday&quot;       星期中第几天的数字表示       0 (周日) 到 6 (周六)                   &quot;mon&quot;       月份的数字表示       1 到 12                   &quot;year&quot;       4 位数字表示的完整年份       比如： 1999 或 2003                   &quot;yday&quot;       一年中第几天的数字表示       0 到 365                   &quot;weekday&quot;       星期几的完整文本表示       Sunday 到 Saturday                   &quot;month&quot;       月份的完整文本表示，比如 January 或 March       January 到 December                   0               自从 Unix 纪元开始至今的秒数，和 time()        的返回值以及用于 date() 的值类似。                      系统相关，典型值为从 -2147483648 到        2147483647。                            
+示例:
+
+<?php
+$today = getdate();
+print_r($today);
+?>
+以上例程的输出类似于：
+Array
+(
+    [seconds] => 40
+    [minutes] => 58
+    [hours]   => 21
+    [mday]    => 17
+    [wday]    => 2
+    [mon]     => 6
+    [year]    => 2003
+    [yday]    => 167
+    [weekday] => Tuesday
+    [month]   => June
+    [0]       => 1055901520
+)

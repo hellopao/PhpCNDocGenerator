@@ -1,0 +1,15 @@
+语法:
+    float sqrt     ( float $arg    )
+说明:
+返回arg的平方根。
+参数:
+  参数              arg                  要处理的参数                     
+返回值:
+  返回值     返回 arg 的平方根，负数时返回 NAN。   
+示例:
+
+<?php
+// Precision depends on your precision directive
+echo sqrt(9); // 3
+echo sqrt(10); // 3.16227766 ...
+?>

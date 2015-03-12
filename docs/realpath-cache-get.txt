@@ -1,0 +1,36 @@
+语法:
+   array realpath_cache_get    ( void   )
+说明:
+Getthecontentsoftherealpathcache.
+返回值:
+  返回值     Returns an array of realpath cache entries. The keys are original path   entries, and the values are arrays of data items, containing the resolved   path, expiration date, and other options kept in the cache.    
+示例:
+
+<?php
+var_dump(realpath_cache_get());
+?>
+以上例程的输出类似于：
+array(2) {
+  ["/test"]=>
+  array(4) {
+    ["key"]=>
+    int(123456789)
+    ["is_dir"]=>
+    bool(true)
+    ["realpath"]=>
+    string(5) "/test"
+    ["expires"]=>
+    int(1260318939)
+  }
+  ["/test/test.php"]=>
+  array(4) {
+    ["key"]=>
+    int(987654321)
+    ["is_dir"]=>
+    bool(false)
+    ["realpath"]=>
+    string(12) "/root/test.php"
+    ["expires"]=>
+    int(1260318939)
+  }
+}

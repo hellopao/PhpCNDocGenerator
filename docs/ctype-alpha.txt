@@ -1,0 +1,23 @@
+语法:
+   bool ctype_alpha    ( string $text   )
+说明:
+查看提供的string，text里面的所有字符是否只包含字符。在标准的C语言环境下，字母仅仅是指[A-Za-z]，ctype_alpha()等同于(ctype_upper($text)||ctype_lower($text))如果text是简单的单个字符串还好，但是在其他语言中有些字母被认为既不是大写也不是小写。
+参数:
+  参数              text                  被测试的字符串。                     
+返回值:
+  返回值     如果在当前语言环境中 text 里的每个字符都是一个字母，那么就返回TRUE，反之则返回FALSE。   
+示例:
+
+<?php
+$strings = array('KjgWZC', 'arf12');
+foreach ($strings as $testcase) {
+    if (ctype_alpha($testcase)) {
+        echo "The string $testcase consists of all letters.\n";
+    } else {
+        echo "The string $testcase does not consist of all letters.\n";
+    }
+}
+?>
+以上例程会输出：
+The string KjgWZC consists of all letters.
+The string arf12 does not consist of all letters.

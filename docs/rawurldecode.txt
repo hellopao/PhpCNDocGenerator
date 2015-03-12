@@ -1,0 +1,13 @@
+语法:
+   string rawurldecode    ( string $str   )
+说明:
+返回字符串，此字符串中百分号（%）后跟两位十六进制数的序列都将被替换成原义字符。
+参数:
+  参数              str                  要解码的 URL。                     
+返回值:
+  返回值     返回解码后的 URL 字符串。   
+示例:
+
+<?php
+echo rawurldecode('foo%20bar%40baz'); // foo bar@baz
+?>

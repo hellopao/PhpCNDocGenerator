@@ -1,0 +1,3 @@
+语法:
+   object stream_bucket_new    ( resource $stream   , string $buffer   )
+示例:

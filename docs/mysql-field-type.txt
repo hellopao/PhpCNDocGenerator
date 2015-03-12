@@ -1,0 +1,65 @@
+语法:
+      string mysql_field_type       ( resource $result      , int $field_offset      )
+说明:
+mysql_field_type()和mysql_field_name()函数相似。参数完全相同，但返回的是字段类型而不是字段名。字段类型有“int”，“real”，“string”，“blob”以及其它，详见&raquo;&nbsp;MySQL手册。Example#1mysql_field_type()例子
+参数:
+  参数         resultresource型的结果集。此结果集来自对 mysql_query()的调用。    field_offset数值型字段偏移量。field_offset 从 0 开始。如果field_offset 不存在，则会发出一个E_WARNING 级别的错误      
+返回值:
+  返回值     The returned field type   will be one of &quot;int&quot;, &quot;real&quot;,    &quot;string&quot;, &quot;blob&quot;, and others as   detailed in the &raquo;&nbsp;MySQL   documentation.   
+示例:
+
+<?php
+    mysql_connect("localhost", "mysql_username", "mysql_password");
+    mysql_select_db("mysql");
+    $result = mysql_query("SELECT * FROM func");
+    $fields = mysql_num_fields($result);
+    $rows   = mysql_num_rows($result);
+    $table = mysql_field_table($result, 0);
+    echo "Your '".$table."' table has ".$fields." fields and ".$rows." record(s)\n";
+    echo "The table has the following fields:\n";
+    for ($i=0; $i < $fields; $i++) {
+        $type  = mysql_field_type($result, $i);
+        $name  = mysql_field_name($result, $i);
+        $len   = mysql_field_len($result, $i);
+        $flags = mysql_field_flags($result, $i);
+        echo $type." ".$name." ".$len." ".$flags."\n";
+    }
+    mysql_free_result($result);
+    mysql_close();
+?>
+
+       以上例子将产生如下输出：
+      
+Your &#039;func&#039; table has 4 fields and 1 record(s)
+The table has the following fields:
+string name 64 not_null primary_key binary
+int ret 1 not_null
+string dl 128 not_null
+string type 9 not_null enum
+
+<?php
+mysql_connect("localhost", "mysql_username", "mysql_password");
+mysql_select_db("mysql");
+$result = mysql_query("SELECT * FROM func");
+$fields = mysql_num_fields($result);
+$rows   = mysql_num_rows($result);
+$table  = mysql_field_table($result, 0);
+echo "Your '" . $table . "' table has " . $fields . " fields and " . $rows . " record(s)\n";
+echo "The table has the following fields:\n";
+for ($i=0; $i < $fields; $i++) {
+    $type  = mysql_field_type($result, $i);
+    $name  = mysql_field_name($result, $i);
+    $len   = mysql_field_len($result, $i);
+    $flags = mysql_field_flags($result, $i);
+    echo $type . " " . $name . " " . $len . " " . $flags . "\n";
+}
+mysql_free_result($result);
+mysql_close();
+?>
+以上例程的输出类似于：
+Your &#039;func&#039; table has 4 fields and 1 record(s)
+The table has the following fields:
+string name 64 not_null primary_key binary
+int ret 1 not_null
+string dl 128 not_null
+string type 9 not_null enum

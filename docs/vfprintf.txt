@@ -1,0 +1,16 @@
+语法:
+   int vfprintf    ( resource $handle   , string $format   , array $args   )
+说明:
+向由handle指定的流资源句柄中写入根据format格式化后的字符串。
+参数:
+  参数              handle                                   format                  关于 format 的描述，参见 sprintf()。                        args                                
+返回值:
+  返回值     返回输出字符串的长度。   
+示例:
+
+<?php
+if (!($fp = fopen('date.txt', 'w')))
+    return;
+vfprintf($fp, "%04d-%02d-%02d", array($year, $month, $day));
+// 将向 date.txt 写入格式化的 ISO 标准日期
+?>

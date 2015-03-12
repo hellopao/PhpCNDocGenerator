@@ -1,0 +1,31 @@
+语法:
+   int ip2long    ( string $ip_address   )
+说明:
+Thefunctionip2long()generatesanIPv4InternetnetworkaddressfromitsInternetstandardformat(dottedstring)representation.
+参数:
+  参数              ip_address                  A standard format address.                     
+返回值:
+  返回值     Returns the IPv4 address or FALSE if ip_address   is invalid.   
+示例:
+
+<?php
+$ip = gethostbyname('www.example.com');
+$out = "The following URLs are equivalent:<br />\n";
+$out .= 'http://www.example.com/, http://' . $ip . '/, and http://' . sprintf("%u", ip2long($ip)) . "/<br />\n";
+echo $out;
+?>
+
+     This second example shows how to print a converted address with the
+     printf() function in both PHP 4 and PHP 5:
+    
+<?php
+$ip   = gethostbyname('www.example.com');
+$long = ip2long($ip);
+if ($long == -1 || $long === FALSE) {
+    echo 'Invalid IP, please try again';
+} else {
+    echo $ip   . "\n";           // 192.0.34.166
+    echo $long . "\n";           // -1073732954
+    printf("%u\n", ip2long($ip)); // 3221234342
+}
+?>

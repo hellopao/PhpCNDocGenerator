@@ -1,0 +1,22 @@
+语法:
+     bool ksort      ( array &$array   [, int $sort_flags = SORT_REGULAR    ] )
+说明:
+对数组按照键名排序，保留键名到数据的关联。本函数主要用于关联数组。
+参数:
+  参数              array                  输入的数组。                        sort_flags                  可以用可选参数  sort_flags      改变排序的行为，详情见  sort()。                     
+返回值:
+  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。   
+示例:
+
+<?php
+$fruits = array("d"=>"lemon", "a"=>"orange", "b"=>"banana", "c"=>"apple");
+ksort($fruits);
+foreach ($fruits as $key => $val) {
+    echo "$key = $val\n";
+}
+?>
+以上例程会输出：
+a = orange
+b = banana
+c = apple
+d = lemon

@@ -1,0 +1,7 @@
+语法:
+   bool session_reset    ( void   )
+说明:
+session_reset()reinitializesasessionwithoriginalvaluesstoredinsessionstorage.Thisfunctionrequiresactivesessionanddiscardschangesin$_SESSION.
+返回值:
+  返回值     This function returns TRUE if a session was successfully reinitialized,   otherwise FALSE.   
+示例:

@@ -1,0 +1,9 @@
+语法:
+   mixed jddayofweek    ( int $julianday   [, int $mode = CAL_DOW_DAYNO  ] )
+说明:
+返回星期的日期，根据模式不同可能是字符串或是整数。
+参数:
+  参数              julianday                  一个julian天数。                        mode                  历法星期模式                                  Mode          Meaning                                            0 (默认)                      返回数字形式(0=Sunday, 1=Monday, etc)                                      1                      返回字符串形式           (English-Gregorian)                                      2                      返回缩写形式的字符串           (English-Gregorian)                                                       
+返回值:
+  返回值     数字或字符串形式的星期数。   
+示例:

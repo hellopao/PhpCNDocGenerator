@@ -1,0 +1,9 @@
+语法:
+   resource openssl_pkey_new    ([ array $configargs  ] )
+说明:
+openssl_pkey_new()generatesanewprivateandpublickeypair.Thepubliccomponentofthekeycanbeobtainedusingopenssl_pkey_get_public().
+参数:
+  参数              configargs                  You can finetune the key generation (such as specifying the number of       bits) using configargs.  See       openssl_csr_new() for more information about       configargs.                     
+返回值:
+  返回值     Returns a resource identifier for the pkey on success, or FALSE on   error.   
+示例:

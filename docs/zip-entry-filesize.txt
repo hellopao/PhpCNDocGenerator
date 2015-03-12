@@ -1,0 +1,9 @@
+语法:
+   int zip_entry_filesize    ( resource $zip_entry   )
+说明:
+返回指定目录实体的实际大小。
+参数:
+  参数              zip_entry                  由函数zip_read() 返回的目录实体。                     
+返回值:
+  返回值     返回该目录实体的大小。   
+示例:

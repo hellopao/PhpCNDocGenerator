@@ -1,0 +1,13 @@
+语法:
+   string hash_hmac    ( string $algo   , string $data   , string $key   [, bool $raw_output = false  ] )
+参数:
+  参数              algo                  要使用的哈希算法名称，例如：&quot;md5&quot;，&quot;sha256&quot;，&quot;haval160,4&quot; 等。       如何获取受支持的算法清单，请参见 hash_algos()。                        data                  要进行哈希运算的消息。                        key                  使用 HMAC 生成信息摘要时所使用的密钥。                        raw_output                  设置为 TRUE 输出原始二进制数据，       设置为 FALSE 输出小写 16 进制字符串。                     
+返回值:
+  返回值     如果 raw_output 设置为 TRUE， 则返回原始二进制数据表示的信息摘要，   否则返回 16 进制小写字符串格式表示的信息摘要。   如果 algo 参数指定的不是受支持的算法，返回 FALSE。   
+示例:
+
+<?php
+echo hash_hmac('ripemd160', 'The quick brown fox jumped over the lazy dog.', 'secret');
+?>
+以上例程会输出：
+b8e7ae12510bdfb1812e463a7f086122cf37e4f7

@@ -1,0 +1,17 @@
+语法:
+   string lcfirst    ( string $str   )
+说明:
+返回str的第一个字符小写了的字符串。如果str的第一个字符是字母，则将其转换为小写。
+参数:
+  参数              str                  输入的字符串。                     
+返回值:
+  返回值     返回转换后的字符串。   
+示例:
+
+<?php
+$foo = 'HelloWorld';
+$foo = lcfirst($foo);             // helloWorld
+$bar = 'HELLO WORLD!';
+$bar = lcfirst($bar);             // hELLO WORLD!
+$bar = lcfirst(strtoupper($bar)); // hELLO WORLD!
+?>

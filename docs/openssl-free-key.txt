@@ -1,0 +1,9 @@
+语法:
+   void openssl_free_key    ( resource $key_identifier   )
+说明:
+openssl_free_key()freesthekeyassociatedwiththespecifiedkey_identifierfrommemory.
+参数:
+  参数              key_identifier                                
+返回值:
+  返回值     没有返回值。   
+示例:

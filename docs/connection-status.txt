@@ -1,0 +1,7 @@
+语法:
+   int connection_status    ( void   )
+说明:
+获得当前连接的状态位。
+返回值:
+  返回值      获得当前连接的状态位, 可以用于与   CONNECTION_XXX 定义的常量来确定连接状态。   
+示例:

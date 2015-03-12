@@ -1,0 +1,5 @@
+语法:
+      string mysql_field_table       ( resource $result      , int $field_offset      )
+说明:
+返回指定字段所在的表的名字。
+示例:

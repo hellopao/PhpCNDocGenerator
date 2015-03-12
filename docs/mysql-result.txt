@@ -1,0 +1,14 @@
+语法:
+     mixed mysql_result      ( resource $result     , int $row     [, mixed $field    ] )
+说明:
+mysql_result()返回MySQL结果集中一个单元的内容。字段参数可以是字段的偏移量或者字段名，或者是字段表点字段名（tablename.fieldname）。如果给列起了别名（&#039;selectfooasbarfrom...&#039;），则用别名替代列名。
+示例:
+
+<?php
+    $link = mysql_connect("localhost", "mysql_user", "mysql_password")
+            or die("Could not connect: " . mysql_error());
+    $result = mysql_query("SELECT name FROM work.employee")
+            or die("Could not query: . mysql_error());
+    echo mysql_result($result,2); // outputs third employee's name
+    mysql_close($link);
+?>

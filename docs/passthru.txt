@@ -1,0 +1,9 @@
+语法:
+   void passthru    ( string $command   [, int &$return_var  ] )
+说明:
+同exec()函数类似，passthru()函数也是用来执行外部命令（command）的。当所执行的Unix命令输出二进制数据，并且需要直接传送到浏览器的时候，需要用此函数来替代exec()或system()函数。常用来执行诸如pbmplus之类的可以直接输出图像流的命令。通过设置Content-type为image/gif，然后调用pbmplus程序输出gif文件，就可以从PHP脚本中直接输出图像到浏览器。
+参数:
+  参数              command                  要执行的命令。                        return_var                   如果提供  return_var 参数，        Unix 命令的返回状态会被记录到此参数。                     
+返回值:
+  返回值     没有返回值。   
+示例:

@@ -1,0 +1,13 @@
+语法:
+   int realpath_cache_size    ( void   )
+说明:
+Gettheamountofmemoryusedbytherealpathcache.
+返回值:
+  返回值     Returns how much memory realpath cache is using.   
+示例:
+
+<?php
+var_dump(realpath_cache_size());
+?>
+以上例程的输出类似于：
+int(412)

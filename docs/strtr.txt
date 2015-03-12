@@ -1,0 +1,29 @@
+语法:
+   string strtr    ( string $str   , string $from   , string $to   )
+说明:
+该函数返回str的一个副本，并将在from中指定的字符转换为to中相应的字符。比如，$from[$n]中每次的出现都会被替换为$to[$n]，其中$n是两个参数都有效的位移(offset)。
+参数:
+  参数              str                  待转换的字符串。                        from                  字符串中与将要被转换的目的字符 to 相对应的源字符。                        to                  字符串中与将要被转换的字符 from 相对应的目的字符。                        replace_pairs                  参数 replace_pairs 可以用来取代 to 和 from 参数，因为它是以  array(&#039;from&#039; =&gt; &#039;to&#039;, ...) 格式出现的数组。                     
+返回值:
+  返回值     返回转换后的字符串。       如果 replace_pairs 中包含一个空字符串（&quot;&quot;）键，那么将返回 FALSE。   If the str is not a scalar   then it is not typecasted into a string, instead a warning is raised and    NULL is returned.    
+示例:
+
+<?php
+$addr = strtr($addr, "äåö", "aao");
+?>
+
+<?php
+$trans = array("hello" => "hi", "hi" => "hello");
+echo strtr("hi all, I said hello", $trans);
+?>
+以上例程会输出：
+hello all, I said hi
+
+<?php
+echo strtr("baab", "ab", "01"),"\n";
+$trans = array("ab" => "01");
+echo strtr("baab", $trans);
+?>
+以上例程会输出：
+1001
+ba01

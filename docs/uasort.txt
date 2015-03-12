@@ -1,0 +1,48 @@
+语法:
+      bool uasort       ( array &$array      , callable $cmp_function      )
+说明:
+本函数对数组排序并保持索引和单元之间的关联。
+参数:
+  参数              array                  输入的数组。                        cmp_function                 用户自定义比较函数的例子请参考 usort() 和 uksort()。                     
+返回值:
+  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。   
+示例:
+
+<?php
+// Comparison function
+function cmp($a, $b) {
+    if ($a == $b) {
+        return 0;
+    }
+    return ($a < $b) ? -1 : 1;
+}
+// Array to be sorted
+$array = array('a' => 4, 'b' => 8, 'c' => -1, 'd' => -9, 'e' => 2, 'f' => 5, 'g' => 3, 'h' => -4);
+print_r($array);
+// Sort and print the resulting array
+uasort($array, 'cmp');
+print_r($array);
+?>
+以上例程会输出：
+Array
+(
+    [a] => 4
+    [b] => 8
+    [c] => -1
+    [d] => -9
+    [e] => 2
+    [f] => 5
+    [g] => 3
+    [h] => -4
+)
+Array
+(
+    [d] => -9
+    [h] => -4
+    [c] => -1
+    [e] => 2
+    [g] => 3
+    [a] => 4
+    [f] => 5
+    [b] => 8
+)

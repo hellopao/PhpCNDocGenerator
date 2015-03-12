@@ -1,0 +1,79 @@
+语法:
+      array mysql_fetch_array       ( resource $result      [, int $        result_type            ] )
+说明:
+返回根据从结果集取得的行生成的数组，如果没有更多行则返回FALSE。
+参数:
+  参数         resultresource型的结果集。此结果集来自对 mysql_query()的调用。         result_type                  The type of array that is to be fetched. It&#039;s a constant and can       take the following values: MYSQL_ASSOC,        MYSQL_NUM, and       MYSQL_BOTH.                     
+返回值:
+  返回值     Returns an array of strings that corresponds to the fetched row, or FALSE   if there are no more rows. The type of returned array depends on   how result_type is defined. By using    MYSQL_BOTH (default), you&#039;ll get an array with both    associative and number indices. Using MYSQL_ASSOC, you    only get associative indices (as mysql_fetch_assoc()    works), using MYSQL_NUM, you only get number indices    (as mysql_fetch_row() works).       If two or more columns of the result have the same field names,   the last column will take precedence. To access the other column(s)   of the same name, you must use the numeric index of the column or   make an alias for the column. For aliased columns, you cannot   access the contents with the original column name.   
+示例:
+
+select table1.field as foo, table2.field as bar from table1, table2
+
+<?php
+    mysql_connect("localhost", "mysql_user", "mysql_password") or
+        die("Could not connect: " . mysql_error());
+    mysql_select_db("mydb");
+    $result = mysql_query("SELECT id, name FROM mytable");
+    while ($row = mysql_fetch_array($result, MYSQL_NUM)) {
+        printf ("ID: %s  Name: %s", $row[0], $row[1]);
+    }
+    mysql_free_result($result);
+?>
+
+<?php
+    mysql_connect("localhost", "mysql_user", "mysql_password") or
+        die("Could not connect: " . mysql_error());
+    mysql_select_db("mydb");
+    $result = mysql_query("SELECT id, name FROM mytable");
+    while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+        printf ("ID: %s  Name: %s", $row["id"], $row["name"]);
+    }
+    mysql_free_result($result);
+?>
+
+<?php
+    mysql_connect("localhost", "mysql_user", "mysql_password") or
+        die("Could not connect: " . mysql_error());
+    mysql_select_db("mydb");
+    $result = mysql_query("SELECT id, name FROM mytable");
+    while ($row = mysql_fetch_array($result, MYSQL_BOTH)) {
+        printf ("ID: %s  Name: %s", $row[0], $row["name"]);
+    }
+    mysql_free_result($result);
+?>
+
+SELECT table1.field AS foo, table2.field AS bar FROM table1, table2
+
+<?php
+mysql_connect("localhost", "mysql_user", "mysql_password") or
+    die("Could not connect: " . mysql_error());
+mysql_select_db("mydb");
+$result = mysql_query("SELECT id, name FROM mytable");
+while ($row = mysql_fetch_array($result, MYSQL_NUM)) {
+    printf("ID: %s  Name: %s", $row[0], $row[1]);  
+}
+mysql_free_result($result);
+?>
+
+<?php
+mysql_connect("localhost", "mysql_user", "mysql_password") or
+    die("Could not connect: " . mysql_error());
+mysql_select_db("mydb");
+$result = mysql_query("SELECT id, name FROM mytable");
+while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+    printf("ID: %s  Name: %s", $row["id"], $row["name"]);
+}
+mysql_free_result($result);
+?>
+
+<?php
+mysql_connect("localhost", "mysql_user", "mysql_password") or
+    die("Could not connect: " . mysql_error());
+mysql_select_db("mydb");
+$result = mysql_query("SELECT id, name FROM mytable");
+while ($row = mysql_fetch_array($result, MYSQL_BOTH)) {
+    printf ("ID: %s  Name: %s", $row[0], $row["name"]);
+}
+mysql_free_result($result);
+?>

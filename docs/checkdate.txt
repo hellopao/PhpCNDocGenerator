@@ -1,0 +1,17 @@
+语法:
+    bool checkdate     ( int $month    , int $day    , int $year    )
+说明:
+检查由参数构成的日期的合法性。如果每个参数都正确定义了则会被认为是有效的。
+参数:
+  参数              month                  month 的值是从 1 到 12。                        day                     Day 的值在给定的 month                所应该具有的天数范围之内，闰年已经考虑进去了。                        year                  year 的值是从 1 到 32767。                     
+返回值:
+  返回值     如果给出的日期有效则返回 TRUE，否则返回   FALSE。   
+示例:
+
+<?php
+var_dump(checkdate(12, 31, 2000));
+var_dump(checkdate(2, 29, 2001));
+?>
+以上例程会输出：
+bool(true)
+bool(false)

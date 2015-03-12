@@ -1,0 +1,9 @@
+语法:
+   bool mysql_set_charset    ( string $charset   [, resource $link_identifier = NULL  ] )
+说明:
+设置当前连接的默认字符集。
+参数:
+  参数              charset                  一个有效的字符集名称。                   link_identifierMySQL连接。如不指定连接标识，则使用由 mysql_connect()最近打开的连接。如果没有找到该连接，会尝试不带参数调用mysql_connect()来创建。如没有找到连接或无法建立连接，则会生成E_WARNING 级别的错误。      
+返回值:
+  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。   
+示例:

@@ -1,0 +1,28 @@
+语法:
+   bool array_key_exists    ( mixed $key   , array $search   )
+说明:
+array_key_exists()在给定的key存在于数组中时返回TRUE。key可以是任何能作为数组索引的值。array_key_exists()也可用于对象。
+参数:
+    参数                      key                        要检查的键。                                  search                        一个数组，包含待检查的键。                                 
+返回值:
+    返回值         成功时返回 TRUE， 或者在失败时返回 FALSE。       
+示例:
+
+<?php
+$search_array = array('first' => 1, 'second' => 4);
+if (array_key_exists('first', $search_array)) {
+    echo "The 'first' element is in the array";
+}
+?>
+
+       isset() 对于数组中为 NULL
+       的值不会返回 TRUE，而
+       array_key_exists() 会。
+      
+<?php
+$search_array = array('first' => null, 'second' => 4);
+// returns false
+isset($search_array['first']);
+// returns true
+array_key_exists('first', $search_array);
+?>

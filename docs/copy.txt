@@ -1,0 +1,17 @@
+语法:
+   bool copy    ( string $source   , string $dest   [, resource $context  ] )
+说明:
+将文件从source拷贝到dest。
+参数:
+  参数              source                  源文件路径。                        dest                  目标路径。如果 dest 是一个 URL，则如果封装协议不支持覆盖已有的文件时拷贝操作会失败。            Warning              如果目标文件已存在，将会被覆盖。             
+返回值:
+  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。   
+示例:
+
+<?php
+$file = 'example.txt';
+$newfile = 'example.txt.bak';
+if (!copy($file, $newfile)) {
+    echo "failed to copy $file...\n";
+}
+?>

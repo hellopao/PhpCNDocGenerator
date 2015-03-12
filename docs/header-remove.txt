@@ -1,0 +1,24 @@
+语法:
+   void header_remove    ([ string $name  ] )
+说明:
+RemovesanHTTPheaderpreviouslysetusingheader().
+参数:
+  参数              name                  The header name to be removed.            Note:                This parameter is case-insensitive.                            
+返回值:
+  返回值     没有返回值。   
+示例:
+
+<?php
+header("X-Foo: Bar");
+header("X-Bar: Baz");
+header_remove("X-Foo"); 
+?>
+以上例程的输出类似于：
+X-Bar: Baz
+
+<?php
+header("X-Foo: Bar");
+header("X-Bar: Baz");
+header_remove(); 
+?>
+以上例程的输出类似于：

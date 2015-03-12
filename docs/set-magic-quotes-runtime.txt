@@ -1,0 +1,29 @@
+语法:
+   bool set_magic_quotes_runtime    ( bool $new_setting   )
+说明:
+设置当前magic_quotes_runtime配置选项的激活状态。
+参数:
+  参数              new_setting                  关闭是 FALSE，开启是 TRUE。                     
+返回值:
+  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。   
+示例:
+
+<?php
+// 创建临时文件指针
+$fp = tmpfile();
+// 写入一些数据
+fwrite($fp, '\'PHP\' is a Recursive acronym');
+// 没有 magic_quotes_runtime
+rewind($fp);
+set_magic_quotes_runtime(false);
+echo 'Without magic_quotes_runtime: ' . fread($fp, 64), PHP_EOL;
+// 有 magic_quotes_runtime
+rewind($fp);
+set_magic_quotes_runtime(true);
+echo 'With magic_quotes_runtime: ' . fread($fp, 64), PHP_EOL;
+// 清理
+fclose($fp);
+?>
+以上例程会输出：
+Without magic_quotes_runtime: &#039;PHP&#039; is a Recursive acronym
+With magic_quotes_runtime: \&#039;PHP\&#039; is a Recursive acronym

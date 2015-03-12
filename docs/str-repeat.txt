@@ -1,0 +1,15 @@
+语法:
+   string str_repeat    ( string $input   , int $multiplier   )
+说明:
+返回input重复multiplier次后的结果。
+参数:
+  参数              input                  待操作的字符串。                        multiplier                  input 被重复的次数。                   multiplier 必须大于等于 0。如果 multiplier 被设置为 0，函数返回空字符串。                     
+返回值:
+  返回值     返回重复后的字符串。   
+示例:
+
+<?php
+echo str_repeat("-=", 10);
+?>
+以上例程会输出：
+-=-=-=-=-=-=-=-=-=-=

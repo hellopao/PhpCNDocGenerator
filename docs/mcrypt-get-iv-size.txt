@@ -1,0 +1,14 @@
+语法:
+   int mcrypt_get_iv_size    ( string $cipher   , string $mode   )
+说明:
+获取由cipher/mode参数指定的初始向量大小。
+参数:
+  参数              cipher           MCRYPT_ciphername 常量中的一个，或者是字符串值的算法名称。                  mode           MCRYPT_MODE_modename 常量中的一个，或以下字符串中的一个：&quot;ecb&quot;，&quot;cbc&quot;，&quot;cfb&quot;，&quot;ofb&quot;，&quot;nofb&quot; 和 &quot;stream&quot;。             由于 ECB 模式不使用初始向量，所以会忽略它。       在加密和解密的过程中，       你需要使用相同的初始向量（想象成：开始点）。                     
+返回值:
+  返回值     返回初始向量的大小，以字节为单位。   如果发生错误，返回 FALSE。   如果指定的算法/模式不需要初始向量，返回 0。   
+示例:
+
+<?php
+    echo mcrypt_get_iv_size(MCRYPT_CAST_256, MCRYPT_MODE_CFB) . "\n";
+    echo mcrypt_get_iv_size('des', 'ecb') . "\n";
+?>

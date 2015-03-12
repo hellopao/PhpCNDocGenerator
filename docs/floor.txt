@@ -1,0 +1,13 @@
+语法:
+   float floor    ( float $value   )
+参数:
+    参数                      value                        要取整的数字                                 
+返回值:
+    返回值         返回不大于     value 的最接近的整数，将   value   的小数部分舍去取整。floor() 返回的类型仍然是   float，因为 float 值的范围通常比 integer 要大。     
+示例:
+
+<?php
+echo floor(4.3);   // 4
+echo floor(9.999); // 9
+echo floor(-3.14); // -4
+?>

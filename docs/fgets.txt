@@ -1,0 +1,22 @@
+语法:
+   string fgets    ( resource $handle   [, int $length  ] )
+说明:
+从文件指针中读取一行。
+参数:
+  参数              handle           文件指针必须是有效的，必须指向由fopen() 或 fsockopen() 成功打开的文件(并还未由 fclose() 关闭)。                  length                  从 handle   指向的文件中读取一行并返回长度最多为 length - 1   字节的字符串。碰到换行符（包括在返回值中）、EOF 或者已经读取了 length - 1   字节后停止（看先碰到那一种情况）。如果没有指定   length，则默认为 1K，或者说 1024 字节。            Note:               从 PHP 4.3 开始，忽略掉    length 则行的长度被假定为 1024，将继续从流中读取数据直到行结束。如果文件中的大多数行都大于    8KB，则在脚本中指定最大行的长度在利用资源上更为有效。                            
+返回值:
+  返回值     从指针 handle 指向的文件中读取了 length - 1 字节后返回字符串。    如果文件指针中没有更多的数据了则返回 FALSE。       错误发生时返回 FALSE。   
+示例:
+
+<?php
+$handle = @fopen("/tmp/inputfile.txt", "r");
+if ($handle) {
+    while (($buffer = fgets($handle, 4096)) !== false) {
+        echo $buffer;
+    }
+    if (!feof($handle)) {
+        echo "Error: unexpected fgets() fail\n";
+    }
+    fclose($handle);
+}
+?>

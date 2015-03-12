@@ -1,0 +1,15 @@
+语法:
+   string exec    ( string $command   [, array &$output   [, int &$return_var  ]] )
+说明:
+exec()执行command参数所指定的命令。
+参数:
+  参数              command                  要执行的命令。                        output                   如果提供了 output 参数，        那么会用命令执行的输出填充此数组，        每行输出填充数组中的一个元素。        数组中的数据不包含行尾的空白字符，例如 \n 字符。        请注意，如果数组中已经包含了部分元素，exec()        函数会在数组末尾追加内容。如果你不想在数组末尾进行追加，        请在传入 exec() 函数之前        对数组使用 unset() 函数进行重置。                        return_var                   如果同时提供         output  和         return_var 参数，        命令执行后的返回状态会被写入到此变量。                     
+返回值:
+  返回值      命令执行结果的最后一行内容。    如果你需要获取未经处理的全部输出数据，    请使用 passthru() 函数。        如果想要获取命令的输出内容，    请确保使用 output 参数。   
+示例:
+
+<?php
+// 输出运行中的 php/httpd 进程的创建者用户名
+// （在可以执行 "whoami" 命令的系统上）
+echo exec('whoami');
+?>

@@ -1,0 +1,14 @@
+语法:
+   string str_shuffle    ( string $str   )
+参数:
+  参数              str                  输入字符串。                     
+返回值:
+  返回值     返回打乱后的字符串。   
+示例:
+
+<?php
+$str = 'abcdef';
+$shuffled = str_shuffle($str);
+// 输出类似于: bfdaec
+echo $shuffled;
+?>

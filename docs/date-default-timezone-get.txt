@@ -1,0 +1,27 @@
+语法:
+   string date_default_timezone_get    ( void   )
+说明:
+本函数返回默认时区，使用如下“假定”的顺序：用date_default_timezone_set()函数设定的时区（如果设定了的话）
+返回值:
+  返回值     返回一个 string。   
+示例:
+
+<?php
+date_default_timezone_set('Europe/London');
+if (date_default_timezone_get()) {
+    echo 'date_default_timezone_set: ' . date_default_timezone_get() . '<br />';
+}
+if (ini_get('date.timezone')) {
+    echo 'date.timezone: ' . ini_get('date.timezone');
+}
+?>
+以上例程的输出类似于：
+date_default_timezone_set: Europe/London
+date.timezone: Europe/London
+
+<?php
+date_default_timezone_set('America/Los_Angeles');
+echo date_default_timezone_get() . ' => ' . date('e') . ' => ' . date('T');
+?>
+以上例程会输出：
+America/Los_Angeles => America/Los_Angeles => PST

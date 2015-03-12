@@ -1,0 +1,15 @@
+语法:
+      string mysql_real_escape_string       ( string $unescaped_string      [, resource $link_identifier     ] )
+说明:
+本函数将unescaped_string中的特殊字符转义，并计及连接的当前字符集，因此可以安全用于mysql_query()。
+示例:
+
+<?php
+$item = "Zak's and Derick's Laptop";
+$escaped_item = mysql_real_escape_string($item);
+printf ("Escaped string: %s\n", $escaped_item);
+?>
+
+       以上例子将产生如下输出：
+      
+Escaped string: Zak\&#039;s and Derick\&#039;s Laptop

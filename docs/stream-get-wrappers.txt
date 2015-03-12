@@ -1,0 +1,30 @@
+语法:
+   array stream_get_wrappers    ( void   )
+说明:
+获取在当前运行系统中已经注册并可使用的流类型列表。
+返回值:
+  返回值     返回一个索引数组，该数组里包含了当前运行系统中可使用的流类型的名称。   
+示例:
+
+<?php
+print_r(stream_get_wrappers());
+?>
+以上例程的输出类似于：
+Array
+(
+    [0] => php
+    [1] => file
+    [2] => http
+    [3] => ftp
+    [4] => compress.bzip2
+    [5] => compress.zlib
+)
+
+<?php
+// check for the existence of the bzip2 stream wrapper
+if (in_array('compress.bzip2', stream_get_wrappers())) {
+    echo 'compress.bzip2:// support enabled.';
+} else {
+    echo 'compress.bzip2:// support not enabled.';
+}
+?>

@@ -1,0 +1,9 @@
+语法:
+   mixed XMLWriter::flush    ([ bool $empty = true  ] )
+说明:
+过程化风格
+参数:
+  参数         xmlwriter仅用于过程调用。被修改的 XMLWriter resource。此资源来自于对 xmlwriter_open_uri() 或xmlwriter_open_memory() 的调用。         empty                  Whether to empty the buffer or not. Default is TRUE.                     
+返回值:
+  返回值     If you opened the writer in memory, this function returns the generated XML buffer,   Else, if using URI, this function will write the buffer and return the number of    written bytes.   
+示例:

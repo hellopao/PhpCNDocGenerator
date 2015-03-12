@@ -1,0 +1,77 @@
+语法:
+   array getopt    ( string $options   [, array $longopts  ] )
+说明:
+解析传入脚本的选项。
+参数:
+  参数              options                  该字符串中的每个字符会被当做选项字符，匹配传入脚本的选项以单个连字符(-)开头。                   比如，一个选项字符串 &quot;x&quot; 识别了一个选项 -x。                   只允许 a-z、A-Z 和 0-9。                        longopts                  选项数组。此数组中的每个元素会被作为选项字符串，匹配了以两个连字符(--)传入到脚本的选项。                   例如，长选项元素 &quot;opt&quot; 识别了一个选项 --opt。                         options 可能包含了以下元素：       单独的字符（不接受值）    后面跟随冒号的字符（此选项需要值）    后面跟随两个冒号的字符（此选项的值可选）      选项的值是字符串后的第一个参数。它不介意值之前是否有空格。   Note:          选项的值不接受空格（&quot; &quot;）作为分隔符。           Note:        options 和 longopts 的格式几乎是一样的，唯一的不同之处是 longopts 需要是选项的数组（每个元素为一个选项），而 options 需要一个字符串（每个字符是个选项）。      
+返回值:
+  返回值     此函数会返回选项/参数对，失败时返回 FALSE。    Note:        选项的解析会终止于找到的第一个非选项，之后的任何东西都会被丢弃。      
+示例:
+
+<?php
+$options = getopt("f:hp:");
+var_dump($options);
+?>
+
+     通过 php script.php -fvalue -h 运行以上脚本会输出：
+    
+array(2) {
+  ["f"]=>
+  string(5) "value"
+  ["h"]=>
+  bool(false)
+}
+
+<?php
+$shortopts  = "";
+$shortopts .= "f:";  // Required value
+$shortopts .= "v::"; // Optional value
+$shortopts .= "abc"; // These options do not accept values
+$longopts  = array(
+    "required:",     // Required value
+    "optional::",    // Optional value
+    "option",        // No value
+    "opt",           // No value
+);
+$options = getopt($shortopts, $longopts);
+var_dump($options);
+?>
+
+     通过 php script.php -f "value for f" -v
+     -a --required value --optional="optional value" --option 运行以上脚本会输出：
+    
+array(6) {
+  ["f"]=>
+  string(11) "value for f"
+  ["v"]=>
+  bool(false)
+  ["a"]=>
+  bool(false)
+  ["required"]=>
+  string(5) "value"
+  ["optional"]=>
+  string(14) "optional value"
+  ["option"]=>
+  bool(false)
+}
+传递同一多个选项
+<?php
+$options = getopt("abc");
+var_dump($options);
+?>
+
+     使用 php script.php -aaac 运行以上脚本会输出：
+    
+array(2) {
+  ["a"]=>
+  array(3) {
+    [0]=>
+    bool(false)
+    [1]=>
+    bool(false)
+    [2]=>
+    bool(false)
+  }
+  ["c"]=>
+  bool(false)
+}

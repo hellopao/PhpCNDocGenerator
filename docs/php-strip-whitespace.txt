@@ -1,0 +1,25 @@
+语法:
+   string php_strip_whitespace    ( string $filename   )
+说明:
+返回删除注释和空格后filename的PHP源码。这对实际代码数量和注释数量的对比很有用。此函数与命令行下执行php-w相似。commandline.
+参数:
+  参数              filename                  PHP文件的路径。                     
+返回值:
+  返回值     在成功时返回过滤后的代码，或者在失败时返回空字符串。    Note:        此函数在PHP 5.0.1后以所述方式工作。之前它仅会返回一个空字符串。关于更多此BUG的信息与其行为，详见BUG报告 &raquo;&nbsp;#29606。      
+示例:
+
+<?php
+// PHP comment here
+/*
+ * Another PHP comment
+ */
+echo        php_strip_whitespace(__FILE__);
+// Newlines are considered whitespace, and are removed too:
+do_nothing();
+?>
+以上例程会输出：
+<?php
+ echo php_strip_whitespace(__FILE__); do_nothing(); ?>
+
+     可以注意到PHP的注释已不存在，成为第一个echo语句前的换行和空格。
+    

@@ -1,0 +1,9 @@
+语法:
+   string zlib_encode    ( string $data   , string $encoding   [, string $level = -1  ] )
+说明:
+Compressdatawiththespecifiedencoding.
+参数:
+  参数         data                                  encoding                                  level                              
+返回值:
+  返回值     
+示例:

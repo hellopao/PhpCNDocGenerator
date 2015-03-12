@@ -1,0 +1,96 @@
+语法:
+   bool mail    ( string $to   , string $subject   , string $message   [, string $additional_headers   [, string $additional_parameters  ]] )
+说明:
+发送一封电子邮件。
+参数:
+  参数              to                  电子邮件收件人，或收件人列表。                   本字符串的格式必须符合       &raquo;&nbsp;RFC 2822。例如：               user@example.com        user@example.com, anotheruser@example.com        User &lt;user@example.com&gt;        User &lt;user@example.com&gt;, Another User &lt;anotheruser@example.com&gt;                               subject                  电子邮件的主题。            Caution               本项不能包含任何换行符，否则邮件可能无法正确发送。             
+返回值:
+  返回值     Returns TRUE if the mail was successfully accepted for delivery, FALSE otherwise.       It is important to note that just because the mail was accepted for delivery,   it does NOT mean the mail will actually reach the intended destination.   
+示例:
+
+<?php
+$text = str_replace("\n.", "\n..", $text);
+?>
+
+     Using mail() to send a simple email:
+    
+<?php
+// The message
+$message = "Line 1\nLine 2\nLine 3";
+// In case any of our lines are larger than 70 characters, we should use wordwrap()
+$message = wordwrap($message, 70);
+// Send
+mail('caffinated@example.com', 'My Subject', $message);
+?>
+
+     The addition of basic headers, telling the MUA
+     the From and Reply-To addresses:
+    
+<?php
+$to      = 'nobody@example.com';
+$subject = 'the subject';
+$message = 'hello';
+$headers = 'From: webmaster@example.com' . "\r\n" .
+    'Reply-To: webmaster@example.com' . "\r\n" .
+    'X-Mailer: PHP/' . phpversion();
+mail($to, $subject, $message, $headers);
+?>
+
+     The additional_parameters parameter
+     can be used to pass an additional parameter to the program configured
+     to use when sending mail using the sendmail_path.
+    
+<?php
+mail('nobody@example.com', 'the subject', 'the message', null,
+   '-fwebmaster@example.com');
+?>
+
+     It is also possible to send HTML email with mail().
+    
+<?php
+// multiple recipients
+$to  = 'aidan@example.com' . ', '; // note the comma
+$to .= 'wez@example.com';
+// subject
+$subject = 'Birthday Reminders for August';
+// message
+$message = '
+<html>
+<head>
+  <title>Birthday Reminders for August</title>
+</head>
+<body>
+  <p>Here are the birthdays upcoming in August!</p>
+  <table>
+    <tr>
+      <th>Person</th><th>Day</th><th>Month</th><th>Year</th>
+    </tr>
+    <tr>
+      <td>Joe</td><td>3rd</td><td>August</td><td>1970</td>
+    </tr>
+    <tr>
+      <td>Sally</td><td>17th</td><td>August</td><td>1973</td>
+    </tr>
+  </table>
+</body>
+</html>
+';
+// To send HTML mail, the Content-type header must be set
+$headers  = 'MIME-Version: 1.0' . "\r\n";
+$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+// Additional headers
+$headers .= 'To: Mary <mary@example.com>, Kelly <kelly@example.com>' . "\r\n";
+$headers .= 'From: Birthday Reminder <birthday@example.com>' . "\r\n";
+$headers .= 'Cc: birthdayarchive@example.com' . "\r\n";
+$headers .= 'Bcc: birthdaycheck@example.com' . "\r\n";
+// Mail it
+mail($to, $subject, $message, $headers);
+?>
+
+     Note: 
+      
+       If intending to send HTML or otherwise Complex mails, it is recommended
+       to use the PEAR package &raquo; PEAR::Mail.
+      
+     
+    

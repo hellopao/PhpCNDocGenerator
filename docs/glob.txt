@@ -1,0 +1,19 @@
+语法:
+   array glob    ( string $pattern   [, int $flags = 0  ] )
+说明:
+glob()函数依照libcglob()函数使用的规则寻找所有与pattern匹配的文件路径，类似于一般shells所用的规则一样。不进行缩写扩展或参数替代。
+参数:
+  参数              pattern                  The pattern. No tilde expansion or parameter substitution is done.                        flags                  有效标记有：                                  GLOB_MARK - 在每个返回的项目中加一个斜线                                             GLOB_NOSORT - 按照文件在目录中出现的原始顺序返回（不排序）                                            GLOB_NOCHECK - 如果没有文件匹配则返回用于搜索的模式                                            GLOB_NOESCAPE - 反斜线不转义元字符                                            GLOB_BRACE - 扩充 {a,b,c} 来匹配 &#039;a&#039;，&#039;b&#039; 或 &#039;c&#039;                                            GLOB_ONLYDIR - 仅返回与模式匹配的目录项                                            GLOB_ERR - 停止并读取错误信息（比如说不可读的目录），默认的情况下忽略所有错误                                             
+返回值:
+  返回值  返回一个包含有匹配文件／目录的数组。如果出错返回 FALSE。    Note:        On some systems it is impossible to distinguish between empty match and an    error.      
+示例:
+
+<?php
+foreach (glob("*.txt") as $filename) {
+    echo "$filename size " . filesize($filename) . "\n";
+}
+?>
+以上例程的输出类似于：
+funclist.txt size 44686
+funcsummary.txt size 267625
+quickref.txt size 137820

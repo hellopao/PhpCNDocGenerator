@@ -1,0 +1,16 @@
+语法:
+   string token_name    ( int $token   )
+说明:
+token_name()获取一个PHPtoken的符号名称.
+参数:
+  参数              token                  解析器代号的值.                     
+返回值:
+  返回值     提供的token 的符号名.   
+示例:
+
+<?php
+// 260 is the token value for the T_EVAL token
+echo token_name(260);        // -> "T_EVAL"
+// a token constant maps to its own name
+echo token_name(T_FUNCTION); // -> "T_FUNCTION"
+?>

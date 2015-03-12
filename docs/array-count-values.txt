@@ -1,0 +1,21 @@
+语法:
+   array array_count_values    ( array $input   )
+说明:
+array_count_values()返回一个数组，该数组用input数组中的值作为键名，该值在input数组中出现的次数作为值。
+参数:
+  参数              input                  统计这个数组的值                     
+返回值:
+  返回值      返回一个关联数组，用 input     数组中的值作为键名，该值在数组中出现的次数作为值。   
+示例:
+
+<?php
+$array = array(1, "hello", 1, "world", "hello");
+print_r(array_count_values($array));
+?>
+以上例程会输出：
+Array
+(
+    [1] => 2
+    [hello] => 2
+    [world] => 1
+)

@@ -1,0 +1,14 @@
+语法:
+   string gzcompress    ( string $data   [, int $level = -1   [, int $encoding = ZLIB_ENCODING_DEFLATE  ]] )
+说明:
+ThisfunctioncompressesthegivenstringusingtheZLIBdataformat.
+参数:
+  参数              data                  The data to compress.                        level                  The level of compression. Can be given as 0 for no compression up to 9       for maximum compression.                   If -1 is used, the default compression of the zlib library is used which is 6.                        encoding                  One of ZLIB_ENCODING_* constants.                     
+返回值:
+  返回值     The compressed string or FALSE if an error occurred.   
+示例:
+
+<?php
+$compressed = gzcompress('Compress me', 9);
+echo $compressed;
+?>

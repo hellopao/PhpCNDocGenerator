@@ -1,0 +1,13 @@
+语法:
+    float rad2deg     ( float $number    )
+说明:
+本函数将number从弧度转换为角度。
+参数:
+  参数              number                  一个弧度值                     
+返回值:
+  返回值   number 相应的角度数   
+示例:
+
+<?php
+echo rad2deg(M_PI_4); // 45
+?>

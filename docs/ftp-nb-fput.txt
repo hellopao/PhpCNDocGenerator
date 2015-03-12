@@ -1,0 +1,29 @@
+语法:
+   int ftp_nb_fput    ( resource $ftp_stream   , string $remote_file   , resource $handle   , int $mode   [, int $startpos = 0  ] )
+说明:
+ftp_nb_fput()把已打开的文件内容存储到远程FTP服务器
+参数:
+  参数              ftp_stream                  FTP 连接标示符。                        remote_file                  远程文件路径。                        handle                  已经打开的本地文件指针，当读取到文件末尾时结束。                        mode                  传输模式。必须是 FTP_ASCII 或       FTP_BINARY。                        startpos           要将文件存储到远程文件的开始位置（即从远程文件的哪个字节位置开始存储）。               
+返回值:
+  返回值     返回 FTP_FAILED 或 FTP_FINISHED   或 FTP_MOREDATA。   
+示例:
+
+<?php
+$file = 'index.php';
+$fp = fopen($file, 'r');
+$conn_id = ftp_connect($ftp_server);
+$login_result = ftp_login($conn_id, $ftp_user_name, $ftp_user_pass);
+// 初始化上传
+$ret = ftp_nb_fput($conn_id, $file, $fp, FTP_BINARY);
+while ($ret == FTP_MOREDATA) {
+   // 任何其他需要做的操作
+   echo ".";
+   // 继续上传...
+   $ret = ftp_nb_continue($conn_id);
+}
+if ($ret != FTP_FINISHED) {
+   echo "There was an error uploading the file...";
+   exit(1);
+}
+fclose($fp);
+?>

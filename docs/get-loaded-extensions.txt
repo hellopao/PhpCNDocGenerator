@@ -1,0 +1,29 @@
+语法:
+   array get_loaded_extensions    ([ bool $zend_extensions = false  ] )
+说明:
+该函数返回了PHP解析器里所有编译并加载的模块名。
+参数:
+  参数              zend_extensions                  只返回 Zend 扩展，并非类似 mysqli 的普通扩展。默认是 FALSE (返回普通扩展)。                     
+返回值:
+  返回值     返回所有模块名的一个索引数组(array)。   
+示例:
+
+<?php
+print_r(get_loaded_extensions());
+?>
+以上例程的输出类似于：
+Array
+(
+   [0] => xml
+   [1] => wddx
+   [2] => standard
+   [3] => session
+   [4] => posix
+   [5] => pgsql
+   [6] => pcre
+   [7] => gd
+   [8] => ftp
+   [9] => db
+   [10] => calendar
+   [11] => bcmath
+)

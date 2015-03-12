@@ -1,0 +1,9 @@
+语法:
+   bool odbc_free_result    ( resource $result_id   )
+说明:
+Freeresourcesassociatedwitharesult.
+参数:
+  参数              result_id                  The result identifier.                     
+返回值:
+  返回值     Always returns TRUE.   
+示例:

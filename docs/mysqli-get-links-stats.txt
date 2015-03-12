@@ -1,0 +1,9 @@
+语法:
+   array mysqli_get_links_stats    ( void   )
+说明:
+mysqli_get_links_stats()returnsinformationaboutopenandcachedMySQLlinks.
+参数:
+  参数  此函数没有参数。 
+返回值:
+  返回值     mysqli_get_links_stats() returns an associative array   with three elements, keyed as follows:            total                  An integer indicating the total number of open links in       any state.                        active_plinks                  An integer representing the number of active persistent       connections.                        cached_plinks                  An integer representing the number of inactive persistent       connections.                     
+示例:

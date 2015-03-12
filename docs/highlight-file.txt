@@ -1,0 +1,11 @@
+语法:
+   mixed highlight_file    ( string $filename   [, bool $return = false  ] )
+说明:
+使用PHP内置的语法高亮器所定义的颜色，打印输出或者返回filename文件中语法高亮版本的代码。
+参数:
+  参数              filename                  欲高亮文件的路径。                        return                  设置该参数为 TRUE 使函数返回高亮后的代码。                     
+返回值:
+  返回值       如果 return 设置为 TRUE，高亮后的代码不会被打印输出，而是以字符串的形式返回。     高亮成功返回 TRUE，否则返回 FALSE。   
+示例:
+
+AddType application/x-httpd-php-source .phps

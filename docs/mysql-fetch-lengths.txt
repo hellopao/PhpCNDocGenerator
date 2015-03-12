@@ -1,0 +1,5 @@
+语法:
+      array mysql_fetch_lengths       ( resource $result      )
+说明:
+以数组返回上一次用mysql_fetch_row()取得的行中每个字段的长度，如果出错返回FALSE。
+示例:

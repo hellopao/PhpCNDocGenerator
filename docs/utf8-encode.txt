@@ -1,0 +1,5 @@
+语法:
+     string utf8_encode      ( string $data     )
+说明:
+该函数将data字符串转换为UTF-8编码，并返回编码后的字符串。UTF-8是一种用于将宽字符值转换为字节流的Unicode的标准机制。UTF-8对于纯ASCII字符来说是透明的，且是自同步的（也就是说这使得程序能够得知字符从字节流的何处开始），并可被普通字符串比较函数用以比较等操作。PHP可将UTF-8编码为多达四个字节的字符，如：UTF-8编码字节（bytes）位（bits）表示170bbbbbbb211110bbbbb10bbbbbb3161110bbbb10bbbbbb10bbbbbb42111110bbb10bbbbbb10bbbbbb10bbbbbb
+示例:

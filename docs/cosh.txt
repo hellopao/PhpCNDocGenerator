@@ -1,0 +1,9 @@
+语法:
+    float cosh     ( float $arg    )
+说明:
+返回arg的双曲余弦值，定义为(exp(arg)+exp(-arg))/2。
+参数:
+  参数              arg                  要处理的参数                     
+返回值:
+  返回值     arg 的双曲余弦值。   
+示例:

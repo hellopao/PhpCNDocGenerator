@@ -1,0 +1,23 @@
+语法:
+     bool ftp_site      ( resource $ftp_stream     , string $cmd     )
+说明:
+ftp_site()函数向FTP服务器发送由参数cmd指定的命令。
+参数:
+   参数                      ftp_stream                       FTP 连接资源。                                  command                        SITE         命令。注意本参数没有经过处理，在文件名有存在空格或其它特殊字符的情况下可能会有问题。                                 
+返回值:
+   返回值      成功时返回 TRUE， 或者在失败时返回 FALSE。      
+示例:
+
+<?php
+/* Connect to FTP server */
+$conn = ftp_connect('ftp.example.com');
+if (!$conn) die('Unable to connect to ftp.example.com');
+/* Login as "user" with password "pass" */
+if (!ftp_login($conn, 'user', 'pass')) die('Error logging into ftp.example.com');
+/* Issue: "SITE CHMOD 0600 /home/user/privatefile" command to ftp server */
+if (ftp_site($conn, 'CHMOD 0600 /home/user/privatefile')) {
+   echo "Command executed successfully.\n";
+} else {
+   die('Command failed.');
+}
+?>

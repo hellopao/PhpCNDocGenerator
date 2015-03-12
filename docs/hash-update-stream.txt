@@ -1,0 +1,18 @@
+语法:
+   int hash_update_stream    ( resource $context   , resource $handle   [, int $length = -1  ] )
+参数:
+  参数              context                  由 hash_init() 函数返回的哈希运算上下文。                        handle                  创建流的函数返回的打开的文件句柄。                        length                  要从 handle 向活跃的哈希运算上下文中拷贝       的最大字符数。                     
+返回值:
+  返回值     从 handle 向哈希运算上下文中实际填充的字节数量。   
+示例:
+
+<?php
+$fp = tmpfile();
+fwrite($fp, 'The quick brown fox jumped over the lazy dog.');
+rewind($fp);
+$ctx = hash_init('md5');
+hash_update_stream($ctx, $fp);
+echo hash_final($ctx);
+?>
+以上例程会输出：
+5c6ffbdd40d9556b73a21e63c3e0e904

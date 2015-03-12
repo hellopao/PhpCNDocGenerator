@@ -1,0 +1,9 @@
+语法:
+   string long2ip    ( string $proper_address   )
+说明:
+Thefunctionlong2ip()generatesanInternetaddressindottedformat(i.e.:aaa.bbb.ccc.ddd)fromtheproperaddressrepresentation.
+参数:
+  参数              proper_address                  A proper address representation.                     
+返回值:
+  返回值     Returns the Internet IP address as a string.   
+示例:

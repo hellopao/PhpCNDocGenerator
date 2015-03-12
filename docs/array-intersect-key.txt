@@ -1,0 +1,22 @@
+语法:
+   array array_intersect_key    ( array $array1   , array $array2   [, array $ ...  ] )
+说明:
+array_intersect_key()返回一个数组，该数组包含了所有出现在array1中并同时出现在所有其它参数数组中的键名的值。
+参数:
+  参数              array1                  The array with master keys to check.                        array2                  An array to compare keys against.                        array                  A variable list of arrays to compare.                     
+返回值:
+  返回值     Returns an associative array containing all the entries of    array1 which have keys that are present in all   arguments.         
+示例:
+
+<?php
+$array1 = array('blue'  => 1, 'red'  => 2, 'green'  => 3, 'purple' => 4);
+$array2 = array('green' => 5, 'blue' => 6, 'yellow' => 7, 'cyan'   => 8);
+var_dump(array_intersect_key($array1, $array2));
+?>
+以上例程会输出：
+array(2) {
+  ["blue"]=>
+  int(1)
+  ["green"]=>
+  int(3)
+}

@@ -1,0 +1,28 @@
+语法:
+   int error_reporting    ([ int $level  ] )
+说明:
+error_reporting()函数能够在运行时设置error_reporting指令。PHP有诸多错误级别，使用该函数可以设置在脚本运行时的级别。如果没有设置可选参数level，error_reporting()仅会返回当前的错误报告级别。
+参数:
+  参数              level                  新的 error_reporting 级别。       可以是一个位掩码也可以是一个已命名的常量。       强烈建议使用已命名的常量，以确保兼容将来的版本。       由于错误级别的添加、整数取值范围的增加，       较久的基于整数的错误级别不会总是和预期的表现一致。                   可用的错误级别常量及其实际含义描述在了        predefined constants 中。                     
+返回值:
+  返回值     返回旧的 error_reporting 级别，或者在 level 参数未给出时返回当前的级别。   
+示例:
+
+<?php
+// 关闭所有PHP错误报告
+error_reporting(0);
+// Report simple running errors
+error_reporting(E_ERROR | E_WARNING | E_PARSE);
+// 报告 E_NOTICE也挺好 (报告未初始化的变量
+// 或者捕获变量名的错误拼写)
+error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
+// 除了 E_NOTICE，报告其他所有错误
+// 这是在 php.ini 里的默认设置
+error_reporting(E_ALL ^ E_NOTICE);
+// 报告所有 PHP 错误 (参见 changelog)
+error_reporting(E_ALL);
+// 报告所有 PHP 错误
+error_reporting(-1);
+// 和 error_reporting(E_ALL); 一样
+ini_set('error_reporting', E_ALL);
+?>

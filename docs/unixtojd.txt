@@ -1,0 +1,9 @@
+语法:
+   int unixtojd    ([ int $timestamp = time()  ] )
+说明:
+根据指定的Unix时间戳timestamp，返回Julian天数。如果没有指定时间戳则返回当前日期的天数。
+参数:
+  参数              timestamp                  一个用于转变的时间戳。                     
+返回值:
+  返回值     一个julian天数。   
+示例:

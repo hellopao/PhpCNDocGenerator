@@ -1,0 +1,18 @@
+语法:
+   string soundex    ( string $str   )
+说明:
+Calculatesthesoundexkeyofstr.
+参数:
+  参数              str                  The input string.                     
+返回值:
+  返回值     Returns the soundex key as a string.   
+示例:
+
+<?php
+soundex("Euler")       == soundex("Ellery");    // E460
+soundex("Gauss")       == soundex("Ghosh");     // G200
+soundex("Hilbert")     == soundex("Heilbronn"); // H416
+soundex("Knuth")       == soundex("Kant");      // K530
+soundex("Lloyd")       == soundex("Ladd");      // L300
+soundex("Lukasiewicz") == soundex("Lissajous"); // L222
+?>

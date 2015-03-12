@@ -1,0 +1,16 @@
+语法:
+   int gzwrite    ( resource $zp   , string $string   [, int $length  ] )
+说明:
+gzwrite()writesthecontentsofstringtothegivengz-file.
+参数:
+  参数              zp                  The gz-file pointer. It must be valid, and must point to a file       successfully opened by gzopen().                        string                  The string to write.                        length                  The number of uncompressed bytes to write. If supplied, writing will        stop after length (uncompressed) bytes have been       written or the end of string is reached,       whichever comes first.            Note:                Note that if the length argument is given,        then the magic_quotes_runtime        configuration option will be ignored and no slashes will be        stripped from string.                            
+返回值:
+  返回值      Returns the number of (uncompressed) bytes written to the given gz-file    stream.   
+示例:
+
+<?php
+$string = 'Some information to compress';
+$gz = gzopen('somefile.gz','w9');
+gzwrite($gz, $string);
+gzclose($gz);
+?>

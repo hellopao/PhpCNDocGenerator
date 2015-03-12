@@ -1,0 +1,13 @@
+语法:
+   bool putenv    ( string $setting   )
+说明:
+添加setting到服务器环境变量。环境变量仅存活于当前请求期间。在请求结束时环境会恢复到初始状态。
+参数:
+  参数              setting                  设置，例如 &quot;FOO=BAR&quot;                     
+返回值:
+  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。   
+示例:
+
+<?php
+putenv("UNIQID=$uniqid");
+?>

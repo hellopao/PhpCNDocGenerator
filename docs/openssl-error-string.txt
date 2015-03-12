@@ -1,0 +1,13 @@
+语法:
+   string openssl_error_string    ( void   )
+说明:
+openssl_error_string()returnsthelasterrorfromtheopenSSLlibrary.Errormessagesarequeued,sothisfunctionshouldbecalledmultipletimestocollectalloftheinformation.Thelasterrorwillbethemostrecentone.
+返回值:
+  返回值     Returns an error message string, or FALSE if there are no more error   messages to return.   
+示例:
+
+<?php
+// lets assume you just called an openssl function that failed
+while ($msg = openssl_error_string())
+    echo $msg . "<br />\n";
+?>

@@ -1,0 +1,10 @@
+语法:
+     mixed ftp_get_option      ( resource $ftp_stream     , int $option     )
+说明:
+如果成功则返回选项的值，否则，如果给定的参数option选项如果不被支持则返回FALSE同时会提示一条错误信息。
+示例:
+
+<?php
+// Get the timeout of the given FTP stream
+$timeout = ftp_get_option($conn_id, FTP_TIMEOUT_SEC);
+?>

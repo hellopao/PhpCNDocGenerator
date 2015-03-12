@@ -1,0 +1,7 @@
+语法:
+   string odbc_errormsg    ([ resource $connection_id  ] )
+参数:
+  参数              connection_id           ODBC 连接标识符，详见odbc_connect()。               
+返回值:
+  返回值     If connection_id is specified, the last state   of that connection is returned, else the last state of any connection   is returned.       This function returns meaningful value only if last odbc query failed   (i.e. odbc_exec() returned FALSE).   
+示例:

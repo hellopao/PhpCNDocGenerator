@@ -1,0 +1,18 @@
+语法:
+   string php_ini_scanned_files    ( void   )
+说明:
+php_ini_scanned_files()返回解析的php.ini后逗号分隔的配置文件列表。这些文件从编译时--with-config-file-scan-dir选项里指定的目录里找到。
+返回值:
+  返回值     成功时返回逗号分隔的 .ini 文件字符串。   每个逗号后紧跟新的一行。   如果未设置指令 --with-config-file-scan-dir 将会返回 FALSE。   如果它设置了，并且目录是空的，将会返回一个空字符串。   如果有未识别的文件，此文件也会进入返回的字符串，但是会导致一个 PHP 错误。   此 PHP 错误即会在编译时出现也会在使用 php_ini_scanned_files() 函数时出现。   
+示例:
+
+<?php
+if ($filelist = php_ini_scanned_files()) {
+    if (strlen($filelist) > 0) {
+        $files = explode(',', $filelist);
+        foreach ($files as $file) {
+            echo "<li>" . trim($file) . "</li>\n";
+        }
+    }
+}
+?>

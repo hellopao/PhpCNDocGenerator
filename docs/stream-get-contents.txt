@@ -1,0 +1,22 @@
+语法:
+   string stream_get_contents    ( resource $handle   [, int $maxlength = -1   [, int $offset = -1  ]] )
+说明:
+与file_get_contents()一样，但是stream_get_contents()是对一个已经打开的资源流进行操作，并将其内容写入一个字符串返回。返回的内容取决于maxlength字节长度和offset指定的起始位置。
+参数:
+  参数              handle (resource)                  一个资源流（例如 fopen() 操作之后返回的结果）                        maxlength (integer)                  需要读取的最大的字节数。默认是-1（读取全部的缓冲数据）。                        offset (integer)                  在读取数据之前先查找指定的偏移量。如果这个数字是负数，就不进行查找，直接从当前位置开始读取。                     
+返回值:
+  返回值     返回一个字符串  或者在失败时返回 FALSE.   
+示例:
+
+<?php
+if ($stream = fopen('http://www.example.com', 'r')) {
+    // print all the page starting at the offset 10
+    echo stream_get_contents($stream, -1, 10);
+    fclose($stream);
+}
+if ($stream = fopen('http://www.example.net', 'r')) {
+    // print the first 5 bytes
+    echo stream_get_contents($stream, 5);
+    fclose($stream);
+}
+?>

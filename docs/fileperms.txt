@@ -1,0 +1,67 @@
+语法:
+   int fileperms    ( string $filename   )
+说明:
+取得文件的权限。
+参数:
+  参数              filename                  文件的路径。                     
+返回值:
+  返回值     以数字模式返回文件的访问权限。   Returns the file&#039;s permissions as a numeric mode.       Lower bits of this mode   are the same as the permissions expected by chmod(),   however on most platforms the return value will also include information on   the type of file given as filename. The examples   below demonstrate how to test the return value for specific permissions and   file types on POSIX systems, including Linux and Mac OS X.       For local files, the specific return value is that of the   st_mode member of the structure returned by the C   library&#039;s stat() function. Exactly which bits are set   can vary from platform to platform, and looking up your specific platform&#039;s   documentation is recommended if parsing the non-permission bits of the   return value is required.   
+示例:
+
+<?php
+echo substr(sprintf('%o', fileperms('/tmp')), -4);
+echo substr(sprintf('%o', fileperms('/etc/passwd')), -4);
+?>
+以上例程会输出：
+1777
+0644
+
+<?php
+$perms = fileperms('/etc/passwd');
+if (($perms & 0xC000) == 0xC000) {
+    // Socket
+    $info = 's';
+} elseif (($perms & 0xA000) == 0xA000) {
+    // Symbolic Link
+    $info = 'l';
+} elseif (($perms & 0x8000) == 0x8000) {
+    // Regular
+    $info = '-';
+} elseif (($perms & 0x6000) == 0x6000) {
+    // Block special
+    $info = 'b';
+} elseif (($perms & 0x4000) == 0x4000) {
+    // Directory
+    $info = 'd';
+} elseif (($perms & 0x2000) == 0x2000) {
+    // Character special
+    $info = 'c';
+} elseif (($perms & 0x1000) == 0x1000) {
+    // FIFO pipe
+    $info = 'p';
+} else {
+    // Unknown
+    $info = 'u';
+}
+// Owner
+$info .= (($perms & 0x0100) ? 'r' : '-');
+$info .= (($perms & 0x0080) ? 'w' : '-');
+$info .= (($perms & 0x0040) ?
+            (($perms & 0x0800) ? 's' : 'x' ) :
+            (($perms & 0x0800) ? 'S' : '-'));
+// Group
+$info .= (($perms & 0x0020) ? 'r' : '-');
+$info .= (($perms & 0x0010) ? 'w' : '-');
+$info .= (($perms & 0x0008) ?
+            (($perms & 0x0400) ? 's' : 'x' ) :
+            (($perms & 0x0400) ? 'S' : '-'));
+// World
+$info .= (($perms & 0x0004) ? 'r' : '-');
+$info .= (($perms & 0x0002) ? 'w' : '-');
+$info .= (($perms & 0x0001) ?
+            (($perms & 0x0200) ? 't' : 'x' ) :
+            (($perms & 0x0200) ? 'T' : '-'));
+echo $info;
+?>
+以上例程会输出：
+-rw-r--r--

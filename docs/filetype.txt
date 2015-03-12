@@ -1,0 +1,14 @@
+语法:
+   string filetype    ( string $filename   )
+说明:
+返回文件的类型。
+参数:
+  参数              filename                  文件的路径。                     
+返回值:
+  返回值     返回文件的类型。 可能的值有   fifo，char，dir，block，link，file 和 unknown。        如果出错则返回 FALSE。如果 stat 调用失败或者文件类型未知的话   filetype() 还会产生一个 E_NOTICE 消息。   
+示例:
+
+<?php
+echo filetype('/etc/passwd');  // file
+echo filetype('/etc/');        // dir
+?>

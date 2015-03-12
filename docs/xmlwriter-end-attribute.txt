@@ -1,0 +1,9 @@
+语法:
+   bool XMLWriter::endAttribute    ( void   )
+说明:
+过程化风格
+参数:
+  参数         xmlwriter仅用于过程调用。被修改的 XMLWriter resource。此资源来自于对 xmlwriter_open_uri() 或xmlwriter_open_memory() 的调用。      
+返回值:
+  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。   
+示例:

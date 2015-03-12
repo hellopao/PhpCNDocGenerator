@@ -1,0 +1,32 @@
+语法:
+   mixed time_nanosleep    ( int $seconds   , int $nanoseconds   )
+说明:
+程序延缓执行指定数量的seconds和nanoseconds。
+参数:
+  参数              seconds                  必须是一个非负整数。                        nanoseconds                  必须是一个小于1亿的非负整数。                     
+返回值:
+  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。       如果延迟被中断，一个关联数组会返回，内容为：                  seconds - 延迟剩余未执行的秒数                        nanoseconds - 延迟剩余未执行的纳秒数               
+示例:
+
+<?php
+// Careful! This won't work as expected if an array is returned
+if (time_nanosleep(0, 500000000)) {
+    echo "Slept for half a second.\n";
+}
+// This is better:
+if (time_nanosleep(0, 500000000) === true) {
+    echo "Slept for half a second.\n";
+}
+// And this is the best:
+$nano = time_nanosleep(2, 100000);
+if ($nano === true) {
+    echo "Slept for 2 seconds, 100 microseconds.\n";
+} elseif ($nano === false) {
+    echo "Sleeping failed.\n";
+} elseif (is_array($nano)) {
+    $seconds = $nano['seconds'];
+    $nanoseconds = $nano['nanoseconds'];
+    echo "Interrupted by a signal.\n";
+    echo "Time remaining: $seconds seconds, $nanoseconds nanoseconds.";
+}
+?>

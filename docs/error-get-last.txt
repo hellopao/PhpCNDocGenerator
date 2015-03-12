@@ -1,0 +1,20 @@
+语法:
+   array error_get_last    ( void   )
+说明:
+获取关于最后一个发生的错误的信息。
+返回值:
+  返回值     返回了一个关联数组，描述了最后错误的信息，以该错误的 &quot;type&quot;、   &quot;message&quot;、&quot;file&quot; 和 &quot;line&quot; 为数组的键。   如果该错误由 PHP 内置函数导致的，&quot;message&quot;会以该函数名开头。   如果还没有错误则返回 NULL。   
+示例:
+
+<?php
+echo $a;
+print_r(error_get_last());
+?>
+以上例程的输出类似于：
+Array
+(
+    [type] => 8
+    [message] => Undefined variable: a
+    [file] => C:\WWW\index.php
+    [line] => 2
+)
