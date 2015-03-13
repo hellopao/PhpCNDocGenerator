@@ -21,9 +21,9 @@ var htmlDecode = function (text) {
 
 var request = function (options,cb) {
     var req = http.request({
-        //hostname: "php.net",
-        hostname:'127.0.0.1',
-        port:'8888',
+        hostname: "php.net",
+        //hostname:'127.0.0.1', //这里的hostname和port是给fiddler用的，用这个可以抓到请求的包
+        //port:'8888',
         path: "/manual/zh/function." + options.func.replace(/_/g,'-') + '.php',
         headers: {
             'host':'php.net',
