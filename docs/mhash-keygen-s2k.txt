@@ -1,9 +1,0 @@
-语法:
-   string mhash_keygen_s2k    ( int $hash   , string $password   , string $salt   , int $bytes   )
-说明:
-Generatesakeyaccordingtothegivenhash,usinganuserprovidedpassword.
-参数:
-  参数              hash                  The hash ID used to create the key.       One of the MHASH_hashname constants.                        password                  An user supplied password.                        salt                  Must be different and random enough for every key you generate in       order to create different keys. Because salt       must be known when you check the keys, it is a good idea to append       the key to it. Salt has a fixed length of 8 bytes and will be padded       with zeros if you supply less bytes.                        bytes                  The key length, in bytes.                     
-返回值:
-  返回值     Returns the generated key as a string, or FALSE on error.   
-示例:

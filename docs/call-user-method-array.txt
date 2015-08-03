@@ -1,3 +1,0 @@
-语法:
-   mixed call_user_method_array    ( string $method_name   , object &$obj   , array $paramarr   )
-示例:

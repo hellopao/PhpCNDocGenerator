@@ -1,9 +1,0 @@
-语法:
-   bool mcrypt_module_is_block_algorithm    ( string $algorithm   [, string $lib_dir  ] )
-说明:
-如果指定算法是分组加密算法，返回TRUE，反之返回FALSE。
-参数:
-  参数              algorithm                  要检测的算法。                        lib_dir                  可选参数 lib_dir，       表示在操作系统上包含算法模块的路径。                     
-返回值:
-  返回值     如果指定算法是分组加密算法，返回 TRUE，   反之返回 FALSE。   
-示例:

@@ -1,9 +1,0 @@
-语法:
-   resource zip_open    ( string $filename   )
-说明:
-打开一个新的ZIP归档文件进行读取。
-参数:
-  参数              filename                  待打开ZIP归档的文件名。                     
-返回值:
-  返回值     成功的时候返回一个资源句柄供函数zip_read() 和 zip_close()后续使用;   如果filename 文件不存在或者出现其他错误，则会返回相应的错误码。   
-示例:

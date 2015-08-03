@@ -1,3 +1,0 @@
-语法:
-      void flush       ( void      )
-示例:

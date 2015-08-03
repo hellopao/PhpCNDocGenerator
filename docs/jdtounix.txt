@@ -1,9 +1,0 @@
-语法:
-   int jdtounix    ( int $jday   )
-说明:
-这个函数根据给定的julian天数返回一个Unix时间戳，或如果参数jday不在Unix时间（Gregorian历法的1970年至2037年，或2440588&lt;=jday&lt;=2465342）范围内返回FALSE。返回的时间是本地时间（不是GMT）。
-参数:
-  参数              jday                  一个在 2440588 到 2465342 之间的julian天数                     
-返回值:
-  返回值     指定的julian天数的开始时的时间戳。   
-示例:

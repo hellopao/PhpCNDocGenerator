@@ -1,9 +1,0 @@
-语法:
-   resource odbc_procedures    ( resource $connection_id   )
-说明:
-Listsallproceduresintherequestedrange.
-参数:
-  参数              connection_id           ODBC 连接标识符，详见odbc_connect()。                  qualifier                  The qualifier.                        owner                  The owner.       此参数接受下列查询模式：&quot;%&quot; 来匹配零到多个字符，&quot;_&quot; 来匹配单个字符。                        name                  The name.       此参数接受下列查询模式：&quot;%&quot; 来匹配零到多个字符，&quot;_&quot; 来匹配单个字符。                     
-返回值:
-  返回值     Returns an ODBC   result identifier containing the information 或者在失败时返回 FALSE.       The result set has the following columns:       PROCEDURE_QUALIFIER    PROCEDURE_OWNER    PROCEDURE_NAME    NUM_INPUT_PARAMS    NUM_OUTPUT_PARAMS    NUM_RESULT_SETS    REMARKS    PROCEDURE_TYPE      
-示例:

@@ -1,9 +1,0 @@
-语法:
-   int stream_set_chunk_size    ( resource $fp   , int $chunk_size   )
-说明:
-设置资源流区块大小。
-参数:
-  参数         fp               目标资源流。                   chunk_size               想设置的新的区块大小。               
-返回值:
-  返回值     成功的情况下返回资源流之前的区块大小。       如果 chunk_size 比 1 小或者比 PHP_INT_MAX 还大，就将返回 FALSE 。   
-示例:

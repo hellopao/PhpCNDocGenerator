@@ -1,9 +1,0 @@
-语法:
-   void openssl_pkey_free    ( resource $key   )
-说明:
-Thisfunctionfreesaprivatekeycreatedbyopenssl_pkey_new().
-参数:
-  参数              key                  Resource holding the key.                     
-返回值:
-  返回值     没有返回值。   
-示例:

@@ -1,5 +1,0 @@
-语法:
-      int mysql_num_fields       ( resource $result      )
-说明:
-mysql_num_fields()返回结果集中字段的数目。
-示例:

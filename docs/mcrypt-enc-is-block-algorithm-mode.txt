@@ -1,9 +1,0 @@
-语法:
-   bool mcrypt_enc_is_block_algorithm_mode    ( resource $td   )
-说明:
-打开的模式的算法是否支持分组加密（例如：如果是流模式，则返回FALSE，cbc，cfb，ofb模式则返回TRUE）。
-参数:
-  参数              td                  加密描述符。                     
-返回值:
-  返回值     如果算法支持分组模式，返回 TRUE，   反之返回 FALSE。   
-示例:

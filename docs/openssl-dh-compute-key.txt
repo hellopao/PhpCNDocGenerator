@@ -1,7 +1,0 @@
-语法:
-   string openssl_dh_compute_key    ( string $pub_key   , resource $dh_key   )
-参数:
-  参数              pub_key                  Public key                        dh_key                  DH key                     
-返回值:
-  返回值     Returns computed key on success 或者在失败时返回 FALSE.   
-示例:

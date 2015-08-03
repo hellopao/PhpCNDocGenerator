@@ -1,5 +1,0 @@
-语法:
-      bool is_numeric       ( mixed $var      )
-说明:
-如果var是数字和数字字符串则返回TRUE，否则返回FALSE。
-示例:

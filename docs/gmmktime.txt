@@ -1,9 +1,0 @@
-语法:
-   int gmmktime    ([ int $hour   [, int $minute   [, int $second   [, int $month   [, int $day   [, int $year   [, int $is_dst  ]]]]]]] )
-说明:
-和mktime()完全一样，只除了返回值是格林威治标准时的时间戳。
-示例:
-
-<?php
-gmmktime(0, 0, 0, 1, 1, 1970); // 在 GMT 和西方合法，在东方不合法
-?>

@@ -1,5 +1,0 @@
-语法:
-      bool mysql_ping       ([ resource $       link_identifier            ] )
-说明:
-mysql_ping()检查到服务器的连接是否正常。如果断开，则自动尝试连接。本函数可用于空闲很久的脚本来检查服务器是否关闭了连接，如果有必要则重新连接上。如果到服务器的连接可用则mysql_ping()返回TRUE，否则返回FALSE。
-示例:

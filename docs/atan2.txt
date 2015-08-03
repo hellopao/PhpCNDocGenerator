@@ -1,7 +1,0 @@
-语法:
-    float atan2     ( float $y    , float $x    )
-参数:
-  参数              y                  Dividend parameter                        x                  Divisor parameter                     
-返回值:
-  返回值     x 和 y     的反正切弧度值。   
-示例:

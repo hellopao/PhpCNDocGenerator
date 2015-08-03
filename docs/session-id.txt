@@ -1,9 +1,0 @@
-语法:
-   string session_id    ([ string $id  ] )
-说明:
-session_id()可以用来获取/设置当前会话ID。
-参数:
-  参数              id                     如果指定了 id 参数的值，        则使用指定值作为会话 ID。        必须在调用 session_start() 函数之前调用         session_id() 函数。        不同的会话管理器对于会话 ID 中可以使用的字符有不同的限制。        例如文件会话管理器仅允许会话 ID 中使用以下字符：a-z A-Z 0-9 , （逗号）和 - （减号）              Note:                  如果使用 cookie 方式传送会话 ID，并且指定了 id 参数，         在调用 session_start()          之后都会向客户端发送新的 cookie，         无论当前的会话 ID 和新指定的会话 ID 是否相同。                                
-返回值:
-  返回值     session_id() 返回当前会话ID。   如果当前没有会话，则返回空字符串（&quot;&quot;）。   
-示例:

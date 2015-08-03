@@ -1,9 +1,0 @@
-语法:
-     bool xml_set_external_entity_ref_handler      ( resource $parser   , callable $handler     )
-说明:
-为parser参数指定的XML解析器建立外部实体指向处理器函数。
-参数:
-  参数              parser                  XML 解析器的引用，用于建立外部实体指向处理器。                        handler                  参数 handler 为表示函数名称的字符串，函数必须在为 parser 指定的解析器调用 xml_parse() 函数时已存在。                   由 handler 参数命名的函数名必须接受五个参数，并应该返回一个整型值。如果处理器的返回值为 FALSE（这也是函数没有确定返回值时的返回值），XML 解析器将停止解析， xml_get_error_code() 函数将返回  XML_ERROR_EXTERNAL_ENTITY_HANDLING。               handler         ( resource $parser        , string $open_entity_names        , string $base        , string $system_id        , string $public_id        )
-返回值:
-  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。   
-示例:

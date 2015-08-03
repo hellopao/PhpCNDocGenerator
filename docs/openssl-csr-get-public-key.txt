@@ -1,3 +1,0 @@
-语法:
-   resource openssl_csr_get_public_key    ( mixed $csr   [, bool $use_shortnames = true  ] )
-示例:

@@ -1,9 +1,0 @@
-语法:
-   int readgzfile    ( string $filename   [, int $use_include_path = 0  ] )
-说明:
-Readsafile,decompressesitandwritesittostandardoutput.
-参数:
-  参数              filename                  The file name. This file will be opened from the filesystem and its       contents written to standard output.                        use_include_path                  You can set this optional parameter to 1, if you       want to search for the file in the include_path too.                     
-返回值:
-  返回值      Returns the number of (uncompressed) bytes read from the file. If   an error occurs, FALSE is returned and unless the function was   called as @readgzfile, an error message is   printed.   
-示例:

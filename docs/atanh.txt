@@ -1,9 +1,0 @@
-语法:
-      float atanh       ( float $arg      )
-说明:
-返回arg的反双曲正切值，即，其双曲正切为arg的那个值。
-参数:
-  参数              arg                  要处理的参数                     
-返回值:
-  返回值     Inverse hyperbolic tangent of arg    
-示例:

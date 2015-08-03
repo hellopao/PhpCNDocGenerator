@@ -1,7 +1,0 @@
-语法:
-   LibXMLError libxml_get_last_error    ( void   )
-说明:
-Retrievelasterrorfromlibxml.
-返回值:
-  返回值     Returns a LibXMLError object if there is any error in the   buffer, FALSE otherwise.   
-示例:

@@ -1,9 +1,0 @@
-语法:
-   bool stream_wrapper_unregister    ( string $protocol   )
-说明:
-Allowsyoutodisableanalreadydefinedstreamwrapper.Oncethewrapperhasbeendisabledyoumayoverrideitwithauser-definedwrapperusingstream_wrapper_register()orreenableitlateronwithstream_wrapper_restore().
-参数:
-  参数              protocol                                
-返回值:
-  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。   
-示例:

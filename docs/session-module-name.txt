@@ -1,9 +1,0 @@
-语法:
-   string session_module_name    ([ string $module  ] )
-说明:
-session_module_name()获取或设置会话模块名称。
-参数:
-  参数              module                  如果指定 module 参数，则使用       指定值作为会话模块。                     
-返回值:
-  返回值     返回当前所用的会话模块名称。   
-示例:

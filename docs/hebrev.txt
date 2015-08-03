@@ -1,9 +1,0 @@
-语法:
-   string hebrev    ( string $hebrew_text   [, int $max_chars_per_line = 0  ] )
-说明:
-将逻辑顺序希伯来文（logical-Hebrew）转换为视觉顺序希伯来文（visual-Hebrew）
-参数:
-  参数              hebrew_text                  逻辑顺序希伯来文字符串。                        max_chars_per_line                  可选参数，表示每行可返回的最多字符数。                     
-返回值:
-  返回值     返回视觉顺序字符串。   
-示例:

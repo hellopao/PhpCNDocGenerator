@@ -1,9 +1,0 @@
-语法:
-    float atan     ( float $arg    )
-说明:
-返回arg的反正切值，单位是弧度。atan()是tan()的反函数，它的意思是在atan()范围里的每个值都是a==tan(atan(a))。
-参数:
-  参数              arg                  要处理的参数                     
-返回值:
-  返回值     arg 的反正切弧度。   
-示例:

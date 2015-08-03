@@ -1,9 +1,0 @@
-语法:
-   string session_save_path    ([ string $path  ] )
-说明:
-session_save_path()返回当前会话的保存路径。
-参数:
-  参数              path                  指定会话数据保存的路径。       必须在调用 session_start() 函数之前调用       session_save_path() 函数。                   Note:                  在某些操作系统上，建议使用可以高效处理         大量小尺寸文件的文件系统上的路径来保存会话数据。         例如，在 Linux 平台上，对于会话数据保存的工作而言，reiserfs 文件系统会比 ext2fs 文件系统能够提供更好的性能。                                    
-返回值:
-  返回值     返回保存会话数据的路径。   
-示例:

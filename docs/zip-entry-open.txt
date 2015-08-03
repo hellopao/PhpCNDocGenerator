@@ -1,9 +1,0 @@
-语法:
-   bool zip_entry_open          ( resource $zip   , resource $zip_entry   [, string $mode  ] )
-说明:
-打开ZIP文件中的目录实体以便后续读取。
-参数:
-  参数              zip                  由函数zip_open()返回的有效的资源句柄。                        zip_entry                  由函数zip_read()返回的目录实体。                        mode                  任何在fopen()处理文档中指定的模式。            Note:                由于ZIP在PHP中只支持读取模式，所以mode         实际上总是被设置为&quot;rb&quot;(其他模式会被忽略)。                            
-返回值:
-  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。    Note:        与fopen()和其他类似的方法不同，zip_entry_open()    的返回值只用于标示该操作结果，不需要读取或关闭该目录实体。      
-示例:

@@ -1,7 +1,0 @@
-语法:
-   void unregister_tick_function    ( string $function_name   )
-参数:
-  参数              function_name                  The function name, as a string.                     
-返回值:
-  返回值     没有返回值。   
-示例:

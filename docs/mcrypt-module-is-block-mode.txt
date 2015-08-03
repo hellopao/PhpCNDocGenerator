@@ -1,9 +1,0 @@
-语法:
-   bool mcrypt_module_is_block_mode    ( string $mode   [, string $lib_dir  ] )
-说明:
-如果模式是以字节块（分组）方式输出，则返回TRUE，如果只是以字节方式输出，则返回FALSE。（例如，对于cbc和ecb模式，返回TRUE，对于cfb和stream模式，返回FALSE）
-参数:
-  参数              mode           MCRYPT_MODE_modename 常量中的一个，或以下字符串中的一个：&quot;ecb&quot;，&quot;cbc&quot;，&quot;cfb&quot;，&quot;ofb&quot;，&quot;nofb&quot; 和 &quot;stream&quot;。                  lib_dir                  可选参数 lib_dir ，       表示在操作系统上包含模式模块的路径。                     
-返回值:
-  返回值     如果模式是以字节块（分组）方式输出，则返回 TRUE，   如果只是以字节方式输出，则返回 FALSE。   （例如，对于 cbc 和 ecb 模式，返回 TRUE，对于 cfb 和 stream 模式，返回 FALSE）   
-示例:

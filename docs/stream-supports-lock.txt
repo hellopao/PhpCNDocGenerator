@@ -1,9 +1,0 @@
-语法:
-   bool stream_supports_lock    ( resource $stream   )
-说明:
-Tellswhetherthestreamsupportslockingthroughflock().
-参数:
-  参数              stream                  The stream to check.                     
-返回值:
-  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。   
-示例:

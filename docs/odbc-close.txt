@@ -1,9 +1,0 @@
-语法:
-   void odbc_close    ( resource $connection_id   )
-说明:
-Closesdowntheconnectiontothedatabaseserver.
-参数:
-  参数              connection_id           ODBC 连接标识符，详见odbc_connect()。               
-返回值:
-  返回值     没有返回值。   
-示例:

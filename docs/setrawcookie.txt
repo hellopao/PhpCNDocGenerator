@@ -1,9 +1,0 @@
-语法:
-   bool setrawcookie    ( string $name   [, string $value   [, int $expire = 0   [, string $path   [, string $domain   [, bool $secure = false   [, bool $httponly = false  ]]]]]] )
-说明:
-setrawcookie()isexactlythesameassetcookie()exceptthatthecookievaluewillnotbeautomaticallyurlencodedwhensenttothebrowser.
-参数:
-  参数     For parameter information, see the setcookie()   documentation.   
-返回值:
-  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。   
-示例:

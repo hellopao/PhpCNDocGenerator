@@ -1,9 +1,0 @@
-语法:
-   bool proc_terminate    ( resource $process   [, int $signal = 15  ] )
-说明:
-向process（由proc_open()函数创建）发送信号通知其终止。proc_terminate()调用之后将会立即返回，而不会等待进程终止。
-参数:
-  参数              process                  由 proc_open() 打开的 resource。                        signal                   可选参数，仅用于 POSIX 操作系统。        表示调用系统命令 kill(2) 来向进程发送的信号。        默认值为 SIGTERM。                     
-返回值:
-  返回值     返回进程的终止状态。   
-示例:

@@ -1,3 +1,0 @@
-语法:
-      bool is_int       ( mixed $var      )
-示例:

@@ -1,9 +1,0 @@
-语法:
-   bool mcrypt_enc_is_block_mode    ( resource $td   )
-说明:
-打开的模式是否以分组方式输出（例如，对于cbc和ecb模式而言返回TRUE，对于cfb和流模式而言，返回FALSE）。
-参数:
-  参数              td                  加密描述符。                     
-返回值:
-  返回值     如果模式以字节分组（字节块）方式输出，返回 TRUE，   如果是以字节方式输出，返回 FALSE。   
-示例:

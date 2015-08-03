@@ -1,5 +1,0 @@
-语法:
-      int mysql_field_seek       ( resource $result      , int $field_offset      )
-说明:
-用指定的字段偏移量检索。如果下一个mysql_fetch_field()的调用不包括字段偏移量，则会返回本次mysql_field_seek()中指定的偏移量的字段。
-示例:

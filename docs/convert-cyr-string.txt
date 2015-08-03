@@ -1,9 +1,0 @@
-语法:
-   string convert_cyr_string    ( string $str   , string $from   , string $to   )
-说明:
-此函数将给定的字符串从一种Cyrillic字符转换成另一种，返回转换之后的字符串。
-参数:
-  参数              str                  要转换的字符。                        from                  单个字符，代表源 Cyrillic 字符集。                        to                  单个字符，代表了目标 Cyrillic 字符集。                         支持的类型有：                  k - koi8-r                        w - windows-1251                        i - iso8859-5                        a - x-cp866                        d - x-cp866                        m - x-mac-cyrillic               
-返回值:
-  返回值     返回转换后的字符串。   
-示例:

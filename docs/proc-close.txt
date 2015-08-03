@@ -1,9 +1,0 @@
-语法:
-   int proc_close    ( resource $process   )
-说明:
-proc_close()同pclose()函数类似，只是proc_close()只能用来关闭由proc_open()函数打开的进程。proc_close()函数会等待进程终止，并且返回进程的返回值。如果有连接到进程的已经打开的管道，那么需要在调用此函数之前调用fclose()函数来关闭管道，否则会引发死锁-在管道处于打开状态时，子进程将不能退出。
-参数:
-  参数              process                  要关闭的由 proc_open() 打开的 resource 。                     
-返回值:
-  返回值      返回进程的终止状态码。    如果发生错误，将返回  -1。   
-示例:

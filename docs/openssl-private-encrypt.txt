@@ -1,9 +1,0 @@
-语法:
-   bool openssl_private_encrypt    ( string $data   , string &$crypted   , mixed $key   [, int $padding = OPENSSL_PKCS1_PADDING  ] )
-说明:
-openssl_private_encrypt()encryptsdatawithprivatekeyandstorestheresultintocrypted.Encrypteddatacanbedecryptedviaopenssl_public_decrypt().
-参数:
-  参数              data                                   crypted                                   key                                   padding                  padding can be one of       OPENSSL_PKCS1_PADDING,       OPENSSL_NO_PADDING.                     
-返回值:
-  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。   
-示例:

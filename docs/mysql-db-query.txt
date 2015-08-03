@@ -1,5 +1,0 @@
-语法:
-      resource mysql_db_query       ( string $database      , string $query      [, resource $        link_identifier            ] )
-说明:
-根据查询结果返回一个正的MySQL结果资源号，出错时返回FALSE。本函数会对INSERT/UPDATE/DELETE查询返回TRUE/FALSE来指示成功或失败。
-示例:

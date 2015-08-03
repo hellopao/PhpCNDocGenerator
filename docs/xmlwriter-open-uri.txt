@@ -1,9 +1,0 @@
-语法:
-   bool XMLWriter::openURI    ( string $uri   )
-说明:
-过程化风格
-参数:
-  参数              uri                  The URI of the resource for the output.                     
-返回值:
-  返回值     面向对象风格: 成功时返回 TRUE， 或者在失败时返回 FALSE。       过程化风格: Returns a new xmlwriter 资源(resource) for later use with the   xmlwriter functions on success, FALSE on error.   
-示例:

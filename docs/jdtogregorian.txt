@@ -1,9 +1,0 @@
-语法:
-   string jdtogregorian    ( int $julianday   )
-说明:
-转变一个julian天数为gregorian历法的“月/日/年”形式的日期
-参数:
-  参数              julianday                  一个julian天数                     
-返回值:
-  返回值     “月/日/年”形式的gregorian日期   
-示例:

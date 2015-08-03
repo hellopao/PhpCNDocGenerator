@@ -1,9 +1,0 @@
-语法:
-   string getprotobynumber    ( int $number   )
-说明:
-getprotobynumber()returnstheprotocolnameassociatedwithprotocolnumberasper/etc/protocols.
-参数:
-  参数              number                  The protocol number.                     
-返回值:
-  返回值     Returns the protocol name as a string,  或者在失败时返回 FALSE.   
-示例:

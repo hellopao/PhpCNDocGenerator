@@ -1,9 +1,0 @@
-语法:
-   string stream_socket_get_name    ( resource $handle   , bool $want_peer   )
-说明:
-返回给定的本地或者远程套接字连接的名称。
-参数:
-  参数              handle                  需要获取其名称的套接字连接。                        want_peer                  如果设置为 TRUE ，那么将返回 remote 套接字连接名称；如果设置为 FALSE 则返回 local 套接字连接名称。                     
-返回值:
-  返回值     套接字连接的名称。   
-示例:

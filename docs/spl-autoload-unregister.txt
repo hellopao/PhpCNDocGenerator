@@ -1,9 +1,0 @@
-语法:
-   bool spl_autoload_unregister    ( mixed $autoload_function   )
-说明:
-从spl提供的自动装载函数栈中注销某一函数。如果该函数栈处于激活状态，并且在给定函数注销后该栈变为空，则该函数栈将会变为无效。
-参数:
-  参数              autoload_function                  要注销的自动装载函数。                     
-返回值:
-  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。   
-示例:

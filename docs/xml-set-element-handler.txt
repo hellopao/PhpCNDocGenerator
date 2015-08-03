@@ -1,9 +1,0 @@
-语法:
-   bool xml_set_element_handler    ( resource $parser   , callable $start_element_handler   , callable $end_element_handler   )
-说明:
-为parser参数指定的XML解析器建立元素处理器函数。参数start_element_handler和end_element_handler为表示函数名称的字符串，这些函数必须在为parser指定的解析器调用xml_parse()函数时已存在。
-参数:
-  参数              parser                  XML 解析器的引用，用于建立起始和终止元素处理器。                        start_element_handler                       由 start_element_handler 参数命名的函数名必须接受三个参数：               start_element_handler         ( resource $parser        , string $name        , array $attribs        )
-返回值:
-  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。   
-示例:

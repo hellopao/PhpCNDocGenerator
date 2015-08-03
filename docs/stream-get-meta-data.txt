@@ -1,3 +1,0 @@
-语法:
-   array stream_get_meta_data    ( int $fp   )
-示例:

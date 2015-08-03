@@ -1,3 +1,0 @@
-语法:
-      bool is_float       ( mixed $var      )
-示例:

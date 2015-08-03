@@ -1,9 +1,0 @@
-语法:
-   bool mcrypt_generic_deinit    ( resource $td   )
-说明:
-本函数终止由加密描述符（td）指定的加密模块，它会清理缓冲区，但是并不关闭模块。要想关闭加密模块，你需要自行调用mcrypt_module_close()函数。（但是PHP会在脚本末尾为你关闭已打开的加密模块）
-参数:
-  参数              td                  加密描述符。                     
-返回值:
-  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。   
-示例:

@@ -1,9 +1,0 @@
-语法:
-   bool trait_exists    ( string $traitname   [, bool $autoload  ] )
-说明:
-
-参数:
-  参数         traitname               待检查的 trait 的名称                   autoload               如果尚未加载，是否使用自动加载（autoload）。               
-返回值:
-  返回值     如果 trait 存在返回 TRUE，不存在则返回 FALSE。发生错误的时候返回 NULL。   
-示例:

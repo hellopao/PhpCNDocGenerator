@@ -1,9 +1,0 @@
-语法:
-   string get_cfg_var    ( string $option   )
-说明:
-获取PHP配置选项option的值。
-参数:
-  参数              option                  配置选项的名称。                     
-返回值:
-  返回值     返回 option 指定的当前 PHP 配置变量的值，错误发生时返回 FALSE。   
-示例:

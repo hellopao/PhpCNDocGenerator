@@ -1,5 +1,0 @@
-语法:
-     bool xml_parser_free      ( resource $parser     )
-说明:
-parser指向要释放的XML解析器的指针。
-示例:

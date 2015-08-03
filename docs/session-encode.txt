@@ -1,7 +1,0 @@
-语法:
-   string session_encode    ( void   )
-说明:
-session_encode()返回一个序列化后的字符串，包含被编码的、储存于$_SESSION超全局变量中的当前会话数据。
-返回值:
-  返回值     返回当前会话编码后的内容。   
-示例:

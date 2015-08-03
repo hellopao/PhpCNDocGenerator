@@ -1,7 +1,0 @@
-语法:
-   bool hash_update    ( resource $context   , string $data   )
-参数:
-  参数              context                  由 hash_init() 函数返回的哈希运算上下文。                        data                  要向哈希摘要中追加的数据。                     
-返回值:
-  返回值     返回 TRUE。   
-示例:

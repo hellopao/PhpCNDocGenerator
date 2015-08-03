@@ -1,9 +1,0 @@
-语法:
-   resource openssl_pkey_get_public    ( mixed $certificate   )
-说明:
-openssl_get_publickey()extractsthepublickeyfromcertificateandpreparesitforusebyotherfunctions.
-参数:
-  参数              certificate                  certificate can be one of the following:               an X.509 certificate resource        a string having the format          file://path/to/file.pem. The named file must          contain a PEM encoded certificate/public key (it may contain both).                         A PEM formatted public key.                            
-返回值:
-  返回值     Returns a positive key resource identifier on success, or FALSE on error.   
-示例:

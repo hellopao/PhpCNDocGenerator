@@ -1,5 +1,0 @@
-语法:
-     mixed xml_parser_get_option      ( resource $parser     , int $option     )
-说明:
-parser指向要获取设置信息的XML解析器的指针。option要获取的设置选项名称。可以使用XML_OPTION_CASE_FOLDING和XML_OPTION_TARGET_ENCODING常量。其说明见xml_parser_set_option()。
-示例:

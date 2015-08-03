@@ -1,7 +1,0 @@
-语法:
-   resource pfsockopen    ( string $hostname   [, int $port = -1   [, int &$errno   [, string &$errstr   [, float $timeout = ini_get(&quot;default_socket_timeout&quot;)  ]]]] )
-说明:
-这个函数的作用与fsockopen()完全一样的，不同的地方在于当在脚本执行完后，连接一直不会关闭。可以说它是fsockopen()的长连接版本。
-参数:
-  参数     对于其参数的信息，请参考fsockopen()的文档。   
-示例:

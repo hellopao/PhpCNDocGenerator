@@ -1,5 +1,0 @@
-语法:
-      resource mysql_unbuffered_query       ( string $query      [, resource $link_identifier     ] )
-说明:
-mysql_unbuffered_query()向MySQL发送一条SQL查询query，但不像mysql_query()那样自动获取并缓存结果集。一方面，这在处理很大的结果集时会节省可观的内存。另一方面，可以在获取第一行后立即对结果集进行操作，而不用等到整个SQL语句都执行完毕。当使用多个数据库连接时，必须指定可选参数link_identifier。
-示例:

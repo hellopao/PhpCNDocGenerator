@@ -1,9 +1,0 @@
-语法:
-   array str_getcsv    ( string $input   [, string $delimiter = &quot;,&quot;   [, string $enclosure = &#039;&quot;&#039;   [, string $escape = &quot;\\&quot;  ]]] )
-说明:
-以CSV字段格式解析字符串输入，并返回包含读取字段的数组。
-参数:
-  参数              input                  待解析的字符串。                        delimiter                  设定字段界定符（仅单个字符）。                        enclosure                  设定字段包裹字符（仅单个字符）。                        escape                  设置转义字符（仅单个字符）。默认为反斜线（\）。                     
-返回值:
-  返回值     返回一个包含读取到的字段的索引数组。   
-示例:

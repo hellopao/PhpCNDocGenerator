@@ -1,5 +1,0 @@
-语法:
-   int getmygid    ( void   )
-返回值:
-  返回值     返回当前 PHP 脚本拥有者的用户组 ID，或在错误时返回 FALSE。   
-示例:

@@ -1,9 +1,0 @@
-语法:
-   string openssl_decrypt    ( string $data   , string $method   , string $password   [, int $options = 0   [, string $iv = &quot;&quot;  ]] )
-说明:
-Takesaraworbase64encodedstringanddecryptsitusingagivenmethodandkey.
-参数:
-  参数              data                  The data.                        method                  The cipher method.                        password                  The password.                         options                     options can be one of        OPENSSL_RAW_DATA,        OPENSSL_ZERO_PADDING.                          iv                  A non-NULL Initialization Vector.                      
-返回值:
-  返回值     The decrypted string on success 或者在失败时返回 FALSE.   
-示例:

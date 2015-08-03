@@ -1,3 +1,0 @@
-语法:
-   void stream_bucket_append    ( resource $brigade   , resource $bucket   )
-示例:

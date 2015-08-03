@@ -1,9 +1,0 @@
-语法:
-   void zip_close    ( resource $zip   )
-说明:
-关闭一个指定的ZIP档案文件。
-参数:
-  参数              zip                  一个由zip_open()打开的ZIP文件资源。                     
-返回值:
-  返回值     没有返回值。   
-示例:

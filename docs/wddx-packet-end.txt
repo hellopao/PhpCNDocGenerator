@@ -1,9 +1,0 @@
-语法:
-   string wddx_packet_end    ( resource $packet_id   )
-说明:
-EndsandreturnsthegivenWDDXpacket.
-参数:
-  参数              packet_id                  A WDDX packet, returned by wddx_packet_start().                     
-返回值:
-  返回值     Returns the string containing the WDDX packet.   
-示例:

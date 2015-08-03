@@ -1,9 +1,0 @@
-语法:
-   bool openssl_pkcs12_read    ( string $pkcs12   , array &$certs   , string $pass   )
-说明:
-openssl_pkcs12_read()parsesthePKCS#12certificatestoresuppliedbypkcs12intoaarraynamedcerts.
-参数:
-  参数              pkcs12                                   certs                  On success, this will hold the Certificate Store Data.                        pass                 Encryption password for unlocking the PKCS#12 file.                     
-返回值:
-  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。   
-示例:

@@ -1,9 +1,0 @@
-语法:
-   bool wddx_add_vars    ( resource $packet_id   , mixed $var_name   [, mixed $...  ] )
-说明:
-Serializesthepassedvariablesandaddtheresulttothegivenpacket.
-参数:
-  参数     This function takes a variable number of parameters.            packet_id                  A WDDX packet, returned by wddx_packet_start().                        var_name                  Can be either a string naming a variable or an array containing       strings naming the variables or another array, etc.                        ...                                
-返回值:
-  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。   
-示例:

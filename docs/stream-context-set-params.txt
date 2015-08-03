@@ -1,9 +1,0 @@
-语法:
-   bool stream_context_set_params    ( resource $stream_or_context   , array $params   )
-说明:
-Setsparametersonthespecifiedcontext.
-参数:
-  参数              stream_or_context                  The stream or context to apply the parameters too.                        params                  An array of parameters to set.            Note:                params should be an associative array of the structure:        $params[&#039;paramname&#039;] = &quot;paramvalue&quot;;.                            
-返回值:
-  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。   
-示例:

@@ -1,9 +1,0 @@
-语法:
-   string zip_entry_read    ( resource $zip_entry   [, int $length = 1024  ] )
-说明:
-读取一个打开了的压缩目录实体。
-参数:
-  参数              zip_entry                  由函数zip_read() 返回的目录实体。                        length                  需要返回的字节数。            Note:                这字节数应该是你所要读取的未压缩的字节数。                            
-返回值:
-  返回值     成功的时候返回读取到的数据；到达文件末尾的时候返回一个空的字符串；   读取出错的时候则会返回FALSE    
-示例:

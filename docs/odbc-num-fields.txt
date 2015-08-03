@@ -1,9 +1,0 @@
-语法:
-   int odbc_num_fields    ( resource $result_id   )
-说明:
-Getsthenumberoffields(columns)inanODBCresult.
-参数:
-  参数              result_id                  The result identifier returned by odbc_exec().                     
-返回值:
-  返回值     Returns the number of fields, or -1 on error.   
-示例:

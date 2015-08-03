@@ -1,9 +1,0 @@
-语法:
-   mixed odbc_autocommit    ( resource $connection_id   [, bool $OnOff = false  ] )
-说明:
-Togglesautocommitbehaviour.
-参数:
-  参数              connection_id           ODBC 连接标识符，详见odbc_connect()。                  OnOff                  If OnOff is TRUE, auto-commit is enabled, if       it is FALSE auto-commit is disabled.                     
-返回值:
-  返回值     Without the OnOff parameter, this function returns   auto-commit status for connection_id. Non-zero is   returned if auto-commit is on, 0 if it is off, or FALSE if an error   occurs.       If OnOff is set, this function returns TRUE on   success and FALSE on failure.   
-示例:

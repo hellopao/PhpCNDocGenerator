@@ -1,3 +1,0 @@
-语法:
-      string strval       ( mixed $var      )
-示例:

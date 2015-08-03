@@ -1,9 +1,0 @@
-语法:
-   array odbc_fetch_array    ( resource $result   [, int $rownumber  ] )
-说明:
-FetchanassociativearrayfromanODBCquery.
-参数:
-  参数              result                  The result resource from odbc_exec().                        rownumber                  Optionally choose which row number to retrieve.                     
-返回值:
-  返回值     Returns an array that corresponds to the fetched row, or FALSE if there    are no more rows.   
-示例:

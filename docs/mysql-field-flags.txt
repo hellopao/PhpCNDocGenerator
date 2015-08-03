@@ -1,5 +1,0 @@
-语法:
-      string mysql_field_flags       ( resource $result      , int $field_offset      )
-说明:
-mysql_field_flags()返回指定字段的字段标志。每个标志都用一个单词表示，之间用一个空格分开，因此可以用explode()将其分开。
-示例:

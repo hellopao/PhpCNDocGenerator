@@ -1,7 +1,0 @@
-语法:
-   void rewinddir    ( resource $dir_handle   )
-说明:
-将dir_handle指定的目录流重置到目录的开头。
-参数:
-  参数              dir_handle                  目录句柄的 resource，之前由       opendir() 打开                     
-示例:

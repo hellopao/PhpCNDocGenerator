@@ -1,9 +1,0 @@
-语法:
-    float asin     ( float $arg    )
-说明:
-返回arg的反正弦值，单位是弧度。asin()是sin()的反函数，它的意思是在asin()范围里的每个值都是a==sin(asin(a))。
-参数:
-  参数              arg                  待处理的参数                     
-返回值:
-  返回值     arg 的反正弦弧度。   
-示例:

@@ -1,9 +1,0 @@
-语法:
-   string mhash    ( int $hash   , string $data   [, string $key  ] )
-说明:
-mhash()appliesahashfunctionspecifiedbyhashtothedata.
-参数:
-  参数              hash                  The hash ID. One of the MHASH_hashname constants.                        data                  The user input, as a string.                        key                  If specified, the function will return the resulting HMAC instead.       HMAC is keyed hashing for message authentication, or simply a message       digest that depends on the specified key. Not all algorithms        supported in mhash can be used in HMAC mode.                     
-返回值:
-  返回值     Returns the resulting hash (also called digest) or HMAC as a string, or   FALSE on error.   
-示例:

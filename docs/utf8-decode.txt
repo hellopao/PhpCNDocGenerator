@@ -1,5 +1,0 @@
-语法:
-     string utf8_decode      ( string $data     )
-说明:
-该函数将用UTF-8编码的数据解码为ISO-8859-1编码。
-示例:

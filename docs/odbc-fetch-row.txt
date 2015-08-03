@@ -1,9 +1,0 @@
-语法:
-   bool odbc_fetch_row    ( resource $result_id   [, int $row_number  ] )
-说明:
-Fetchesarowofthedatathatwasreturnedbyodbc_do()orodbc_exec().Afterodbc_fetch_row()iscalled,thefieldsofthatrowcanbeaccessedwithodbc_result().
-参数:
-  参数              result_id                  The result identifier.                        row_number                  If row_number is not specified,       odbc_fetch_row() will try to fetch the next row in       the result set. Calls to odbc_fetch_row() with and       without row_number can be mixed.                   To step through the result more than once, you can call       odbc_fetch_row() with       row_number 1, and then continue doing       odbc_fetch_row() without       row_number to review the result.  If a driver       doesn&#039;t support fetching rows by number, the       row_number parameter is ignored.                     
-返回值:
-  返回值     Returns TRUE if there was a row, FALSE otherwise.   
-示例:

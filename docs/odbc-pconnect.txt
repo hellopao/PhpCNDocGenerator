@@ -1,9 +1,0 @@
-语法:
-   resource odbc_pconnect    ( string $dsn   , string $user   , string $password   [, int $cursor_type  ] )
-说明:
-Opensapersistentdatabaseconnection.
-参数:
-  参数     See odbc_connect() for details.   
-返回值:
-  返回值     Returns an ODBC connection id or 0 (FALSE) on   error.   
-示例:

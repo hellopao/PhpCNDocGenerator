@@ -1,9 +1,0 @@
-语法:
-   resource odbc_procedurecolumns    ( resource $connection_id   )
-说明:
-Retrieveinformationaboutparameterstoprocedures.
-参数:
-  参数              connection_id           ODBC 连接标识符，详见odbc_connect()。                  qualifier                  The qualifier.                        owner                  The owner.       此参数接受下列查询模式：&quot;%&quot; 来匹配零到多个字符，&quot;_&quot; 来匹配单个字符。                        proc                  The proc.       此参数接受下列查询模式：&quot;%&quot; 来匹配零到多个字符，&quot;_&quot; 来匹配单个字符。                        column                  The column.       此参数接受下列查询模式：&quot;%&quot; 来匹配零到多个字符，&quot;_&quot; 来匹配单个字符。                     
-返回值:
-  返回值     Returns the list of input and output parameters, as well as the   columns that make up the result set for the specified procedures.    Returns an ODBC result identifier 或者在失败时返回 FALSE.       The result set has the following columns:       PROCEDURE_QUALIFIER    PROCEDURE_OWNER    PROCEDURE_NAME    COLUMN_NAME    COLUMN_TYPE    DATA_TYPE    TYPE_NAME    PRECISION    LENGTH    SCALE    RADIX    NULLABLE    REMARKS          The result set is ordered by PROCEDURE_QUALIFIER, PROCEDURE_OWNER,   PROCEDURE_NAME and COLUMN_TYPE.   
-示例:

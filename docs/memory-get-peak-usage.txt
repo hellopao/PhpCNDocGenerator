@@ -1,9 +1,0 @@
-语法:
-   int memory_get_peak_usage    ([ bool $real_usage = false  ] )
-说明:
-返回分配给你的PHP脚本的内存峰值字节数。
-参数:
-  参数              real_usage                  如果设置为 TRUE 可以获取从系统分配到的真实内存尺寸。       如果未设置，或者设置为 FALSE，仅会报告 emalloc() 使用的内存。                     
-返回值:
-  返回值     返回内存峰值的字节数。   
-示例:

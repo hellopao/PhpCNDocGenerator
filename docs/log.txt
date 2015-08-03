@@ -1,9 +1,0 @@
-语法:
-    float log     ( float $arg    [, float $base = M_E   ] )
-说明:
-如果指定了可选的参数base，log()返回logbasearg，否则log()返回参数arg的自然对数。
-参数:
-   参数                  arg                     要计算对数的值                             base                     The optional logarithmic base to use         (defaults to &#039;e&#039; and so to the natural logarithm).                           
-返回值:
-   返回值       返回 logbase    arg，或者它的自然对数。     
-示例:

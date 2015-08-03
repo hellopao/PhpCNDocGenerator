@@ -1,9 +1,0 @@
-语法:
-   bool odbc_rollback    ( resource $connection_id   )
-说明:
-Rollsbackallpendingstatementsontheconnection.
-参数:
-  参数              connection_id           ODBC 连接标识符，详见odbc_connect()。               
-返回值:
-  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。   
-示例:

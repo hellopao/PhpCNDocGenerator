@@ -1,7 +1,0 @@
-语法:
-   bool session_abort    ( void   )
-说明:
-session_abort()finishessessionwithoutsavingdata.Thusoriginalvaluesinsessiondataiskept.
-返回值:
-  返回值     This function returns TRUE if a session was successfully reinitialized,   otherwise FALSE.   
-示例:

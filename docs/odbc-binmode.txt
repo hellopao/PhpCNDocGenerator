@@ -1,9 +1,0 @@
-语法:
-   bool odbc_binmode    ( resource $result_id   , int $mode   )
-说明:
-Enableshandlingofbinarycolumndata.ODBCSQLtypesaffectedareBINARY,VARBINARY,andLONGVARBINARY.
-参数:
-  参数              result_id                  The result identifier.                   If result_id is 0, the       settings apply as default for new results.       Note:                  Default for longreadlen is 4096 and         mode defaults to         ODBC_BINMODE_RETURN. Handling of binary long         columns is also affected by odbc_longreadlen().                                       mode                  Possible values for mode are:                                  ODBC_BINMODE_PASSTHRU: Passthru BINARY data                                            ODBC_BINMODE_RETURN: Return as is                                            ODBC_BINMODE_CONVERT: Convert to char and return                                             
-返回值:
-  返回值     成功时返回 TRUE， 或者在失败时返回 FALSE。   
-示例:

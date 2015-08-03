@@ -1,7 +1,0 @@
-语法:
-   int session_status    ( void   )
-说明:
-session_status()isusedtoreturnthecurrentsessionstatus.
-返回值:
-  返回值              PHP_SESSION_DISABLED if sessions are disabled.             PHP_SESSION_NONE if sessions are enabled, but none exists.             PHP_SESSION_ACTIVE if sessions are enabled, and one exists.          
-示例:

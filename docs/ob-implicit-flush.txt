@@ -1,9 +1,0 @@
-语法:
-   void ob_implicit_flush    ([ int $flag = true  ] )
-说明:
-ob_implicit_flush()将打开或关闭绝对（隐式）刷送。绝对（隐式）刷送将导致在每次输出调用后有一次刷送操作，以便不再需要对flush()的显式调用。
-参数:
-  参数              flag                   设为TRUE 打开绝对刷送，反之是 FALSE 。                     
-返回值:
-  返回值     没有返回值。   
-示例:

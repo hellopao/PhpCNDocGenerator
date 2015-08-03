@@ -1,9 +1,0 @@
-语法:
-   int iconv_strpos    ( string $haystack   , string $needle   [, int $offset = 0   [, string $charset = ini_get(&quot;iconv.internal_encoding&quot;)  ]] )
-说明:
-Findspositionoffirstoccurrenceofaneedlewithinahaystack.
-参数:
-  参数              haystack                  The entire string.                        needle                  The searched substring.                        offset                  The optional offset parameter specifies       the position from which the search should be performed.                        charset                  If charset parameter is omitted,       string are assumed to be encoded in       iconv.internal_encoding.                         If haystack or needle is   not a string, it is converted to a string and applied as the ordinal   value of a character.   
-返回值:
-  返回值     Returns the numeric position of the first occurrence of   needle in haystack.       If needle is not found,   iconv_strpos() will return FALSE.    Warning此函数可能返回布尔值FALSE，但也可能返回等同于 FALSE 的非布尔值。请阅读 布尔类型章节以获取更多信息。应使用===运算符来测试此函数的返回值。
-示例:

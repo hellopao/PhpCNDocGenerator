@@ -1,9 +1,0 @@
-语法:
-   int juliantojd    ( int $month   , int $day   , int $year   )
-说明:
-Julian历法的合理年份为4713B.C.到9999A.D.
-参数:
-  参数              month                  月份的范围从 1 (January) 到 12 ( December)                        day                  日期的范围从 1 到 31                        year                  年份的范围从 -4713 到 9999                       
-返回值:
-  返回值     指定julian历法中的日期所对应的julian天数。   
-示例:

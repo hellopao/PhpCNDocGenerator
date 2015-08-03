@@ -1,9 +1,0 @@
-语法:
-   int odbc_field_num    ( resource $result_id   , string $field_name   )
-说明:
-Getsthenumberofthecolumnslotthatcorrespondstothenamedfieldinthegivenresultidentifier.
-参数:
-  参数              result_id                  The result identifier.                        field_name                  The field name.                     
-返回值:
-  返回值     Returns the field number as a integer, or FALSE on error.   Field numbering starts at 1.   
-示例:

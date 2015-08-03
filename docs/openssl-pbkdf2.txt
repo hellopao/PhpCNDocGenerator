@@ -1,9 +1,0 @@
-语法:
-   string openssl_pbkdf2    ( string $password   , string $salt   , int $key_length   , int $iterations   [, string $digest_algorithm  ] )
-说明:
-
-参数:
-  参数         password                                  salt                                  key_length                                  iterations                                  digest_algorithm                              
-返回值:
-  返回值     Returns string 或者在失败时返回 FALSE.   
-示例:

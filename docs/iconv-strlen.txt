@@ -1,9 +1,0 @@
-语法:
-   int iconv_strlen    ( string $str   [, string $charset = ini_get(&quot;iconv.internal_encoding&quot;)  ] )
-说明:
-和strlen()不同的是，iconv_strlen()统计了给定的字节序列str中出现字符数的统计，基于指定的字符集，其产生的结果不一定和字符字节数相等。
-参数:
-  参数              str                  该字符串。                        charset                  如果省略了 charset 参数，假设 str 的编码为 iconv.internal_encoding。                     
-返回值:
-  返回值     返回 str 字符数的统计，是整型。   
-示例:

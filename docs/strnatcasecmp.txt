@@ -1,9 +1,0 @@
-语法:
-   int strnatcasecmp    ( string $str1   , string $str2   )
-说明:
-该函数实现了以人类习惯对数字型字符串进行排序的比较算法。除了不区分大小写，该函数的行为与strnatcmp()类似。更多信息，参见：MartinPool的&raquo;&nbsp;自然顺序的字符串比较页面。
-参数:
-  参数              str1                  第一个字符串。                        str2                  第二个字符串。                     
-返回值:
-  返回值     与其他字符串比较函数类似，如果 str1 小于   str2 返回 &lt; 0；   如果 str1   大于 str2   返回 &gt; 0；如果两者相等，返回 0。   
-示例:

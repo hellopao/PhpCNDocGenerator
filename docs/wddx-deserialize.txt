@@ -1,9 +1,0 @@
-语法:
-   mixed wddx_deserialize    ( string $packet   )
-说明:
-UnserializesaWDDXpacket.
-参数:
-  参数              packet                  A WDDX packet, as a string or stream.                     
-返回值:
-  返回值     Returns the deserialized value which can be a string, a number or an   array. Note that structures are deserialized into associative arrays.   
-示例:

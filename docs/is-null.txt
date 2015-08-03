@@ -1,5 +1,0 @@
-语法:
-      bool is_null       ( mixed $var      )
-说明:
-如果var是null则返回TRUE，否则返回FALSE。
-示例:

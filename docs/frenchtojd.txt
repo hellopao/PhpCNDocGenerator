@@ -1,9 +1,0 @@
-语法:
-   int frenchtojd    ( int $month   , int $day   , int $year   )
-说明:
-从一个FrenchRepublican历法的日期得到JulianDay计数。
-参数:
-  参数              month                  月份的范围是1到13。                        day                  日期的范围是1到30。                        year                  年份的范围是1到14。                       
-返回值:
-  返回值     返回指定french revolution日期的julian天数。   
-示例:

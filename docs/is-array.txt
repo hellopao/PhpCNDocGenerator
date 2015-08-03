@@ -1,5 +1,0 @@
-语法:
-      bool is_array       ( mixed $var      )
-说明:
-如果var是array，则返回TRUE，否则返回FALSE。
-示例:

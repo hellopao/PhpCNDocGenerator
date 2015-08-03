@@ -1,9 +1,0 @@
-语法:
-   resource wddx_packet_start    ([ string $comment  ] )
-说明:
-StartanewWDDXpacketforincrementaladditionofvariables.Itautomaticallycreatesastructuredefinitioninsidethepackettocontainthevariables.
-参数:
-  参数              comment                  An optional comment string.                     
-返回值:
-  返回值     Returns a packet ID for use in later functions, or FALSE on error.   
-示例:

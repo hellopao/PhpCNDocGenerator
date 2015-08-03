@@ -1,9 +1,0 @@
-语法:
-   string odbc_field_type    ( resource $result_id   , int $field_number   )
-说明:
-GetstheSQLtypeofthefieldreferencedbynumberinthegivenresultidentifier.
-参数:
-  参数              result_id                  The result identifier.                        field_number                  The field number. Field numbering starts at 1.                     
-返回值:
-  返回值     Returns the field type as a string, or FALSE on error.   
-示例:

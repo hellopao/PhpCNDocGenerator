@@ -1,9 +1,0 @@
-语法:
-   string gzdecode    ( string $data   [, int $length  ] )
-说明:
-Thisfunctionreturnsadecodedversionoftheinputdata.
-参数:
-  参数              data                  The data to decode, encoded by gzencode().                        length                  The maximum length of data to decode.                     
-返回值:
-  返回值     The decoded string, or FALSE if an error occurred.   
-示例:

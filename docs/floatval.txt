@@ -1,9 +1,0 @@
-语法:
-      float floatval       ( mixed $var      )
-示例:
-
-<?php
-$var = '122.34343The';
-$float_value_of_var = floatval ($var);
-print $float_value_of_var; // 打印出 122.34343
-?>

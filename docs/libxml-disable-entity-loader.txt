@@ -1,9 +1,0 @@
-语法:
-   bool libxml_disable_entity_loader    ([ bool $disable = true  ] )
-说明:
-Disable/enabletheabilitytoloadexternalentities.
-参数:
-  参数              disable                  Disable (TRUE) or enable (FALSE) libxml extensions (such as       DOM, XMLWriter       and XMLReader) to load external entities.                     
-返回值:
-  返回值     Returns the previous value.   
-示例:

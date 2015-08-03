@@ -1,9 +1,0 @@
-语法:
-   bool checkdnsrr    ( string $host   [, string $type = &quot;MX&quot;  ] )
-说明:
-根据不同记录（type）类型查询主机（host）相应的DNS记录。
-参数:
-  参数              host                  主机（host）可以是一个IP地址也可以是域名。                        type                  解析记录类型（type）可能是下面这些类型中的任何一个：A，MX，NS，SOA，PTR，CNAME，AAAA，A6， SRV，NAPTR，TXT 或者 ANY。                     
-返回值:
-  返回值     如果记录能找到，就返回TRUE；如果查找不到该DNS记录或者发生了错误，就返回FALSE。   
-示例:

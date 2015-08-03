@@ -1,5 +1,0 @@
-语法:
-      string gettype       ( mixed $var      )
-说明:
-返回PHP变量的类型var.
-示例:

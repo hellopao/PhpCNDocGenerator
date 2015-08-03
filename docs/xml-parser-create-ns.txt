@@ -1,5 +1,0 @@
-语法:
-     resource xml_parser_create_ns      ([ string $encoding     [, string $sep    ]] )
-说明:
-函数xml_parser_create_ns()建立一个新的支持XML命名空间的解析器并返回可被其它XML函数使用的资源句柄。
-示例:
